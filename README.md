@@ -21,8 +21,11 @@ name, with a full maths workspace, more file types, more palettes, and a much
 sturdier save path.
 
 <div align="center">
-<span>If this brings value to your life and you appreciate the time, money and effort gone into sharing it with you, then you can...</span><br><br>
-<a href="https://www.buymeacoffee.com/HyperWorX" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me a Coffee" style="height: 60px !important;width: 217px !important;" ></a>
+
+If DopusWorX brings value to your day and you appreciate the work behind it, you can...
+
+<a href="https://www.buymeacoffee.com/HyperWorX" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me a Coffee" height="48"></a>
+
 </div>
 
 ## What it is
