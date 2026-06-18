@@ -1,0 +1,20 @@
+{
+  "name": "DopusWorX",
+  "kind": "Directory Opus viewer plugin",
+  "viewModes": ["reading", "live", "source"],
+  "handles": {
+    "markdown": [".md", ".markdown", ".mdown", ".mkd", ".mkdn", ".mdwn"],
+    "code": [".py", ".js", ".ts", ".c", ".cpp", ".rs", ".go", ".json", ".yaml"],
+    "data": [".csv", ".tsv"]
+  },
+  "features": {
+    "editing": true,
+    "splitView": true,
+    "math": true,
+    "syntaxHighlighting": true,
+    "palettes": 30,
+    "autoSave": { "enabled": true, "everyMinutes": 0 }
+  },
+  "remoteImages": false,
+  "license": "Proprietary"
+}

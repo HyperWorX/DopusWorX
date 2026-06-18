@@ -1,0 +1,10 @@
+Region,Product,Units,Unit Price,Revenue
+North,Widget,1200,4.50,5400.00
+North,Gadget,840,12.00,10080.00
+South,Widget,1530,4.50,6885.00
+South,Gizmo,275,29.99,8247.25
+East,Gadget,960,12.00,11520.00
+East,Gizmo,410,29.99,12295.90
+West,Widget,2010,4.50,9045.00
+West,Gadget,1180,12.00,14160.00
+West,Gizmo,330,29.99,9896.70
