@@ -20,6 +20,11 @@ as a Markdown viewer and became a document workspace, so it ships under its own
 name, with a full maths workspace, more file types, more palettes, and a much
 sturdier save path.
 
+<div align="center">
+<span>If this brings value to your life and you appreciate the time, money and effort gone into sharing it with you, then you can...</span><br><br>
+<a href="https://www.buymeacoffee.com/HyperWorX" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me a Coffee" style="height: 60px !important;width: 217px !important;" ></a>
+</div>
+
 ## What it is
 
 A native Directory Opus viewer plugin: a Windows DLL that renders documents in
@@ -221,6 +226,18 @@ The [`samples/`](samples/) folder has sample documents. Start with
 [`dopusworx.md`](samples/dopusworx.md), a single manual and exhibition of the
 Markdown and maths features, then open the CSV, code, HTML and multilingual files
 beside it so every view has something to show straight away.
+
+---
+
+<div align="center">
+
+### Support
+
+If you find this useful, you can buy me a coffee.
+
+<a href="https://www.buymeacoffee.com/HyperWorX" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me a Coffee" style="height: 60px !important;width: 217px !important;" ></a>
+
+</div>
 
 ## Licence
 
