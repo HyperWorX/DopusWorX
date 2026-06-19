@@ -20,12 +20,10 @@ as a Markdown viewer and became a document workspace, so it ships under its own
 name, with a full maths workspace, more file types, more palettes, and a much
 sturdier file handling.
 
-
 Get the pre-release beta from the release section:
 [Releases page](https://github.com/HyperWorX/DopusWorX/releases)
 
-https://github.com/HyperWorX/DopusWorX/releases/tag/v1.0.0-beta
-<div align="center">
+---
 
 If DopusWorX brings value to your day and you appreciate the work behind it, you can...
 
