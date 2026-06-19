@@ -297,6 +297,44 @@ if "%name%"=="" set "name=world"
 echo Hello, %name%!
 ```
 
+### VBScript
+
+```vbscript
+' Greet a user, VBScript style
+Dim count
+count = 3
+Function Greet(name)
+    If count > 0 Then
+        Greet = "Hello, " & name & "!"
+    Else
+        Greet = "Goodbye"
+    End If
+End Function
+WScript.Echo Greet("World")
+```
+
+### AutoHotkey
+
+```autohotkey
+; Increment a counter on a hotkey
+#SingleInstance Force
+global Count := 0
+^!s::                  ; Ctrl+Alt+S
+    Count += 1
+    MsgBox, 64, Status, Pressed %Count% times
+return
+```
+
+### NirCmd
+
+```nircmd
+// Announce a result, set volume, take a screenshot
+speak text "Build finished" 2 100
+setsysvolume 40000
+savescreenshot "~$folder.desktop$\shot.png"
+wait 1500
+```
+
 ## Data / config / query
 
 ### JSON
