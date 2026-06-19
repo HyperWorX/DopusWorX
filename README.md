@@ -21,12 +21,14 @@ name, with a full maths workspace, more file types, more palettes, and a much
 sturdier file handling.
 
 Get the plugin from the release section:
+
 [Releases page](https://github.com/HyperWorX/DopusWorX/releases)
 
 ---
 <div align="center">
 If DopusWorX brings value to your day and you appreciate the work behind it, you can...
-
+</br>
+</br>
 <a href="https://www.buymeacoffee.com/HyperWorX" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me a Coffee" height="48"></a>
 
 </div>
