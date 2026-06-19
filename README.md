@@ -20,9 +20,7 @@ as a Markdown viewer and became a document workspace, so it ships under its own
 name, with a full maths workspace, more file types, more palettes, and a much
 sturdier file handling.
 
-Get the plugin from the release section:
-
-[Releases page](https://github.com/HyperWorX/DopusWorX/releases)
+Get the plugin from the [Releases Page](https://github.com/HyperWorX/DopusWorX/releases)
 
 ---
 <div align="center">
