@@ -247,20 +247,31 @@ every row back to its default.
 
 Below the built-in groups you can add your own extensions ("Add a file type,
 e.g. `.tpl`"). A custom type folds into the handled set exactly like a ticked
-built-in, so the viewer opens it and the double-click handlers associate it. It
-defaults to its matching grammar when the extension is a known language, or to
-plain text otherwise, and you can change it any time with the Highlight Grammar
-column. You can add several at once separated by commas, spaces or semicolons,
-and remove any custom row with its × button.
+built-in. It defaults to its matching grammar when the extension is a known
+language, or to plain text otherwise, and you can change it any time with the
+Highlight Grammar column. Like the column ticks, a newly added type only sticks
+once you press **Apply file associations**. Footer Apply does not save it, so if
+you close Settings having pressed only Apply (or nothing), the new row is gone
+the next time you open it. You can add several at once separated by
+commas, spaces or semicolons, and remove any custom row with its × button.
 
 ### Applying changes
 
-Two save paths exist, and the panel is explicit about which does what:
+The two save buttons commit different things:
 
-- the main **Apply** at the bottom of Settings saves your ticks only (the
-  Pane / handled set, persisted to `settings.json`)
-- **Apply file associations** on the panel writes the actual double-click
-  handlers *and* saves the ticks in one step
+- The main **Apply** at the bottom of Settings commits your **Highlight Grammar**
+  picks, and those take effect straight away. It does **not** commit the Pane,
+  DOpus or Explorer ticks, or any custom type you have added. Those stay visible
+  while the dialog is open, but Apply does not save them, so they are gone the
+  next time you open Settings. In other words they do not revert when you press
+  Apply, they revert when you close Settings having pressed only Apply (or
+  nothing).
+- **Apply file associations** commits the Pane, DOpus and Explorer ticks and your
+  custom types, writes the actual double-click handlers, and keeps your choices.
+  This is the step that makes a column change or a new type stick across exits.
+
+In short: change a grammar and press Apply; change a column or add a type and
+press Apply file associations.
 
 Both registry-touching actions are reversible. The first time DopusWorX touches
 a type it captures your original setup, so unticking later restores it. A
