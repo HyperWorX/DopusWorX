@@ -91,9 +91,13 @@ pipeline as Markdown.
 
 ### Supported languages and extensions
 
-One canonical language id drives highlighting in the code view. Extensions not
-listed below still open as code; they just render as plain escaped text with no
-grammar rather than failing.
+DopusWorX highlights around 150 languages. The common ones in the table below are
+built in and highlight instantly; the rest load on demand the first time you open
+a file in that language, so the base viewer stays small. You can also choose the
+grammar for any type yourself with the **Highlight Grammar** column in the File
+types panel, so an extension that isn't listed (or one that means something
+unusual to you) can be highlighted as whichever language you pick. Anything with
+no grammar opens as plain text rather than failing.
 
 | Language | Extensions |
 | --- | --- |
@@ -114,6 +118,8 @@ grammar rather than failing.
 | Dart | `.dart` |
 | PHP | `.php` |
 | R | `.r` |
+| MATLAB / Octave | `.m` |
+| Mathematica | `.nb` `.wl` `.wls` `.m` |
 | Shell | `.sh` `.bash` `.zsh` |
 | PowerShell | `.ps1` `.psm1` |
 | Batch / CMD | `.bat` `.cmd` |
@@ -133,6 +139,12 @@ grammar rather than failing.
 | LaTeX | `.tex` `.latex` `.sty` `.cls` |
 | Dockerfile | `.dockerfile` |
 | Diff / patch | `.diff` `.patch` |
+
+`.m` is shared: it can be MATLAB/Octave, Objective-C or a Mathematica package.
+DopusWorX picks the right one from the file's content, so a MATLAB script and a
+Mathematica package both highlight correctly. In the File types panel `.m` lives
+on the MATLAB / Octave row, and you can pin it to a specific grammar there if you
+only ever use one.
 
 `.html`, `.htm` and `.xhtml` appear here too because they have a Source editor;
 the difference is that the HTML kind also gives them a rendered View (see below).
@@ -224,14 +236,22 @@ The three columns nest: Pane < DOpus < Explorer. Ticking a higher tier ticks the
 ones below it, and unticking a lower tier clears the ones above it. Header
 checkboxes apply the same rule to a whole column at once.
 
+Each row also has a **Highlight Grammar** column: a dropdown that sets which
+grammar that type opens with. It defaults to the type's own language and can be
+set to any of the supported languages, so you can open `.tpl` as C++ or pick a
+different grammar for any type. A grammar change is saved with the normal Apply
+(it does not need Apply file associations), and a single "reset all" link puts
+every row back to its default.
+
 ### Custom mappings
 
 Below the built-in groups you can add your own extensions ("Add a file type,
-e.g. `.bat`"). A custom type opens as a plain-text Source file (no grammar) and
-folds into the handled set exactly like a ticked built-in, so the viewer opens
-it and the double-click handlers associate it. You can add several at once
-separated by commas, spaces or semicolons, and remove any custom row with its
-× button.
+e.g. `.tpl`"). A custom type folds into the handled set exactly like a ticked
+built-in, so the viewer opens it and the double-click handlers associate it. It
+defaults to its matching grammar when the extension is a known language, or to
+plain text otherwise, and you can change it any time with the Highlight Grammar
+column. You can add several at once separated by commas, spaces or semicolons,
+and remove any custom row with its × button.
 
 ### Applying changes
 

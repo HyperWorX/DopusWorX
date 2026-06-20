@@ -88,8 +88,9 @@ notes stay quick. See [`docs/04-maths.md`](docs/04-maths.md) for the full guide.
 Source-code files open in **Source view** (there is no Reading or Live mode for
 code, since there is nothing to render).
 
-- Syntax highlighting for around thirty languages, with a line-number gutter,
-  a word-wrap toggle and a configurable tab width.
+- Syntax highlighting for around 150 languages (the common ones bundled, the
+  rest loaded on demand), with a line-number gutter, a word-wrap toggle and a
+  configurable tab width.
 - A copy button, an optional active-line highlight, and a code-theme picker that
   is independent of the page palette.
 - Colour values get a swatch and a colour picker, and diff and patch files colour
@@ -154,6 +155,8 @@ the things you can change:
   type in the viewer pane while browsing (double-click left alone); **DOpus** also
   opens it in the DopusWorX window on double-click inside Opus; **Explorer** also
   associates it with Windows so it opens from Explorer even when Opus is closed.
+  A **Highlight Grammar** column sets which grammar each type uses, so you can
+  open `.tpl` as C++ or map any type to any of the supported languages.
 - **Maths macros**, fonts and engine, encoding and fallback codepage, image
   search folders, auto-save, gutters, formatting marks, and the full type and
   colour controls behind the palettes.

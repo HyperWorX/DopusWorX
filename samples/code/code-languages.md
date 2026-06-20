@@ -1,8 +1,10 @@
-# Syntax highlighting: every supported language
+# Syntax highlighting sampler
 
-One fenced block per language DopusWorX highlights, each with comments, strings,
-numbers, keywords, and functions/types so the colours are easy to check. Open in
-Reading mode to see them all rendered; the same grammars drive Live and Source.
+A fenced block per language, each with comments, strings, numbers, keywords and
+functions so the colours are easy to check. This is a representative set, not all
+of the roughly 150 supported languages: the common ones are built in, and the
+rest (under "More languages" below) load on demand. Open in Reading mode to see
+them rendered.
 
 ## Web / JS family
 
@@ -456,4 +458,226 @@ CMD ["node", "build.mjs"]
 -    width: max-content; min-width: 100%;
 +    width: max-content;
  }
+```
+
+## More languages (loaded on demand)
+
+These grammars aren't bundled; they load the first time a block in that language
+is shown. Open this file in Reading mode and the colours fill in a moment later.
+
+### Nix
+
+```nix
+# a tiny dev shell
+{ pkgs ? import <nixpkgs> {} }:
+pkgs.mkShell {
+  buildInputs = [ pkgs.hello ];
+  shellHook = "echo ready";
+}
+```
+
+### Zig
+
+```zig
+const std = @import("std");
+pub fn main() void {
+    const n: u32 = 42; // the answer
+    std.debug.print("n = {d}\n", .{n});
+}
+```
+
+### Solidity
+
+```solidity
+// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.0;
+contract Counter {
+    uint256 public count;
+    function inc() public { count += 1; }
+}
+```
+
+### Svelte
+
+```svelte
+<script>
+  let count = 0;
+  const inc = () => count += 1;
+</script>
+<button on:click={inc}>Clicked {count} times</button>
+```
+
+### Elixir
+
+```elixir
+defmodule Greeter do
+  @greeting "hello"
+  def hi(name), do: "#{@greeting}, #{name}"
+end
+```
+
+### HCL / Terraform
+
+```hcl
+# a resource
+resource "aws_s3_bucket" "data" {
+  bucket = "my-bucket"
+  tags   = { Env = "dev" }
+}
+```
+
+### WGSL
+
+```wgsl
+@vertex
+fn main(@location(0) pos: vec3<f32>) -> @builtin(position) vec4<f32> {
+  return vec4<f32>(pos, 1.0); // clip space
+}
+```
+
+### Haskell
+
+```haskell
+-- factorial
+factorial :: Integer -> Integer
+factorial 0 = 1
+factorial n = n * factorial (n - 1)
+```
+
+### Clojure
+
+```clojure
+;; greet someone
+(defn greet [name]
+  (str "hello, " name))
+(greet "world")
+```
+
+### Julia
+
+```julia
+# sum of squares
+function sumsq(xs)
+    return sum(x^2 for x in xs)
+end
+sumsq([1, 2, 3])
+```
+
+### OCaml
+
+```ocaml
+(* double each item *)
+let double xs = List.map (fun x -> x * 2) xs
+let () = print_int (List.length (double [1; 2; 3]))
+```
+
+### F#
+
+```fsharp
+// squares
+let squares = [ for x in 1..5 -> x * x ]
+printfn "%A" squares
+```
+
+### Erlang
+
+```erlang
+%% greet someone
+-module(greeter).
+-export([hi/1]).
+hi(Name) -> "hello, " ++ Name.
+```
+
+### Groovy
+
+```groovy
+// greet someone
+def greet(name) { "hello, $name" }
+println greet("world")
+```
+
+### Scheme
+
+```scheme
+;; square a number
+(define (square x) (* x x))
+(display (square 9))
+```
+
+### Objective-C
+
+```objective-c
+// greet someone
+#import <Foundation/Foundation.h>
+NSString *greet(NSString *name) {
+    return [NSString stringWithFormat:@"hello, %@", name];
+}
+```
+
+### MATLAB / Octave
+
+```octave
+% sum of squares
+function s = sumsq(xs)
+  s = sum(xs .^ 2);
+end
+```
+
+### Mathematica
+
+```mathematica
+(* square each item *)
+squares[xs_] := Map[#^2 &, xs]
+squares[{1, 2, 3}]
+```
+
+### Verilog
+
+```verilog
+// a 4-bit counter
+module counter(input clk, output reg [3:0] q);
+  always @(posedge clk) q <= q + 1;
+endmodule
+```
+
+### VHDL
+
+```vhdl
+-- a 2-input and gate
+entity and2 is
+  port (a, b : in bit; y : out bit);
+end entity;
+```
+
+### Tcl
+
+```tcl
+# greet someone
+proc greet {name} {
+  return "hello, $name"
+}
+puts [greet world]
+```
+
+### Fortran
+
+```fortran
+! sum of squares
+program sumsq
+  integer :: i, s = 0
+  do i = 1, 3
+    s = s + i*i
+  end do
+  print *, s
+end program
+```
+
+### Crystal
+
+```crystal
+# greet someone
+def greet(name : String)
+  "hello, #{name}"
+end
+puts greet("world")
 ```
