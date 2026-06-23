@@ -1,0 +1,63 @@
+name: Bug report
+description: Something in DopusWorX is not working as expected
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for taking the time to report a bug. The more detail you give,
+        the faster it can be tracked down. For questions and general chat,
+        please use Discussions instead.
+  - type: input
+    id: dwx-version
+    attributes:
+      label: DopusWorX version
+      placeholder: e.g. 1.0.0-beta.6
+    validations:
+      required: true
+  - type: input
+    id: dopus-version
+    attributes:
+      label: Directory Opus version
+      placeholder: e.g. 13.x
+    validations:
+      required: true
+  - type: input
+    id: windows-version
+    attributes:
+      label: Windows version
+      placeholder: e.g. Windows 11 23H2
+    validations:
+      required: false
+  - type: input
+    id: file-type
+    attributes:
+      label: File type involved
+      description: The kind of file being viewed when the problem happened
+      placeholder: e.g. .md, .csv, .html
+    validations:
+      required: false
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+      description: What did you do, step by step
+      placeholder: |
+        1. Open a ...
+        2. Switch to ...
+        3. Click ...
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: What you expected
+    validations:
+      required: true
+  - type: textarea
+    id: actual
+    attributes:
+      label: What actually happened
+      description: Include a screenshot if it helps
+    validations:
+      required: true
