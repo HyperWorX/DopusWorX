@@ -22,12 +22,14 @@ These are the items you can see, roughly top to bottom. Not all show at once.
 - **Cut.** Only when you are on an editable surface and have text selected.
 - **Copy.** Always present. Click it to copy straight away (the selection if you have one, otherwise the whole document source). Hover the arrow for the longer list:
   - **Selection**, when text is selected.
+  - **Table as CSV**, when you right-click a table. Copies that table as CSV, with proper quoting; a task-checkbox cell becomes its `x` / empty state plus any label.
   - **Document as Markdown** copies the raw Markdown source.
   - **Document as HTML** copies the rendered HTML.
   - **Document as Rich text** copies it as formatted rich text, so it pastes with its styling into Word and the like.
   - **Document as Plain text** strips the markup and copies just the words.
 - **Paste.** Editable surfaces only.
 - **Insert image...** Editable Markdown only. It opens the same image dialog as the editing toolbar's image button. It is Markdown-only because it writes a Markdown image line `![alt](path)`, which is inert anywhere else. Code, HTML, CSV and even LaTeX / TeX source editors do not show it: LaTeX is prose-like for maths but uses `\includegraphics`, not Markdown image syntax.
+- **Insert table...** Editable Markdown only. Opens the same table dialog as the editing toolbar's table button (size grid or Cols × Rows, table position, header row and header column).
 - **Find...** and **Replace...** Editable surfaces only. They open the editor's find or find-and-replace bar.
 - **Math.** A single submenu that changes with what is under your cursor. It only appears where maths makes sense (a prose-like file with maths switched on, or a rendered equation you have clicked):
   - On plain text or a selection, it offers **Inline math  $...$** and **Block math  $$...$$**, which wrap the selection (or drop an empty equation at the cursor).
@@ -46,7 +48,7 @@ These are the items you can see, roughly top to bottom. Not all show at once.
 
 #### How it shifts by file kind
 
-- **Markdown** gets the full Copy submenu (Markdown / HTML / Rich text / Plain text), Insert image, the Math actions, and Print / Save as PDF.
+- **Markdown** gets the full Copy submenu (Markdown / HTML / Rich text / Plain text, plus Table as CSV when you right-click a table), Insert image, Insert table, the Math actions, and Print / Save as PDF.
 - **Code and text** files get a simpler Copy (**Selection** and **Entire document**), plus Find and Replace when editable. No Insert image and no Print entry. LaTeX / TeX source counts as prose-like for maths, so it gets the Math actions, but not Insert image (which writes Markdown image syntax).
 - **CSV / TSV** in the table view gets its own grid actions, below.
 

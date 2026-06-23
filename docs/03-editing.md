@@ -44,7 +44,7 @@ The formatting toolbar runs along the bottom of the pane in Live and Source mode
 | **Highlight** | `==text==` | |
 | **Inline code** | `` `text` `` | |
 | **Link** | `[text](url)` | Asks for the URL. If your selection already looks like a link it is used as the label; otherwise `link text` is dropped in and selected for you. |
-| **Footnote** | `[^N]` at the cursor, plus a `[^N]: ` stub at the end of the document | `N` is the next free number. In Live mode the footnote's edit box at the bottom of the document opens so you can type the note straight away; in Source mode the cursor jumps to the new definition. |
+| **Footnote** | `[^N]` at the cursor, plus a matching `[^N]: ` definition at the end of the document | `N` is the lowest free number, so deleting a footnote frees its number for reuse. The cursor lands in the new definition so you can type the note straight in. See [Footnotes](#footnotes) below for editing them. |
 | **Clear formatting** | strips everything back to plain text | Works on the selection, or the current line if nothing is selected. It removes line prefixes (heading `#`, blockquote `>`, list and task markers, indentation, stacked or nested), inline markers (`**`, `*`, `~~`, `==`, `` ` ``), link and image syntax (keeping the visible text), and any stray inline HTML pasted from another app. Single underscores are left alone so `snake_case` survives. One undo reverses it. |
 
 ### Headings and maths
@@ -76,6 +76,7 @@ The formatting toolbar runs along the bottom of the pane in Live and Source mode
 | **Blockquote** | `> ` on each selected line (click again to remove) |
 | **Fenced code block** | a ```` ``` ```` fence around the selection, or an empty fence with the cursor on the body line. The fence always starts and ends on its own line so it parses cleanly. |
 | **Insert image** | opens the image popup (below) |
+| **Insert table** | opens the table size grid (below) |
 
 ## The code-editing toolbar
 
@@ -97,9 +98,42 @@ The image button (in the formatting toolbar) opens a small popup so you can plac
 - **Alt text** is the description used by screen readers. Optional.
 - **Width** and **Height** are optional pixel values. Leave either blank for automatic sizing; you can set just one.
 - **Alignment** is None, Left, Center or Right. None inserts plain markdown with no wrapper.
-- **Copy file to this document's folder** brings the image in beside the document so the file stays self-contained. For a local file this copies it; for a URL it downloads it. If "Allow remote images" is off in settings, this box is ticked and locked for URLs (an external reference would otherwise be blocked and show as a placeholder); with remote images allowed, URLs tick it by default but you can untick it to keep the link.
+- **Storage** is the choice that decides whether the image travels with your document. It has two options, and a line under it explains what the current choice will do:
+  - **Embed a copy** (the default) brings the image in beside the document and links it by a relative path, so it stays self-contained. For a local file this copies it; for a URL it downloads it. This is the safe choice: a copied-in image always shows, including after you close and reopen the file.
+  - **Link in place** points the document at the file where it already sits, without copying. This is an external reference, the same kind of thing as a web URL or a hand-written `<img>` tag: it does not travel with the document, and it only resolves while the original file stays put. Use it when you would rather not duplicate a shared image library.
+
+  For a web URL, Link in place keeps the URL and needs **Allow remote images** turned on in settings; with that off, Link is disabled and the choice is forced to Embed (downloaded), because an unresolved external URL would just show as a placeholder.
 
 Insert is enabled as soon as the Source field has text. The popup writes Obsidian-style image markdown, for example `![alt|400x300|center](path)`, which renders at the right size and alignment both here and in Obsidian. Click outside the popup, or its close control, to close it.
+
+### How local images are found
+
+When a document references a local image, DopusWorX looks for it in this order:
+
+1. **Beside the document**, by the relative path written in the markdown. This is where Embed a copy puts things, and it is the most portable: move the document and its folder together and the images come along.
+2. **In your image search folders**, if it was not found beside the document. The **Also look for images in** setting (Settings, default `attachments`) names extra folders to check, separated by `;`. Each entry is relative to the document folder, such as `attachments` or `../assets`, and absolute paths such as `D:\vault\attachments` work too. Each folder is tried with the image's full relative path first, then with its bare filename, which is how Obsidian resolves its uniquely-named pasted images.
+3. **At its absolute path**, for an image linked in place (or any document that already stores a `C:\...` path). These keep working across restarts: opening a document re-establishes which outside folders its own images live in, so a linked image does not go blank after you reopen the file or restart Directory Opus.
+
+For safety, the viewer only ever serves images from folders your open document points at or that you pick yourself, and it never serves from the Windows system folder. A document cannot make it read files it does not reference.
+
+## Inserting a table
+
+The table button (in the formatting toolbar) opens a small grid. Move the pointer over it to pick the size, up to 8 columns by 8 rows, with the current choice shown as "N × M". Click to drop a markdown table at the cursor: the first row is the header, with the separator row beneath it, and the cursor lands in the first cell ready to fill in. Click outside the popup, or press Escape, to close it without inserting.
+
+## Footnotes
+
+Footnotes attach a note or citation to a point in the text. The **Footnote** button on the formatting toolbar adds both halves at once: a `[^N]` marker where the cursor is, and a matching `[^N]: ` definition at the end of the document. The number is the lowest free one, so if you delete a footnote its number comes free again and the next one you add reuses it instead of always climbing.
+
+You edit a footnote in its real place in the document, the same way Live mode handles every other block. There is no separate pop-up box, so what you type is the markdown and Reading, Live and Source always agree.
+
+- **In Live mode** the definitions sit at the bottom as a tidy footnotes section. Click a footnote (or arrow into it) and its raw source opens for editing; click away and it renders again. After inserting, the cursor is already in the new definition so you can type straight away.
+- **Multi-line footnotes**: press Enter inside a footnote to continue it on a new line, indented so it stays part of the same note. Press Enter on a blank line to finish the footnote.
+- **An empty footnote** shows a "click to add text" placeholder, so you can always reopen one you left blank and fill it in later.
+- **To remove a footnote**, use the small delete control on it. That removes the definition and every `[^N]` reference to it in one go.
+- **Jumping around**: click a footnote number in the text to go to its note, and the return arrow on the note to go back to the reference. Both centre the target in the view rather than pinning it to the top.
+- **In Reading mode** footnotes render at the bottom with the same numbered links and return arrows, and those links work too.
+
+In Source mode you write footnotes by hand as plain markdown: a `[^id]` marker in the text and a `[^id]: text` definition at the end, with any continuation lines indented four spaces. The id can be a number or a word like `[^note]`; either way it shows as a number in Reading and Live.
 
 ## Find and replace
 

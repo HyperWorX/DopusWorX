@@ -56,10 +56,17 @@ For a Markdown document there are three ways to look at it:
   on the left, live preview on the right, with a draggable divider you can slide
   to resize the panes, and a toggle to link or unlink their scrolling.
 
+| Reading | Live |
+|:---:|:---:|
+| ![Reading: the finished, rendered page](img/reading.png) | ![Live: rendered as you type, with the formatting toolbar](img/live-toolbar.png) |
+
+![The Source split: raw Markdown on the left, live preview on the right, with a draggable divider](img/source-split.png)
+
 A full formatting toolbar sits underneath: bold, italic, strikethrough,
 highlight, inline code, links, footnotes, a heading button that cycles H1 to H6,
 bulleted, numbered and task lists, indent and outdent, blockquotes, fenced code,
-and image insert. Find and replace handles case, whole word and regex. There is
+image insert, and a table insert with a size grid. Find and replace handles case,
+whole word and regex. There is
 undo and redo with a history dropdown, and a live word, character and line count.
 
 ## Maths
@@ -83,6 +90,8 @@ Prices are safe: `$5` stays as text, and `\$` gives you a literal dollar sign.
 The maths engine only loads on notes that actually contain equations, so plain
 notes stay quick. See [`docs/04-maths.md`](docs/04-maths.md) for the full guide.
 
+![The maths symbol panel beside a rendered equation](img/maths-panel.png)
+
 ## Code and source files
 
 Source-code files open in **Source view** (there is no Reading or Live mode for
@@ -99,11 +108,15 @@ code, since there is nothing to render).
 Fenced code blocks inside a Markdown document are highlighted in every Markdown
 mode.
 
+![Source view with syntax highlighting, line-number gutter and copy button](img/code-view.png)
+
 ## CSV and tables
 
 CSV and TSV open as an editable grid: click a header to sort, double-click a cell
 to edit, add or delete rows with undo and redo, filter, freeze the first column,
 override the delimiter, and copy the whole thing out as a Markdown table.
+
+![CSV opened as an editable, sortable grid](img/csv-grid.png)
 
 ## HTML
 
