@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Questions and discussion
+    url: https://github.com/HyperWorX/DopusWorX/discussions
+    about: Ask questions, share setups, and request features here.
+  - name: Report a security issue
+    url: https://github.com/HyperWorX/DopusWorX/security/advisories/new
+    about: Please report vulnerabilities privately, not as a public issue.
