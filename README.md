@@ -65,7 +65,12 @@ anything from five minutes to a year.
 |:---:|:---:|
 | ![Reading: the finished, rendered page](img/reading.png) | ![Live: rendered as you type, with the formatting toolbar](img/live-toolbar.png) |
 
-![The Source split: raw Markdown on the left, live preview on the right, with a draggable divider](img/source-split.png)
+**The split view.** Click Source a second time and the pane splits down the
+middle: the raw Markdown on the left, the live preview on the right, with a
+divider you can drag to resize the two panes and a button to link or unlink their
+scrolling.
+
+![The split view: raw Markdown source on the left, the live preview on the right, with a draggable divider between them](img/source-split.png)
 
 A full formatting toolbar sits underneath: bold, italic, strikethrough,
 highlight, inline code, links, footnotes, a heading button that cycles H1 to H6,
@@ -119,6 +124,15 @@ diagram.
   for very large diagrams.
 - A broken diagram shows a ⚠ box with its source and the reason, never taking the
   rest of the note down with it.
+
+DopusWorX draws the diagram inline, in the document's own colours:
+
+![A sequence diagram and a pie chart rendered inline by DopusWorX](img/mermaid-types.png)
+
+With **Match page**, the same diagram takes its colours from the active palette,
+so it suits a light page as readily as a dark one:
+
+![A pie chart coloured from a light page palette](img/mermaid-palette.png)
 
 See [`docs/08-mermaid.md`](docs/08-mermaid.md) for the full guide, with a live
 example of every diagram type.
