@@ -18,131 +18,131 @@ Every marker token is coloured via the palette accent; bold / italic / strike / 
 
 ### Default Dark
 
-![Default Dark](palette-images/default-dark.png)
+<img width="100%" src="palette-images/default-dark.png" alt="Default Dark">
 
 ### ProWorX
 
-![ProWorX](palette-images/proworx.png)
+<img width="100%" src="palette-images/proworx.png" alt="ProWorX">
 
 ### GloWorX
 
-![GloWorX](palette-images/gloworx.png)
+<img width="100%" src="palette-images/gloworx.png" alt="GloWorX">
 
 ### Dracula
 
-![Dracula](palette-images/dracula.png)
+<img width="100%" src="palette-images/dracula.png" alt="Dracula">
 
 ### Solarized Dark
 
-![Solarized Dark](palette-images/solarized-dark.png)
+<img width="100%" src="palette-images/solarized-dark.png" alt="Solarized Dark">
 
 ### Nord
 
-![Nord](palette-images/nord.png)
+<img width="100%" src="palette-images/nord.png" alt="Nord">
 
 ### Gruvbox Dark
 
-![Gruvbox Dark](palette-images/gruvbox-dark.png)
+<img width="100%" src="palette-images/gruvbox-dark.png" alt="Gruvbox Dark">
 
 ### One Dark
 
-![One Dark](palette-images/one-dark.png)
+<img width="100%" src="palette-images/one-dark.png" alt="One Dark">
 
 ### Tokyo Night
 
-![Tokyo Night](palette-images/tokyo-night.png)
+<img width="100%" src="palette-images/tokyo-night.png" alt="Tokyo Night">
 
 ### Ayu Dark
 
-![Ayu Dark](palette-images/ayu-dark.png)
+<img width="100%" src="palette-images/ayu-dark.png" alt="Ayu Dark">
 
 ### Catppuccin Mocha
 
-![Catppuccin Mocha](palette-images/catppuccin-mocha.png)
+<img width="100%" src="palette-images/catppuccin-mocha.png" alt="Catppuccin Mocha">
 
 ### GitHub Dark
 
-![GitHub Dark](palette-images/github-dark.png)
+<img width="100%" src="palette-images/github-dark.png" alt="GitHub Dark">
 
 ### Obsidianite
 
-![Obsidianite](palette-images/obsidianite.png)
+<img width="100%" src="palette-images/obsidianite.png" alt="Obsidianite">
 
 ### PLN Dark
 
-![PLN Dark](palette-images/pln-dark.png)
+<img width="100%" src="palette-images/pln-dark.png" alt="PLN Dark">
 
 ### AnuPpuccin Frappé
 
-![AnuPpuccin Frappé](palette-images/anuppuccin-frappe.png)
+<img width="100%" src="palette-images/anuppuccin-frappe.png" alt="AnuPpuccin Frappé">
 
 ### Everforest
 
-![Everforest](palette-images/everforest.png)
+<img width="100%" src="palette-images/everforest.png" alt="Everforest">
 
 ### Rosé Pine
 
-![Rosé Pine](palette-images/rose-pine.png)
+<img width="100%" src="palette-images/rose-pine.png" alt="Rosé Pine">
 
 ### Vesper
 
-![Vesper](palette-images/vesper.png)
+<img width="100%" src="palette-images/vesper.png" alt="Vesper">
 
 ### Red Rascal
 
-![Red Rascal](palette-images/red-rascal.png)
+<img width="100%" src="palette-images/red-rascal.png" alt="Red Rascal">
 
 ## Light palettes
 
 ### Default Light
 
-![Default Light](palette-images/default-light.png)
+<img width="100%" src="palette-images/default-light.png" alt="Default Light">
 
 ### ProWorX Light
 
-![ProWorX Light](palette-images/proworx-light.png)
+<img width="100%" src="palette-images/proworx-light.png" alt="ProWorX Light">
 
 ### PLN Light
 
-![PLN Light](palette-images/pln-light.png)
+<img width="100%" src="palette-images/pln-light.png" alt="PLN Light">
 
 ### Solarized Light
 
-![Solarized Light](palette-images/solarized-light.png)
+<img width="100%" src="palette-images/solarized-light.png" alt="Solarized Light">
 
 ### GitHub Light
 
-![GitHub Light](palette-images/github-light.png)
+<img width="100%" src="palette-images/github-light.png" alt="GitHub Light">
 
 ### Ayu Light
 
-![Ayu Light](palette-images/ayu-light.png)
+<img width="100%" src="palette-images/ayu-light.png" alt="Ayu Light">
 
 ### Gruvbox Light
 
-![Gruvbox Light](palette-images/gruvbox-light.png)
+<img width="100%" src="palette-images/gruvbox-light.png" alt="Gruvbox Light">
 
 ### Catppuccin Latte
 
-![Catppuccin Latte](palette-images/catppuccin-latte.png)
+<img width="100%" src="palette-images/catppuccin-latte.png" alt="Catppuccin Latte">
 
 ### One Light
 
-![One Light](palette-images/one-light.png)
+<img width="100%" src="palette-images/one-light.png" alt="One Light">
 
 ### Tokyo Night Day
 
-![Tokyo Night Day](palette-images/tokyo-night-day.png)
+<img width="100%" src="palette-images/tokyo-night-day.png" alt="Tokyo Night Day">
 
 ### Nord Light
 
-![Nord Light](palette-images/nord-light.png)
+<img width="100%" src="palette-images/nord-light.png" alt="Nord Light">
 
 ### Alucard
 
-![Alucard](palette-images/alucard.png)
+<img width="100%" src="palette-images/alucard.png" alt="Alucard">
 
 ### Obsidianite Light
 
-![Obsidianite Light](palette-images/obsidianite-light.png)
+<img width="100%" src="palette-images/obsidianite-light.png" alt="Obsidianite Light">
 

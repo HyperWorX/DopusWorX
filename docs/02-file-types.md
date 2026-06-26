@@ -81,7 +81,7 @@ Code files open in **Source view only**. There is no Reading or Live mode for
 code because there is nothing to render: source is its own presentation. The
 toolbar shows no mode tabs for a code file, just the single Source surface.
 
-![A Python file in Source view: syntax highlighting, a line-number gutter, and the code-editing toolbar along the bottom](images/code-view.png)
+<img width="100%" src="images/code-view.png" alt="A Python file in Source view: syntax highlighting, a line-number gutter, and the code-editing toolbar along the bottom">
 
 Source view is a CodeMirror editor with syntax highlighting, a line-number
 gutter (its style is configurable), word wrap, a copy button, colour swatches
@@ -177,7 +177,7 @@ table. Edits flow back through the same dirty / recovery / Save path as every
 other format, so saving writes the file. See [05-csv.md](05-csv.md) for the full grid
 reference.
 
-![A CSV in the Table view: sortable headers, a row-number gutter, right-aligned numeric columns, and the Header / Wrap / Freeze toggles](images/csv-grid.png)
+<img width="100%" src="images/csv-grid.png" alt="A CSV in the Table view: sortable headers, a row-number gutter, right-aligned numeric columns, and the Header / Wrap / Freeze toggles">
 
 ## HTML
 
@@ -201,9 +201,16 @@ page on the right. The split preview renders inline rather than through the
 sandboxed iframe, reusing the same divider, drag and scroll-link machinery as
 the Markdown split.
 
-| Rendered View | View / Source split |
-|:---:|:---:|
-| ![HTML rendered view](images/html-view.png) | ![HTML View / Source split](images/html-split.png) |
+<table>
+<tr>
+<td width="50%"><img src="images/html-view.png" alt="HTML rendered view"></td>
+<td width="50%"><img src="images/html-split.png" alt="HTML View / Source split"></td>
+</tr>
+<tr>
+<td align="center"><b>Rendered view</b></td>
+<td align="center"><b>View / Source split</b></td>
+</tr>
+</table>
 
 ## JSON, plain text, logs and other kinds
 

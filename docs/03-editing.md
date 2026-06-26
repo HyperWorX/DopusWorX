@@ -31,7 +31,7 @@ Alignment carries across too. A block centred with a `<div align="center">`, a `
 
 The Source button has a small pane icon on it. Click Source once to enter Source mode; click it again to toggle a **split preview**: the raw source on the left, the rendered document on the right, side by side. Click once more to drop back to a single pane. The split state is remembered per file for the session.
 
-![The Source split: raw Markdown on the left, the rendered document on the right, with a draggable divider between them](images/source-split.png)
+<img width="100%" src="images/source-split.png" alt="The Source split: raw Markdown on the left, the rendered document on the right, with a draggable divider between them">
 
 While the split is open:
 
@@ -148,7 +148,7 @@ In Source mode you write footnotes by hand as plain markdown: a `[^id]` marker i
 
 The magnifier button on the top toolbar opens the find and replace panel. (In code Source mode, the code toolbar's Find button opens the editor's own search instead.)
 
-![The find and replace panel with a live match count and the case, whole-word and regex toggles; matches are highlighted in the document](images/find-replace.png)
+<img width="100%" src="images/find-replace.png" alt="The find and replace panel with a live match count and the case, whole-word and regex toggles; matches are highlighted in the document">
 
 - Type in the **Find** field. The match count shows beside it live ("3 matches", "no matches", or "bad regex" if a regular expression will not compile). If you had a single line selected when you opened the panel, it seeds the Find field for you.
 - Type a replacement in the **Replace** field.

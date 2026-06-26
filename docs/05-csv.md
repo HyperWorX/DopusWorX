@@ -4,7 +4,7 @@ Open a `.csv` or `.tsv` file and DopusWorX shows it as a spreadsheet-style grid 
 
 Edits write straight back to the file when you save. The grid never reorders or drops rows behind your back: sorting and filtering only change what you see, not what gets written.
 
-![A CSV open as an editable grid: the filter box and delimiter dropdown on the left, Header / Wrap / Freeze toggles on the right, sortable headers, a row-number gutter, right-aligned numeric columns, and a row/column count in the footer](images/csv-grid.png)
+<img width="100%" src="images/csv-grid.png" alt="A CSV open as an editable grid: the filter box and delimiter dropdown on the left, Header / Wrap / Freeze toggles on the right, sortable headers, a row-number gutter, right-aligned numeric columns, and a row/column count in the footer">
 
 ## Opening a file
 

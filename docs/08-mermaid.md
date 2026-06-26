@@ -159,7 +159,7 @@ sankey, C4, block, packet, kanban and more. The colour theming covers the
 series-based ones, so git branches, quadrant cells, gantt sections, XY-chart bars
 and user-journey boxes all come out in distinct palette colours.
 
-![Sequence and pie diagrams rendered in DopusWorX](images/mermaid-types.png)
+<img width="100%" src="images/mermaid-types.png" alt="Sequence and pie diagrams rendered in DopusWorX">
 
 ## Diagram settings
 
@@ -178,7 +178,7 @@ All eight sit under Settings &middot; Content &middot; Diagrams, next to the on/
 
 A change applies straight away: any diagram on screen redraws with the new setting, and the cache keeps a separate copy per combination so flipping back is instant. Because Match page reads your palette, switching the page between light and dark also recolours the diagrams to suit.
 
-![A pie chart taking its colours from the page palette](images/mermaid-palette.png)
+<img width="100%" src="images/mermaid-palette.png" alt="A pie chart taking its colours from the page palette">
 
 ### How the settings dialog works
 

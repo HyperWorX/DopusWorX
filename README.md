@@ -61,16 +61,23 @@ in**: Reading, Live or Source). DopusWorX also remembers the view you last used
 for each file, and you can keep that always, turn it off, or have it expire after
 anything from five minutes to a year.
 
-| Reading | Live |
-|:---:|:---:|
-| ![Reading: the finished, rendered page](img/reading.png) | ![Live: rendered as you type, with the formatting toolbar](img/live-toolbar.png) |
+<table>
+<tr>
+<td width="50%"><img src="img/reading.png" alt="Reading: the finished, rendered page"></td>
+<td width="50%"><img src="img/live-toolbar.png" alt="Live: rendered as you type, with the formatting toolbar"></td>
+</tr>
+<tr>
+<td align="center"><b>Reading</b></td>
+<td align="center"><b>Live</b></td>
+</tr>
+</table>
 
 **The split view.** Click Source a second time and the pane splits down the
 middle: the raw Markdown on the left, the live preview on the right, with a
 divider you can drag to resize the two panes and a button to link or unlink their
 scrolling.
 
-![The split view: raw Markdown source on the left, the live preview on the right, with a draggable divider between them](img/source-split.png)
+<img src="img/source-split.png" width="100%" alt="The split view: raw Markdown source on the left, the live preview on the right, with a draggable divider between them">
 
 A full formatting toolbar sits underneath: bold, italic, strikethrough,
 highlight, inline code, links, footnotes, a heading button that cycles H1 to H6,
@@ -105,7 +112,7 @@ Prices are safe: `$5` stays as text, and `\$` gives you a literal dollar sign.
 The maths engine only loads on notes that actually contain equations, so plain
 notes stay quick. See [`docs/04-maths.md`](docs/04-maths.md) for the full guide.
 
-![The maths symbol panel beside a rendered equation](img/maths-panel.png)
+<img src="img/maths-panel.png" width="100%" alt="The maths symbol panel beside a rendered equation">
 
 ## Diagrams
 
@@ -125,14 +132,19 @@ diagram.
 - A broken diagram shows a ⚠ box with its source and the reason, never taking the
   rest of the note down with it.
 
-DopusWorX draws the diagram inline, in the document's own colours:
+DopusWorX draws the diagram inline. With **Match page** the same diagram takes its
+colours from the active palette, so it suits a dark page or a light one:
 
-![A sequence diagram and a pie chart rendered inline by DopusWorX](img/mermaid-types.png)
-
-With **Match page**, the same diagram takes its colours from the active palette,
-so it suits a light page as readily as a dark one:
-
-![A pie chart coloured from a light page palette](img/mermaid-palette.png)
+<table>
+<tr>
+<td width="50%"><img src="img/mermaid-dark.png" alt="A World Cup titles pie chart drawn on a dark palette"></td>
+<td width="50%"><img src="img/mermaid-light.png" alt="The same pie chart drawn on a light palette"></td>
+</tr>
+<tr>
+<td align="center"><b>Dark palette</b></td>
+<td align="center"><b>Light palette</b></td>
+</tr>
+</table>
 
 See [`docs/08-mermaid.md`](docs/08-mermaid.md) for the full guide, with a live
 example of every diagram type.
@@ -153,7 +165,7 @@ code, since there is nothing to render).
 Fenced code blocks inside a Markdown document are highlighted in every Markdown
 mode.
 
-![Source view with syntax highlighting, line-number gutter and copy button](img/code-view.png)
+<img src="img/code-view.png" width="100%" alt="Source view with syntax highlighting, line-number gutter and copy button">
 
 ## CSV and tables
 
@@ -161,16 +173,23 @@ CSV and TSV open as an editable grid: click a header to sort, double-click a cel
 to edit, add or delete rows with undo and redo, filter, freeze the first column,
 override the delimiter, and copy the whole thing out as a Markdown table.
 
-![CSV opened as an editable, sortable grid](img/csv-grid.png)
+<img src="img/csv-grid.png" width="100%" alt="A CSV open as an editable grid: World Cup results by team across the years">
 
 ## HTML
 
 HTML files have a rendered **View**, a **Source** view of the raw markup, and a
 **split** that shows both at once.
 
-| Rendered View | View / Source split |
-|:---:|:---:|
-| ![HTML view](img/html-view.png) | ![HTML split](img/html-split.png) |
+<table>
+<tr>
+<td width="50%"><img src="img/html-view.png" alt="HTML rendered view"></td>
+<td width="50%"><img src="img/html-split.png" alt="HTML View / Source split"></td>
+</tr>
+<tr>
+<td align="center"><b>Rendered view</b></td>
+<td align="center"><b>View / Source split</b></td>
+</tr>
+</table>
 
 ## Themes and palettes
 
@@ -178,7 +197,7 @@ Thirty built-in palettes, dark and light, from Dracula and Nord to Catppuccin,
 Everforest and Rosé Pine, alongside the signature ProWorX and GloWorX. By default
 a palette follows the Opus pane background automatically; you can pin one instead.
 
-![Palette cascade](img/palette-cascade.png)
+<img src="img/palette-cascade.png" width="100%" alt="The same document shown across several built-in palettes">
 
 Nothing is locked down. The visual editor lets you change any colour and save it
 as your own named theme. Bold, italic, strikethrough and inline code each get
@@ -305,7 +324,7 @@ beside it so every view has something to show straight away.
 
 If you find this useful, you can buy me a coffee.
 
-<a href="https://www.buymeacoffee.com/HyperWorX" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me a Coffee" style="height: 60px !important;width: 217px !important;" ></a>
+<a href="https://www.buymeacoffee.com/HyperWorX" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me a Coffee" height="48"></a>
 
 </div>
 

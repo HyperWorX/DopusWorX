@@ -6,7 +6,7 @@ The viewer turns off the WebView2 browser menu on purpose, so the menu you see i
 
 ## The right-click menu
 
-![The right-click menu in Reading mode, showing Copy, Print / Save as PDF, Select all and Zoom](images/context-menu.png)
+<img width="100%" src="images/context-menu.png" alt="The right-click menu in Reading mode, showing Copy, Print / Save as PDF, Select all and Zoom">
 
 The menu is built fresh on every right-click, so it only ever lists actions that apply to where you clicked. Two things decide what you get:
 
