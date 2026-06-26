@@ -4,7 +4,7 @@
 
 **A document viewer and in-place editor that lives inside [Directory Opus](https://www.gpsoft.com.au/).**
 
-Markdown, maths, code, CSV and HTML, rendered and editable right in the Opus viewer pane.
+Markdown, maths, diagrams, code, CSV and HTML, rendered and editable right in the Opus viewer pane.
 
 ![DopusWorX in action](img/hero.gif)
 
@@ -56,6 +56,11 @@ For a Markdown document there are three ways to look at it:
   on the left, live preview on the right, with a draggable divider you can slide
   to resize the panes, and a toggle to link or unlink their scrolling.
 
+You pick which of these a Markdown file opens in under Settings (**Open markdown
+in**: Reading, Live or Source). DopusWorX also remembers the view you last used
+for each file, and you can keep that always, turn it off, or have it expire after
+anything from five minutes to a year.
+
 | Reading | Live |
 |:---:|:---:|
 | ![Reading: the finished, rendered page](img/reading.png) | ![Live: rendered as you type, with the formatting toolbar](img/live-toolbar.png) |
@@ -68,6 +73,11 @@ bulleted, numbered and task lists, indent and outdent, blockquotes, fenced code,
 image insert, and a table insert with a size grid. Find and replace handles case,
 whole word and regex. There is
 undo and redo with a history dropdown, and a live word, character and line count.
+
+A right-click menu is there throughout, and you do not need a mouse for it: open
+it from the keyboard and the arrows move, Home and End jump, Enter or Space
+activate, and Escape closes; on a touchscreen a press and hold opens it. See
+[`docs/06-context-menus.md`](docs/06-context-menus.md) for the full set.
 
 ## Maths
 
@@ -91,6 +101,27 @@ The maths engine only loads on notes that actually contain equations, so plain
 notes stay quick. See [`docs/04-maths.md`](docs/04-maths.md) for the full guide.
 
 ![The maths symbol panel beside a rendered equation](img/maths-panel.png)
+
+## Diagrams
+
+Turn a fenced ```` ```mermaid ```` block into a flowchart, sequence, class, state,
+ER, pie or Gantt diagram, drawn from plain text with [Mermaid](https://mermaid.js.org/).
+Off by default; the ~3 MB engine loads only on a note that actually contains a
+diagram.
+
+- Diagrams draw in **Reading** and **Live**. In Live, click a diagram to bring its
+  source back, edit it, and click away to redraw.
+- **Match page** colours diagrams from your active palette, so they match the
+  document and stay readable in light and dark. Or pin a fixed Mermaid theme.
+- A **hand-drawn** style, a **flowchart edge** shape, a **diagram font** and
+  **size** (the font can follow the body font or stand on its own), optional
+  **label wrapping** and **sequence numbering**, and a **max-connections** guard
+  for very large diagrams.
+- A broken diagram shows a ⚠ box with its source and the reason, never taking the
+  rest of the note down with it.
+
+See [`docs/08-mermaid.md`](docs/08-mermaid.md) for the full guide, with a live
+example of every diagram type.
 
 ## Code and source files
 
@@ -156,9 +187,11 @@ Obsidian-style linking and embeds work too:
 
 ## Customise it to your liking
 
-The Settings dialog is organised into clear sections, **Formats**, **File Types**
-and **About**, with live preview and a plain-language note on each option. Among
-the things you can change:
+The Settings dialog is organised into clear tabs, **Appearance**, **Content**,
+**Toolbars**, **File types** and **About**, with live preview and a plain-language
+note on each option. The **Content** tab groups its options by concern, Opening &
+views, File reading & saving, Markdown rendering, Images, Code & source files,
+Diagrams, then Maths. Among the things you can change:
 
 - **Auto-hiding toolbars.** Set the top toolbar or the formatting toolbar to slide
   away and reappear when you reach for them, so the document gets the whole pane.
@@ -211,8 +244,9 @@ For more detail than this page covers:
 - [File types and views](docs/02-file-types.md) - what each kind of file does, and how DopusWorX is file-type aware.
 - [Editing](docs/03-editing.md) - the modes, the formatting toolbar, find and replace, and saving.
 - [Maths](docs/04-maths.md) - LaTeX, AsciiMath, the symbol panel, fonts and macros.
+- [Diagrams](docs/08-mermaid.md) - Mermaid flowcharts, sequence, class, state and more, plus the diagram settings.
 - [CSV grids](docs/05-csv.md) - sorting, in-cell editing, filtering, freezing, delimiters and more.
-- [Context menus](docs/06-context-menus.md) - the right-click menus and the Save menu.
+- [Context menus](docs/06-context-menus.md) - the right-click menus, driven by keyboard or touch as well as mouse, and the Save menu.
 - [Palettes](docs/07-palettes.md) - every built-in palette and the theme editor.
 
 ## Installation
@@ -232,8 +266,8 @@ is missing, DopusWorX shows a download link in the pane.
 
 Out of the box Opus opens a `.md` file with whatever Windows has associated. To
 open it in the DopusWorX viewer instead, point the Markdown file type's *Left
-double-click* event at the `Show` command under **Settings ▸ File Types**
-(covering `md markdown mdown mdwn mkd mkdn`). The File Types panel in the
+double-click* event at the `Show` command under **Settings ▸ File types**
+(covering `md markdown mdown mdwn mkd mkdn`). The File types panel in the
 DopusWorX settings can set this up for you.
 
 ## Where your data lives

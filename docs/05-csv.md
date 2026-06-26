@@ -1,4 +1,4 @@
-# DopusWorX CSV/TSV grid
+# CSV grids
 
 Open a `.csv` or `.tsv` file and DopusWorX shows it as a spreadsheet-style grid instead of raw text: a proper table with a sticky header, sortable columns, in-cell editing, and a row-number gutter down the side. It is built for reading and light editing of tabular data without leaving the viewer.
 
@@ -113,9 +113,22 @@ A cell whose text is long (more than 40 characters) or contains a line break get
 - Select cells by clicking one, **Shift+click** to extend a rectangle from the anchor, or **Ctrl+click** (Cmd+click on a Mac) to toggle individual cells. The copied block reads from the current view, so it matches what is on screen under any sort or filter.
 - **Copy the whole grid as a Markdown table**: available from the host's right-click menu. It emits the current view (header row plus the filtered and sorted body) as a pipe-delimited Markdown table, with pipes and newlines inside cells escaped so the table stays well-formed.
 
+## Pasting
+
+Paste drops clipboard text into the grid, either with **Ctrl+V** or the **Paste** item in the right-click menu. The paste starts at the top-left corner of the current selection, or at the focused cell if no block is selected.
+
+- A copied block of cells (tab-separated rows, the same shape Copy writes) lands as a range, filling cells from the target down and across.
+- A single value pasted over a multi-cell selection fills every selected cell in that selection.
+- Pasting stays inside the existing grid, so it never adds rows or columns: anything that would fall past the edge is dropped.
+- A paste is undoable in one step, like any other change to the data.
+
 ## Resizing columns and rows
 
 Columns start in automatic layout, sized to their contents. Drag the grip on a column header's right edge to set a column's width; the first drag switches the table to a fixed layout seeded from the current widths, so nothing jumps. Drag the grip on the bottom edge of a row's gutter cell to set that row's height. Column widths and row heights are remembered per file, and row heights follow their rows through sorting and filtering.
+
+## Remembered zoom
+
+Zoom a CSV table (hold **Ctrl** and turn the mouse wheel, or use the **Zoom** item in the right-click menu) and DopusWorX remembers the level for that file. Reopen the file and the grid comes back at the zoom you left it. The zoom is kept per file, so each table keeps its own level.
 
 ## A note on what gets saved
 

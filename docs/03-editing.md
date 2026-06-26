@@ -1,10 +1,10 @@
-# Editing in DopusWorX
+# Editing
 
 DopusWorX is more than a previewer. You can read a file, write in it, and format it without leaving the pane. This page covers the three view modes, the formatting toolbar, the code-editing toolbar, inserting images, find and replace, saving, and the smaller comforts like undo, the live word count and zoom.
 
 ## The three modes
 
-A file opens in one of three modes, picked from the buttons at the left of the top toolbar. DopusWorX remembers which mode you last used for a file and reopens it that way.
+A file opens in one of three modes, picked from the buttons at the left of the top toolbar. You choose which view markdown opens in, and whether DopusWorX remembers the view you last used for each file; see [Which view a file opens in](#which-view-a-file-opens-in) below.
 
 | Mode | What it is for |
 |---|---|
@@ -17,6 +17,19 @@ Click **Reading**, **Live** or **Source** in the toolbar to switch between the m
 ![Live mode: the cursor's line shows its raw markdown markers while the rest stays rendered, with the formatting toolbar along the bottom](images/live-toolbar.png)
 
 Not every file kind offers all three. Code and text files always open as an editable Source view; markdown gives you all three.
+
+### Which view a file opens in
+
+Two settings decide the mode a markdown file lands in. Both live in Settings, under Opening & views.
+
+- **Open markdown in** sets the default view: Reading (the default), Live or Source. A file opens in this view whenever its remembered view is not used.
+- **Remember each file's view** decides whether a file reopens in the view you last used for it, and for how long. Keep it on with Always (the default), turn it Off so every file opens in the default view, or pick a duration from five minutes up to a year. With a duration the last view comes back only if you reopen the file within that window, counted from the last time you opened it; once the window lapses the file falls back to the default view.
+
+### Raw HTML and aligned blocks in Live
+
+Live shows raw HTML blocks the way Reading does, rather than leaving them as visible tags. A self-contained block such as a `<details>` box, a `<mark>` or an `<img>` renders in place. Put the cursor on it and the raw source comes back so you can edit it; click away and it renders again. Wrapper tags on their own line, like a bare `<div>` or `</div>`, simply disappear.
+
+Alignment carries across too. A block centred with a `<div align="center">`, a `<center>` element or a `text-align` style centres its content, including whole tables, in Live as well as Reading. Left, right and justify alignment work the same way. In Source mode the HTML stays exactly as you wrote it.
 
 ### The Source split preview
 
@@ -52,7 +65,7 @@ The formatting toolbar runs along the bottom of the pane in Live and Source mode
 | Button | What it does |
 |---|---|
 | **Heading (H)** | Cycles the heading level of the current line. The number on the button shows what the next click will apply. A plain line becomes H1; an existing heading steps up one level, wrapping H6 back to H1. Moving the cursor to another line re-reads that line's level. The button always sets a level rather than removing it; to drop a heading, delete the `#` or undo. |
-| **Sigma (Σ)** | Opens the maths symbol panel. This button only appears once maths rendering is switched on in settings. See the maths page for what the panel does. |
+| **Sigma (Σ)** | Opens the maths symbol panel. The button is present whenever maths rendering is on, which it is by default, and disappears only if you turn maths off in settings. See the maths page for what the panel does. |
 
 ### Lists
 
@@ -193,3 +206,10 @@ Each toolbar can either stay put or slide out of the way. The pushpin on the cor
 ### Zoom
 
 Hold **Ctrl and scroll the mouse wheel** to zoom the document in or out, from 50% to 300%. A small pill shows the level as you go. Each mode keeps its own zoom, and opening a different file resets to 100%. A trackpad pinch zooms too, with the toolbars staying pinned at their normal size while the document scales behind them.
+
+### Wrapping long lines in code
+
+Two settings control how long lines of code behave, separately for the two surfaces. Both are in Settings, under Code & source files.
+
+- **Wrap long lines in code blocks** (on by default) governs rendered code blocks in Reading and Live. On, a long line wraps to the pane width; off, each block scrolls horizontally on its own.
+- **Wrap long lines in source** (on by default) governs the Source editor. On, long lines reflow to the pane width; off, the editor scrolls horizontally and keeps column alignment.

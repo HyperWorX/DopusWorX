@@ -1,4 +1,4 @@
-# DopusWorX palette reference
+# Palettes
 
 30 built-in palettes &middot; 18 dark &middot; 12 light, plus the **Default** dark
 and light themes the viewer falls back to when no palette is pinned.

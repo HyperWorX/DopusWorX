@@ -216,9 +216,9 @@ YAML, TOML, INI / conf, and every other entry in the language table follow the
 same rule: Source view, highlighted where a grammar exists, editable, no
 rendered mode.
 
-## The File Types settings panel
+## The File types settings panel
 
-Settings has a **File types & double-click** tab that controls which types
+Settings has a **File types** tab that controls which types
 DopusWorX handles and how they open. The panel lists one row per supported type
 group (Markdown, HTML, plain text, and every code language), each with three
 checkboxes:
@@ -280,10 +280,14 @@ choose without making any changes. Because applying associations restarts the
 Opus integration, Directory Opus closes to apply and then asks whether to
 restart.
 
-The handled-extension list lives in `settings.json` under `fileAssociations`,
-with four `;`-separated keys: `handledExts`, `dblClickOpusExts`,
-`dblClickWinExts` and `customExts`. When these are empty the viewer falls back to
-its compiled-in default (Markdown plus the full built-in set) until you Apply.
+The handled-extension list lives in `settings.json` under `fileAssociations`. Four
+`;`-separated keys hold the extension lists - `handledExts`, `dblClickOpusExts`,
+`dblClickWinExts` and `customExts` - and a fifth key, `langOverrides`, carries the
+Highlight Grammar mappings. When the four extension-list keys are empty the settings
+panel computes its display with every type ticked through the DOpus tier (enabled
+with DOpus double-click), but the native C++ viewer itself handles Markdown only
+until you press Apply file associations, which writes your real choices into these
+keys.
 
 ### How the plugin claims types (the GUID claim)
 
@@ -314,7 +318,7 @@ which is exactly what used to demote DopusWorX below `text.dll`. The explicit
 claim above runs in the first pass instead. Types DopusWorX does not handle
 return no from both identify paths and fall through to the Windows / Opus default
 (the desired "unselected -> default"). The extension list is re-read on each Opus
-plugin enumeration, so a File Types change takes effect on the next Opus restart.
+plugin enumeration, so a File types change takes effect on the next Opus restart.
 
 ## Encoding and line endings
 

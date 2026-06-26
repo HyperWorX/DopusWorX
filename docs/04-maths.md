@@ -1,16 +1,16 @@
-# DopusWorX maths
+# Maths
 
 Write equations straight into your notes, in LaTeX, AsciiMath, or a mix of both, and DopusWorX draws them for you.
 
-Maths starts switched off. When you turn it on it stays out of the way: a note with no equations in it behaves exactly as it did before, and nothing about your plain writing changes.
+Maths renders by default. There is nothing to switch on: open or edit a note and its equations are drawn straight away. The switch behind this is a master toggle that ships on, and it stays out of the way: the engine only loads the first time a note actually contains an equation, so a note with no maths in it costs nothing and behaves exactly as plain writing always has.
 
-## Turning it on
+## The master switch
 
-Settings &middot; Formats &middot; Maths &middot; **Render maths**.
+Settings &middot; Content &middot; Maths &middot; **Render maths**.
 
-While it is off, an equation just shows its raw text: `$x^2$` stays as those five characters. Switch it on and equations are drawn properly the next time a note is read or edited.
+Render maths is on out of the box. You only come here if you want to turn maths off altogether, in which case an equation just shows its raw text: `$x^2$` stays as those five characters. Turn it back on and equations are drawn again the next time a note is read or edited.
 
-That single switch is all most people ever touch. The rest of this page covers the settings and tools that sit behind it.
+That single switch is all most people ever touch, and most never need to. The rest of this page covers the settings and tools that sit behind it.
 
 ## Writing an equation
 
@@ -43,7 +43,7 @@ There are two common ways to type maths:
 - **LaTeX** is the standard in academia and publishing. Powerful and precise, but wordy, full of backslash commands like `\frac{a}{b}`.
 - **AsciiMath** is a lighter shorthand you can type without backslashes, like `a/b`. Handy for quick notes.
 
-DopusWorX understands both. You choose how it reads your equations under Settings &middot; Formats &middot; Maths &middot; **Maths syntax**:
+DopusWorX understands both. You choose how it reads your equations under Settings &middot; Content &middot; Maths &middot; **Maths syntax**:
 
 | Mode | What it does |
 |---|---|
@@ -171,16 +171,16 @@ Each font is a small override loaded the first time you select it, so a reader w
 
 ## Engines
 
-DopusWorX can draw maths with either of two engines. The setting is **Maths renderer** (`mathRenderer` in `settings.json`):
+DopusWorX can draw maths with either of two engines, and KaTeX is the default. There is no engine picker in the settings dialog. The choice lives in a hidden power-user key, `mathRenderer` in `settings.json`, that you only reach by hand-editing that file. The supported in-app way to move off KaTeX is to pick a non-default Maths font, which switches you to Temml automatically (see [Maths fonts](#maths-fonts)).
 
 | Engine | Notes |
 |---|---|
 | **KaTeX** (default) | HTML and CSS with its own bundled fonts. Renders big operators (sums, integrals) reliably regardless of the system's MathML quality, which is why it is the default. |
 | **Temml** | Converts LaTeX to MathML and lets the browser lay it out. Lighter, ships no fonts of its own, and is the engine the maths-font options use. |
 
-There is also an `off` value, which leaves the literal `$...$` source untouched (the same as turning rendering off).
+The `mathRenderer` key also accepts an `off` value, which leaves the literal `$...$` source untouched (the same as turning Render maths off).
 
-Whichever engine you choose, AsciiMath is quietly converted to LaTeX first, so the two input styles always end up looking the same. The style you pick is about how you *type*, not how the result *looks*.
+Whichever engine draws, AsciiMath is quietly converted to LaTeX first, so the two input styles always end up looking the same. The style you pick is about how you *type*, not how the result *looks*.
 
 ## Custom macros
 
@@ -216,8 +216,8 @@ Macros are a LaTeX-only feature; they have no effect on equations read as AsciiM
 
 DopusWorX never silently drops an equation. You always get either the maths or a visible reason.
 
-- **It still looks like `$...$` text.** Maths is switched off, or you are missing the closing `$`.
-- **It comes out red, or as a small ⚠ box with your text in it.** DopusWorX could not make sense of that equation. Hover the box to see the engine's reason. Both a malformed formula and a failure to load the engine surface this way; the source is always shown so nothing is lost.
+- **It still looks like `$...$` text.** You have turned Render maths off, you are missing the closing `$`, or the maths engine could not load. In each case DopusWorX keeps your source rather than leave a gap.
+- **The source comes out red, with a small note underneath.** DopusWorX could not make sense of that equation, so it leaves the text you typed in place, shown in red, and puts a short plain-language note underneath saying what went wrong (an unknown command, an unmatched brace, two superscripts in a row, and so on) instead of raw engine jargon. The note stays readable on any theme. Hover it to see the engine's own message in full.
 - **It drew, but looks wrong.** Usually you are in the wrong style, or you hit an in-between case. The classic one is `$1/2$` stacking when you wanted a slash: type `$1//2$`, or use `\frac` / `\sfrac` to pick the exact shape.
 
 ## A little about what happens behind the scenes

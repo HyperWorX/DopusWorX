@@ -1,4 +1,4 @@
-# DopusWorX menus
+# Context menus
 
 Right-click anywhere in a DopusWorX pane and you get its own menu, built for what you clicked on. The toolbar at the top carries a Save button with its own drop-down for the export and print actions. This page covers both.
 
@@ -69,6 +69,31 @@ Open a CSV or TSV and Reading mode shows it as a sortable, editable grid. Right-
 - Below the grid actions you still get **Print / Save as PDF...**, **Select all** (which here selects every grid cell, ready to copy, rather than the page text), and **Zoom**.
 
 The grid has more on board than the right-click menu shows. The bar above it has a live row filter, a delimiter override (auto, comma, semicolon, tab, pipe), and Header / Wrap / Freeze toggles. In the grid itself you can double-click a cell to edit it, drag column and row edges to resize, click a header to cycle its sort, and use the hover + / x controls in the gutter and above each column to add or remove rows and columns. To copy, use the Copy item on the right-click menu (the focused cell or the selected block). To insert a row, use the + control in the gutter or the right-click menu.
+
+### Driving the menu from the keyboard
+
+The menu works from the keyboard as well as the mouse. However you open it, the first item takes focus, and from there:
+
+- **Up** and **Down** move between items.
+- **Home** and **End** jump to the first and last item.
+- **Enter** or **Space** runs the item under focus. On a submenu parent, such as Copy or Zoom, it opens the submenu instead and moves to its first entry.
+- **Right** opens the submenu under focus; **Left** steps back out to its parent.
+- **Escape** or **Tab** closes the menu.
+
+Close it from the keyboard and focus returns to wherever it was before the menu opened, so you carry on from the same spot.
+
+### Touch: press and hold
+
+A touchscreen has no right-click, so press and hold opens the menu instead. Hold one spot for about half a second and the menu opens there, at the point you pressed. A quick tap or a drag does not open it: lifting your finger, or moving it more than a few pixels, cancels the hold, so scrolling and tapping carry on as normal.
+
+### The HTML View menu
+
+The rendered HTML View is its own framed page, so the main menu above does not reach inside it. It carries its own small menu instead. Right-click inside the HTML View and you get:
+
+- **Copy**, only when you have text selected in the page. Copies the selection.
+- **Select all**, always. Selects the whole rendered page, ready to copy.
+
+Click outside the menu, press Escape, or scroll to close it. Zoom stays with the HTML View's own frame controls, as noted above.
 
 ## The Save menu in the toolbar
 
