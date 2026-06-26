@@ -81,7 +81,7 @@ Code files open in **Source view only**. There is no Reading or Live mode for
 code because there is nothing to render: source is its own presentation. The
 toolbar shows no mode tabs for a code file, just the single Source surface.
 
-<img width="100%" src="images/code-view.png" alt="A Python file in Source view: syntax highlighting, a line-number gutter, and the code-editing toolbar along the bottom">
+<div align="center"><img src="images/code-view.png" width="640" alt="A Python file in Source view: syntax highlighting, a line-number gutter, and the code-editing toolbar along the bottom"></div>
 
 Source view is a CodeMirror editor with syntax highlighting, a line-number
 gutter (its style is configurable), word wrap, a copy button, colour swatches
@@ -177,7 +177,7 @@ table. Edits flow back through the same dirty / recovery / Save path as every
 other format, so saving writes the file. See [05-csv.md](05-csv.md) for the full grid
 reference.
 
-<img width="100%" src="images/csv-grid.png" alt="A CSV in the Table view: sortable headers, a row-number gutter, right-aligned numeric columns, and the Header / Wrap / Freeze toggles">
+<div align="center"><img src="images/csv-grid.png" width="640" alt="A CSV in the Table view: sortable headers, a row-number gutter, right-aligned numeric columns, and the Header / Wrap / Freeze toggles"></div>
 
 ## HTML
 

@@ -31,7 +31,7 @@ Alignment carries across too. A block centred with a `<div align="center">`, a `
 
 The Source button has a small pane icon on it. Click Source once to enter Source mode; click it again to toggle a **split preview**: the raw source on the left, the rendered document on the right, side by side. Click once more to drop back to a single pane. The split state is remembered per file for the session.
 
-<img width="100%" src="images/source-split.png" alt="The Source split: raw Markdown on the left, the rendered document on the right, with a draggable divider between them">
+<div align="center"><img src="images/source-split.png" width="640" alt="The Source split: raw Markdown on the left, the rendered document on the right, with a draggable divider between them"></div>
 
 While the split is open:
 
@@ -42,6 +42,8 @@ While the split is open:
 ## The formatting toolbar
 
 The formatting toolbar runs along the bottom of the pane in Live and Source mode for markdown files. Each button either wraps your selection in markdown or adds a prefix to the lines you have selected. With nothing selected, the wrapping buttons drop the markers in and park the cursor between them so you can start typing.
+
+<div align="center"><img src="images/editing-toolbar.png" width="640" alt="The formatting toolbar: bold, italic, strikethrough, highlight, inline code, link, footnote and clear-formatting, then the heading and maths buttons, the list buttons, indent, blockquote, code block, and image and table insert"></div>
 
 ### Inline formatting
 
@@ -91,6 +93,8 @@ The formatting toolbar runs along the bottom of the pane in Live and Source mode
 
 When you open a code or text file in Source mode, the formatting toolbar is replaced by a code-editing toolbar. These commands are language-agnostic and run CodeMirror's own editing commands, so they behave exactly like the editor itself.
 
+<div align="center"><img src="images/code-toolbar.png" width="280" alt="The code-editing toolbar: toggle comment, outdent, indent, duplicate line, move line up, move line down, and find"></div>
+
 | Button | What it does |
 |---|---|
 | **Toggle comment (`//`)** | comments or uncomments the current line or selection, using the comment syntax of the file's language. A no-op on languages with no comment token. |
@@ -102,6 +106,8 @@ When you open a code or text file in Source mode, the formatting toolbar is repl
 ## Inserting an image
 
 The image button (in the formatting toolbar) opens a small popup so you can place an image without hand-writing the markdown.
+
+<div align="center"><img src="images/image-insert.png" width="460" alt="The Insert image popup: Source with a Browse button, Alt text, Width and Height, an Alignment row, and a Storage choice of Embed a copy or Link in place"></div>
 
 - **Source** can be a local file path or an `http(s)` URL. Type or paste it, or click **Browse** to pick a file from disk.
 - **Alt text** is the description used by screen readers. Optional.
@@ -129,6 +135,8 @@ For safety, the viewer only ever serves images from folders your open document p
 
 The table button (in the formatting toolbar) opens a small grid. Move the pointer over it to pick the size, up to 8 columns by 8 rows, with the current choice shown as "N × M". Click to drop a markdown table at the cursor: the first row is the header, with the separator row beneath it, and the cursor lands in the first cell ready to fill in. Click outside the popup, or press Escape, to close it without inserting.
 
+<div align="center"><img src="images/table-insert.png" width="460" alt="The Insert table popup: a hover size grid on the left (a 3 by 3 selection lit), with Rows and Columns steppers, a Position control and Header row / column toggles on the right"></div>
+
 ## Footnotes
 
 Footnotes attach a note or citation to a point in the text. The **Footnote** button on the formatting toolbar adds both halves at once: a `[^N]` marker where the cursor is, and a matching `[^N]: ` definition at the end of the document. The number is the lowest free one, so if you delete a footnote its number comes free again and the next one you add reuses it instead of always climbing.
@@ -148,7 +156,7 @@ In Source mode you write footnotes by hand as plain markdown: a `[^id]` marker i
 
 The magnifier button on the top toolbar opens the find and replace panel. (In code Source mode, the code toolbar's Find button opens the editor's own search instead.)
 
-<img width="100%" src="images/find-replace.png" alt="The find and replace panel with a live match count and the case, whole-word and regex toggles; matches are highlighted in the document">
+<div align="center"><img src="images/find-replace-panel.png" width="560" alt="The find and replace panel: Find and Replace fields, a live match count, the case, whole-word and regex toggles, and the previous/next arrows"></div>
 
 - Type in the **Find** field. The match count shows beside it live ("3 matches", "no matches", or "bad regex" if a regular expression will not compile). If you had a single line selected when you opened the panel, it seeds the Find field for you.
 - Type a replacement in the **Replace** field.

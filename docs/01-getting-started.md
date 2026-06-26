@@ -1,6 +1,6 @@
 # Getting started
 
-<img width="100%" src="images/reading.png" alt="A Markdown file open in Reading mode, with the mode and Save buttons in the top toolbar">
+<div align="center"><img src="images/reading.png" width="640" alt="A Markdown file open in Reading mode, with the mode and Save buttons in the top toolbar"></div>
 
 1. Install DopusWorX (see the main README), then open any supported file in the
    Directory Opus viewer pane or the pop-out viewer window.

@@ -101,7 +101,7 @@ Where they work:
 
 Click the **&Sigma;** button on the editing toolbar to open a small floating panel, so you do not have to memorise anything. The button only appears once maths is switched on, and the panel floats inside the viewer pane rather than opening a separate window.
 
-<img width="100%" src="images/maths-panel.png" alt="The maths symbol panel: category tabs, a grid of symbols, the inline and display equation buttons, a styles row, and the live preview surface with a Preview toggle">
+<div align="center"><img src="images/maths-panel.png" width="640" alt="The maths symbol panel: category tabs, a grid of symbols, the inline and display equation buttons, a styles row, and the live preview surface with a Preview toggle"></div>
 
 Everything you click goes into the editor you are working in (Live or Source).
 
