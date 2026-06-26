@@ -12,11 +12,7 @@ A file opens in one of three modes, picked from the buttons at the left of the t
 | **Live** | An editor that looks like the rendered output as you type, the way Obsidian's Live Preview works. Click into a line and the raw markdown markers for that line appear so you can change them; click away and the line renders again. |
 | **Source** | A plain-text editor showing the raw markdown (or raw code) with syntax highlighting and nothing hidden. The power-user surface. |
 
-Click **Reading**, **Live** or **Source** in the toolbar to switch between the modes.
-
-![Live mode: the cursor's line shows its raw markdown markers while the rest stays rendered, with the formatting toolbar along the bottom](images/live-toolbar.png)
-
-Not every file kind offers all three. Code and text files always open as an editable Source view; markdown gives you all three.
+Click **Reading**, **Live** or **Source** in the toolbar to switch between the modes. Not every file kind offers all three. Code and text files always open as an editable Source view; markdown gives you all three.
 
 ### Which view a file opens in
 
