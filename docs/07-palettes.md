@@ -16,133 +16,79 @@ Every marker token is coloured via the palette accent; bold / italic / strike / 
 
 ## Dark palettes
 
-### Default Dark
-
-<img width="100%" src="palette-images/default-dark.png" alt="Default Dark">
-
-### ProWorX
-
-<img width="100%" src="palette-images/proworx.png" alt="ProWorX">
-
-### GloWorX
-
-<img width="100%" src="palette-images/gloworx.png" alt="GloWorX">
-
-### Dracula
-
-<img width="100%" src="palette-images/dracula.png" alt="Dracula">
-
-### Solarized Dark
-
-<img width="100%" src="palette-images/solarized-dark.png" alt="Solarized Dark">
-
-### Nord
-
-<img width="100%" src="palette-images/nord.png" alt="Nord">
-
-### Gruvbox Dark
-
-<img width="100%" src="palette-images/gruvbox-dark.png" alt="Gruvbox Dark">
-
-### One Dark
-
-<img width="100%" src="palette-images/one-dark.png" alt="One Dark">
-
-### Tokyo Night
-
-<img width="100%" src="palette-images/tokyo-night.png" alt="Tokyo Night">
-
-### Ayu Dark
-
-<img width="100%" src="palette-images/ayu-dark.png" alt="Ayu Dark">
-
-### Catppuccin Mocha
-
-<img width="100%" src="palette-images/catppuccin-mocha.png" alt="Catppuccin Mocha">
-
-### GitHub Dark
-
-<img width="100%" src="palette-images/github-dark.png" alt="GitHub Dark">
-
-### Obsidianite
-
-<img width="100%" src="palette-images/obsidianite.png" alt="Obsidianite">
-
-### PLN Dark
-
-<img width="100%" src="palette-images/pln-dark.png" alt="PLN Dark">
-
-### AnuPpuccin Frappé
-
-<img width="100%" src="palette-images/anuppuccin-frappe.png" alt="AnuPpuccin Frappé">
-
-### Everforest
-
-<img width="100%" src="palette-images/everforest.png" alt="Everforest">
-
-### Rosé Pine
-
-<img width="100%" src="palette-images/rose-pine.png" alt="Rosé Pine">
-
-### Vesper
-
-<img width="100%" src="palette-images/vesper.png" alt="Vesper">
-
-### Red Rascal
-
-<img width="100%" src="palette-images/red-rascal.png" alt="Red Rascal">
+<table>
+<tr>
+<td width="50%"><b>Default Dark</b><br><img src="palette-images/default-dark.png" alt="Default Dark"></td>
+<td width="50%"><b>ProWorX</b><br><img src="palette-images/proworx.png" alt="ProWorX"></td>
+</tr>
+<tr>
+<td width="50%"><b>GloWorX</b><br><img src="palette-images/gloworx.png" alt="GloWorX"></td>
+<td width="50%"><b>Dracula</b><br><img src="palette-images/dracula.png" alt="Dracula"></td>
+</tr>
+<tr>
+<td width="50%"><b>Solarized Dark</b><br><img src="palette-images/solarized-dark.png" alt="Solarized Dark"></td>
+<td width="50%"><b>Nord</b><br><img src="palette-images/nord.png" alt="Nord"></td>
+</tr>
+<tr>
+<td width="50%"><b>Gruvbox Dark</b><br><img src="palette-images/gruvbox-dark.png" alt="Gruvbox Dark"></td>
+<td width="50%"><b>One Dark</b><br><img src="palette-images/one-dark.png" alt="One Dark"></td>
+</tr>
+<tr>
+<td width="50%"><b>Tokyo Night</b><br><img src="palette-images/tokyo-night.png" alt="Tokyo Night"></td>
+<td width="50%"><b>Ayu Dark</b><br><img src="palette-images/ayu-dark.png" alt="Ayu Dark"></td>
+</tr>
+<tr>
+<td width="50%"><b>Catppuccin Mocha</b><br><img src="palette-images/catppuccin-mocha.png" alt="Catppuccin Mocha"></td>
+<td width="50%"><b>GitHub Dark</b><br><img src="palette-images/github-dark.png" alt="GitHub Dark"></td>
+</tr>
+<tr>
+<td width="50%"><b>Obsidianite</b><br><img src="palette-images/obsidianite.png" alt="Obsidianite"></td>
+<td width="50%"><b>PLN Dark</b><br><img src="palette-images/pln-dark.png" alt="PLN Dark"></td>
+</tr>
+<tr>
+<td width="50%"><b>AnuPpuccin Frappé</b><br><img src="palette-images/anuppuccin-frappe.png" alt="AnuPpuccin Frappé"></td>
+<td width="50%"><b>Everforest</b><br><img src="palette-images/everforest.png" alt="Everforest"></td>
+</tr>
+<tr>
+<td width="50%"><b>Rosé Pine</b><br><img src="palette-images/rose-pine.png" alt="Rosé Pine"></td>
+<td width="50%"><b>Vesper</b><br><img src="palette-images/vesper.png" alt="Vesper"></td>
+</tr>
+<tr>
+<td width="50%"><b>Red Rascal</b><br><img src="palette-images/red-rascal.png" alt="Red Rascal"></td>
+<td width="50%"></td>
+</tr>
+</table>
 
 ## Light palettes
 
-### Default Light
-
-<img width="100%" src="palette-images/default-light.png" alt="Default Light">
-
-### ProWorX Light
-
-<img width="100%" src="palette-images/proworx-light.png" alt="ProWorX Light">
-
-### PLN Light
-
-<img width="100%" src="palette-images/pln-light.png" alt="PLN Light">
-
-### Solarized Light
-
-<img width="100%" src="palette-images/solarized-light.png" alt="Solarized Light">
-
-### GitHub Light
-
-<img width="100%" src="palette-images/github-light.png" alt="GitHub Light">
-
-### Ayu Light
-
-<img width="100%" src="palette-images/ayu-light.png" alt="Ayu Light">
-
-### Gruvbox Light
-
-<img width="100%" src="palette-images/gruvbox-light.png" alt="Gruvbox Light">
-
-### Catppuccin Latte
-
-<img width="100%" src="palette-images/catppuccin-latte.png" alt="Catppuccin Latte">
-
-### One Light
-
-<img width="100%" src="palette-images/one-light.png" alt="One Light">
-
-### Tokyo Night Day
-
-<img width="100%" src="palette-images/tokyo-night-day.png" alt="Tokyo Night Day">
-
-### Nord Light
-
-<img width="100%" src="palette-images/nord-light.png" alt="Nord Light">
-
-### Alucard
-
-<img width="100%" src="palette-images/alucard.png" alt="Alucard">
-
-### Obsidianite Light
-
-<img width="100%" src="palette-images/obsidianite-light.png" alt="Obsidianite Light">
+<table>
+<tr>
+<td width="50%"><b>Default Light</b><br><img src="palette-images/default-light.png" alt="Default Light"></td>
+<td width="50%"><b>ProWorX Light</b><br><img src="palette-images/proworx-light.png" alt="ProWorX Light"></td>
+</tr>
+<tr>
+<td width="50%"><b>PLN Light</b><br><img src="palette-images/pln-light.png" alt="PLN Light"></td>
+<td width="50%"><b>Solarized Light</b><br><img src="palette-images/solarized-light.png" alt="Solarized Light"></td>
+</tr>
+<tr>
+<td width="50%"><b>GitHub Light</b><br><img src="palette-images/github-light.png" alt="GitHub Light"></td>
+<td width="50%"><b>Ayu Light</b><br><img src="palette-images/ayu-light.png" alt="Ayu Light"></td>
+</tr>
+<tr>
+<td width="50%"><b>Gruvbox Light</b><br><img src="palette-images/gruvbox-light.png" alt="Gruvbox Light"></td>
+<td width="50%"><b>Catppuccin Latte</b><br><img src="palette-images/catppuccin-latte.png" alt="Catppuccin Latte"></td>
+</tr>
+<tr>
+<td width="50%"><b>One Light</b><br><img src="palette-images/one-light.png" alt="One Light"></td>
+<td width="50%"><b>Tokyo Night Day</b><br><img src="palette-images/tokyo-night-day.png" alt="Tokyo Night Day"></td>
+</tr>
+<tr>
+<td width="50%"><b>Nord Light</b><br><img src="palette-images/nord-light.png" alt="Nord Light"></td>
+<td width="50%"><b>Alucard</b><br><img src="palette-images/alucard.png" alt="Alucard"></td>
+</tr>
+<tr>
+<td width="50%"><b>Obsidianite Light</b><br><img src="palette-images/obsidianite-light.png" alt="Obsidianite Light"></td>
+<td width="50%"></td>
+</tr>
+</table>
 

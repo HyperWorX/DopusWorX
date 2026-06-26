@@ -77,7 +77,7 @@ middle: the raw Markdown on the left, the live preview on the right, with a
 divider you can drag to resize the two panes and a button to link or unlink their
 scrolling.
 
-<img src="img/source-split.png" width="100%" alt="The split view: raw Markdown source on the left, the live preview on the right, with a draggable divider between them">
+<div align="center"><img src="img/source-split.png" width="640" alt="The split view: raw Markdown source on the left, the live preview on the right, with a draggable divider between them"></div>
 
 A full formatting toolbar sits underneath: bold, italic, strikethrough,
 highlight, inline code, links, footnotes, a heading button that cycles H1 to H6,
@@ -112,7 +112,7 @@ Prices are safe: `$5` stays as text, and `\$` gives you a literal dollar sign.
 The maths engine only loads on notes that actually contain equations, so plain
 notes stay quick. See [`docs/04-maths.md`](docs/04-maths.md) for the full guide.
 
-<img src="img/maths-panel.png" width="100%" alt="The maths symbol panel beside a rendered equation">
+<div align="center"><img src="img/maths-panel.png" width="640" alt="The maths symbol panel beside a rendered equation"></div>
 
 ## Diagrams
 
@@ -165,7 +165,7 @@ code, since there is nothing to render).
 Fenced code blocks inside a Markdown document are highlighted in every Markdown
 mode.
 
-<img src="img/code-view.png" width="100%" alt="Source view with syntax highlighting, line-number gutter and copy button">
+<div align="center"><img src="img/code-view.png" width="640" alt="Source view with syntax highlighting, line-number gutter and copy button"></div>
 
 ## CSV and tables
 
@@ -173,7 +173,7 @@ CSV and TSV open as an editable grid: click a header to sort, double-click a cel
 to edit, add or delete rows with undo and redo, filter, freeze the first column,
 override the delimiter, and copy the whole thing out as a Markdown table.
 
-<img src="img/csv-grid.png" width="100%" alt="A CSV open as an editable grid: World Cup results by team across the years">
+<div align="center"><img src="img/csv-grid.png" width="640" alt="A CSV open as an editable grid: World Cup results by team across the years"></div>
 
 ## HTML
 
@@ -197,7 +197,7 @@ Thirty built-in palettes, dark and light, from Dracula and Nord to Catppuccin,
 Everforest and Rosé Pine, alongside the signature ProWorX and GloWorX. By default
 a palette follows the Opus pane background automatically; you can pin one instead.
 
-<img src="img/palette-cascade.png" width="100%" alt="The same document shown across several built-in palettes">
+<div align="center"><img src="img/palette-cascade.png" width="640" alt="The same document shown across several built-in palettes"></div>
 
 Nothing is locked down. The visual editor lets you change any colour and save it
 as your own named theme. Bold, italic, strikethrough and inline code each get
