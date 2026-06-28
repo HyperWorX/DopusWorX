@@ -83,7 +83,7 @@ A full formatting toolbar sits underneath: bold, italic, strikethrough,
 highlight, inline code, links, footnotes, a heading button that cycles H1 to H6,
 bulleted, numbered and task lists, indent and outdent, blockquotes, fenced code,
 image insert, and a table insert with a size grid. Find and replace handles case,
-whole word and regex. There is
+whole word and regex, and Ctrl+G jumps to a line. There is
 undo and redo with a history dropdown, and a live word, character and line count.
 
 A right-click menu is there throughout, and you do not need a mouse for it: open
@@ -157,8 +157,9 @@ code, since there is nothing to render).
 - Syntax highlighting for around 150 languages (the common ones bundled, the
   rest loaded on demand), with a line-number gutter, a word-wrap toggle and a
   configurable tab width.
-- A copy button, an optional active-line highlight, and a code-theme picker that
-  is independent of the page palette.
+- A copy button, an optional active-line highlight (with a magnify option that
+  lifts the line you are on), and a code-theme picker that is independent of the
+  page palette.
 - Colour values get a swatch and a colour picker, and diff and patch files colour
   their added and removed lines.
 
@@ -166,6 +167,15 @@ Fenced code blocks inside a Markdown document are highlighted in every Markdown
 mode.
 
 <div align="center"><img src="img/code-view.png" width="640" alt="Source view with syntax highlighting, line-number gutter and copy button"></div>
+
+## Binary files
+
+A file that is binary rather than text opens in a hex inspector: an offset / hex /
+ASCII view with a side panel that reads the bytes under the cursor as integers and
+floats. You can select byte ranges, jump to an offset, search for hex or text, and
+copy as hex or text. An opt-in setting turns on byte editing, and any file can be
+forced open with View as hex from the right-click menu. See
+[`docs/09-binary-inspector.md`](docs/09-binary-inspector.md).
 
 ## CSV and tables
 
@@ -237,8 +247,8 @@ Diagrams, then Maths. Among the things you can change:
   A **Highlight Grammar** column sets which grammar each type uses, so you can
   open `.tpl` as C++ or map any type to any of the supported languages.
 - **Maths macros**, fonts and engine, encoding and fallback codepage, image
-  search folders, auto-save, gutters, formatting marks, and the full type and
-  colour controls behind the palettes.
+  search folders, auto-save, separate left and right page margins, gutters,
+  formatting marks, and the full type and colour controls behind the palettes.
 
 ## Robust and secure
 
@@ -281,6 +291,7 @@ For more detail than this page covers:
 - [CSV grids](docs/05-csv.md) - sorting, in-cell editing, filtering, freezing, delimiters and more.
 - [Context menus](docs/06-context-menus.md) - the right-click menus, driven by keyboard or touch as well as mouse, and the Save menu.
 - [Palettes](docs/07-palettes.md) - every built-in palette and the theme editor.
+- [Binary inspector](docs/09-binary-inspector.md) - the hex view, the data inspector and the opt-in byte editor.
 
 ## Installation
 
@@ -290,6 +301,9 @@ For more detail than this page covers:
 3. Extract the zip and run **`Install.cmd`**, then accept the UAC prompt. It
    copies the plugin into the Directory Opus `Viewers` folder and relaunches
    Opus. **`Uninstall.cmd`** in the same zip removes it.
+
+For an unattended or scripted update, `Install.cmd /silent` (and `Uninstall.cmd
+/silent`, or the `/quiet` alias) run with no prompts.
 
 **Requirements:** Windows x64, Directory Opus 12 or later, and the Microsoft Edge
 WebView2 runtime. WebView2 is already on most up-to-date Windows installs; if it

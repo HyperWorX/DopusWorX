@@ -159,11 +159,16 @@ Markdown.
 
 ### Minified and binary files
 
-A large file with almost no line breaks (minified or single-line) and a file
-that contains NUL bytes (binary) are not run through the live editor, which would
-stall on them. They fall back to a static, read-only view: the minified file is
-shown as raw text with a note that highlighting and editing are off; the binary
-file shows a notice that it is not text.
+A large file with almost no line breaks (minified or single-line) is not run
+through the live editor, which would stall on it. It falls back to a static,
+read-only view, shown as raw text with a note that highlighting and editing are
+off.
+
+A file that is binary rather than text opens in the binary inspector: a hex view
+of its bytes with a panel that reads the values under the cursor. DopusWorX
+decides a file is binary from its content, not its extension. See
+[09-binary-inspector.md](09-binary-inspector.md) for the hex view, the data
+inspector and the opt-in byte editor.
 
 ## CSV and TSV
 

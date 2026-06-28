@@ -25,3 +25,4 @@
 - [CSV grids](05-csv.md) - sorting, editing, filtering, freezing and more.
 - [Context menus](06-context-menus.md) - the right-click menus, by mouse, keyboard or touch, and the Save menu.
 - [Palettes](07-palettes.md) - the built-in palettes and the theme editor.
+- [Binary inspector](09-binary-inspector.md) - the hex view, the data inspector and the opt-in byte editor.

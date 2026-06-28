@@ -31,6 +31,7 @@ These are the items you can see, roughly top to bottom. Not all show at once.
 - **Insert image...** Editable Markdown only. It opens the same image dialog as the editing toolbar's image button. It is Markdown-only because it writes a Markdown image line `![alt](path)`, which is inert anywhere else. Code, HTML, CSV and even LaTeX / TeX source editors do not show it: LaTeX is prose-like for maths but uses `\includegraphics`, not Markdown image syntax.
 - **Insert table...** Editable Markdown only. Opens the same table dialog as the editing toolbar's table button (size grid or Cols × Rows, table position, header row and header column).
 - **Find...** and **Replace...** Editable surfaces only. They open the editor's find or find-and-replace bar.
+- **Go to line...** On any editor surface, including the read-only code View. It opens a small popup; type a line number and press Enter (or click Go) to jump to that line and centre it. Ctrl+G does the same.
 - **Math.** A single submenu that changes with what is under your cursor. It only appears where maths makes sense (a prose-like file with maths switched on, or a rendered equation you have clicked):
   - On plain text or a selection, it offers **Inline math  $...$** and **Block math  $$...$$**, which wrap the selection (or drop an empty equation at the cursor).
   - With the cursor inside an existing `$...$` or `$$...$$` region, it offers the swaps instead: **Convert to inline** / **Convert to block**, and **Convert to LaTeX** / **Convert to AsciiMath** (labelled for whichever the equation is now). A fenced `am` block only offers the LaTeX / AsciiMath swap.
@@ -43,14 +44,15 @@ These are the items you can see, roughly top to bottom. Not all show at once.
 
 #### How the menu shifts by mode
 
-- **Reading** is read-only. No Cut, Paste, Insert image, Find or Replace. You still get Copy (with the document-as forms), Copy link / image address on a link or image, Copy equation on a rendered equation, Print / Save as PDF, Select all and Zoom.
-- **Live** and **Source** are editable. The full editing set turns on: Cut (with a selection), Paste, Insert image (Markdown only), Find, Replace, and the Math insert / convert actions (prose-like files).
+- **Reading** is read-only. No Cut, Paste, Insert image, Find, Replace or Go to line (it has no editor). You still get Copy (with the document-as forms), Copy link / image address on a link or image, Copy equation on a rendered equation, Print / Save as PDF, Select all and Zoom.
+- **Live** and **Source** are editable. The full editing set turns on: Cut (with a selection), Paste, Insert image (Markdown only), Find, Replace, Go to line, and the Math insert / convert actions (prose-like files).
 
 #### How it shifts by file kind
 
 - **Markdown** gets the full Copy submenu (Markdown / HTML / Rich text / Plain text, plus Table as CSV when you right-click a table), Insert image, Insert table, the Math actions, and Print / Save as PDF.
-- **Code and text** files get a simpler Copy (**Selection** and **Entire document**), plus Find and Replace when editable. No Insert image and no Print entry. LaTeX / TeX source counts as prose-like for maths, so it gets the Math actions, but not Insert image (which writes Markdown image syntax).
+- **Code and text** files get a simpler Copy (**Selection** and **Entire document**), plus Find and Replace when editable, and Go to line in both View and Edit. No Insert image and no Print entry. LaTeX / TeX source counts as prose-like for maths, so it gets the Math actions, but not Insert image (which writes Markdown image syntax).
 - **CSV / TSV** in the table view gets its own grid actions, below.
+- **Binary files** open in the hex inspector, which carries its own short menu: **Copy** (as hex bytes or as text), **View as text** to leave the inspector for the normal text view, and the usual **Select all** and **Zoom**. Any text or code file also gets a **View as hex** item, to open it in the inspector on demand. See [09-binary-inspector.md](09-binary-inspector.md).
 
 ### CSV and TSV table view
 

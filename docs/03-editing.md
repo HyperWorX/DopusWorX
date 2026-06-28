@@ -169,6 +169,10 @@ The magnifier button on the top toolbar opens the find and replace panel. (In co
 
 Click the close control to dismiss the panel.
 
+## Go to line
+
+Press **Ctrl+G** in any editor surface - markdown Live or Source, and code View or Edit - to open the Go to line popup. It opens seeded with the current line; type a line number (within the document's length) and press Enter, or click Go, to jump to that line and centre it. The same action is on the right-click menu as Go to line. (In the [binary inspector](09-binary-inspector.md), Ctrl+G jumps to a byte offset instead.)
+
 ## Saving
 
 The save button is the split control near the left of the top toolbar: the main half saves, the caret beside it opens the rest of the save options.
@@ -184,6 +188,10 @@ Your original file's encoding and line endings are preserved on save. A file wit
 ### Auto-save
 
 Auto-save is off by default and set in minutes in settings. When on, it saves on that interval but only if there are unsaved changes, and it never truncates a file to empty (only a deliberate manual save of an empty document can do that).
+
+### Refresh (reload from disk)
+
+Ctrl+R, F5 or the refresh button on the top toolbar reloads the file from disk, in any mode, not just Reading. If you have unsaved edits it asks before discarding them, so a refresh never quietly throws away your work. This is the way to pick up a change another program made to the file while you had the viewer open.
 
 ### If the file changes underneath you
 
@@ -217,3 +225,7 @@ Two settings control how long lines of code behave, separately for the two surfa
 
 - **Wrap long lines in code blocks** (on by default) governs rendered code blocks in Reading and Live. On, a long line wraps to the pane width; off, each block scrolls horizontally on its own.
 - **Wrap long lines in source** (on by default) governs the Source editor. On, long lines reflow to the pane width; off, the editor scrolls horizontally and keeps column alignment.
+
+### Magnifying the active row
+
+In Source and code editing the line your cursor is on lifts slightly toward you, so it is easy to see where you are working. It is on by default; turn **Magnify active row** off in Settings, under Code & source files, for a flat view. It does not apply in Live mode.
