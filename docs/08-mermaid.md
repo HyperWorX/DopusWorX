@@ -2,15 +2,17 @@
 
 Draw flowcharts, sequence diagrams, class diagrams, timelines and more straight from your notes, in plain text, using [Mermaid](https://mermaid.js.org/). You describe the diagram in words and DopusWorX draws it for you.
 
-Diagrams start switched off. A note with no diagrams behaves exactly as before, and the diagram engine never loads until you actually open a note that has one.
+<div align="center"><img src="images/mermaid-state.png" width="320" alt="A Mermaid state diagram rendered in DopusWorX, its nodes accented with the active palette colour"></div>
 
-> The diagrams on this page render live once you turn diagrams on. If they still look like code blocks, that switch is off (or you are reading this somewhere without Mermaid support).
+Diagrams are on by default. A note with no diagrams behaves exactly as before, and the diagram engine never loads until you actually open a note that has one.
 
-## Turning it on
+> The diagrams on this page render live when diagrams are on (the default). If they still look like code blocks, the switch has been turned off, or you are reading this somewhere without Mermaid support.
 
-Settings &middot; Content &middot; Diagrams &middot; **Render Mermaid diagrams**.
+## Turning it on and off
 
-While it is off, a `mermaid` block shows as an ordinary code block, so you can see and copy the source. Switch it on and it is drawn as a diagram the next time the note is read or edited.
+Settings &middot; Content &middot; Diagrams &middot; **Render Mermaid diagrams**. It is on by default.
+
+Turned off, a `mermaid` block shows as an ordinary code block, so you can see and copy the source. Turn it back on and it is drawn as a diagram the next time the note is read or edited.
 
 The engine is about 3 MB. It downloads the first time you open a note that contains a diagram and then stays cached, so diagram-free notes pay nothing for it.
 
@@ -192,7 +194,7 @@ The settings used here behave like every other DopusWorX setting:
 
 DopusWorX never silently drops a diagram. You always get the diagram or a visible reason.
 
-- **It still looks like a code block.** Diagrams are switched off, or the fence label is not exactly `mermaid`.
+- **It still looks like a code block.** Diagrams have been turned off, or the fence label is not exactly `mermaid`.
 - **A brief flash of source is normal.** The first diagram in a note shows its text for an instant while the engine wakes up, then becomes the diagram. That is not a fault.
 - **A red ⚠ box with your text in it.** The description could not be parsed. Hover the box for Mermaid's own reason. The source is always shown inside the box, so nothing is lost. A broken diagram never takes the rest of the note down with it:
 

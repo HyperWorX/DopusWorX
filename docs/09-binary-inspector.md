@@ -4,6 +4,8 @@ A file that is binary rather than text opens in the binary inspector: a hex view
 
 The inspector is on by default. Turn **Binary inspector** off in Settings to send binary files back to the plain not-text notice instead.
 
+<div align="center"><img src="images/binary-inspector.png" width="720" alt="The binary inspector: a data inspector panel down the left reading the bytes under the cursor, and the offset, hex and ASCII dump on the right"></div>
+
 ## The hex view
 
 The view has the three classic columns: the byte offset down the left, the bytes as hex in the middle, and the same bytes as text on the right, with anything unprintable shown as a dot. It is virtualised, so a large file scrolls smoothly without loading all of it into the page at once.

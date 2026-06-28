@@ -118,7 +118,7 @@ notes stay quick. See [`docs/04-maths.md`](docs/04-maths.md) for the full guide.
 
 Turn a fenced ```` ```mermaid ```` block into a flowchart, sequence, class, state,
 ER, pie or Gantt diagram, drawn from plain text with [Mermaid](https://mermaid.js.org/).
-Off by default; the ~3 MB engine loads only on a note that actually contains a
+On by default; the ~3 MB engine loads only on a note that actually contains a
 diagram.
 
 - Diagrams draw in **Reading** and **Live**. In Live, click a diagram to bring its
@@ -176,6 +176,8 @@ floats. You can select byte ranges, jump to an offset, search for hex or text, a
 copy as hex or text. An opt-in setting turns on byte editing, and any file can be
 forced open with View as hex from the right-click menu. See
 [`docs/09-binary-inspector.md`](docs/09-binary-inspector.md).
+
+<div align="center"><img src="img/binary-inspector.png" width="720" alt="The binary inspector: a data inspector panel reading the bytes under the cursor, beside the offset, hex and ASCII dump"></div>
 
 ## CSV and tables
 
