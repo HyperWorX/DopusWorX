@@ -4,7 +4,7 @@
 
 **A document viewer and in-place editor that lives inside [Directory Opus](https://www.gpsoft.com.au/).**
 
-Markdown, maths, diagrams, code, CSV and HTML, rendered and editable right in the Opus viewer pane.
+Markdown, maths, diagrams, code, CSV, HTML and binary files, rendered and editable right in the Opus viewer pane.
 
 ![DopusWorX in action](img/hero.gif)
 
@@ -16,9 +16,10 @@ Windows x64 &nbsp;·&nbsp; needs the Microsoft Edge WebView2 runtime &nbsp;·&nb
 
 DopusWorX grew out of mdWorX, and for this release it has been **completely
 rewritten from the ground up** for a more robust and efficient design. It began
-as a Markdown viewer and became a document workspace, so it ships under its own
-name, with a full maths workspace, more file types, more palettes, and a much
-sturdier file handling.
+as a Markdown viewer and became a document workspace: a full maths workspace,
+Mermaid diagrams that render by default, a binary and hex inspector with an
+opt-in byte editor, more file types, more palettes, and much sturdier file
+handling. It ships under its own name to match.
 
 Get the plugin from the [Releases Page](https://github.com/HyperWorX/DopusWorX/releases)
 
