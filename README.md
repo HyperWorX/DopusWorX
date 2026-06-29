@@ -230,6 +230,8 @@ Obsidian-style linking and embeds work too:
 - `![[note]]` transclusion and `![[image.png]]` image embeds.
 - The Obsidian image alt syntax for size and alignment: `![alt|400](path)` and
   `![alt|400x300|center](path)`. Relative paths and Windows absolute paths resolve.
+  This works inside table cells too, with the plain pipe and no escaping, e.g.
+  `| ![logo|72|center](path) |`.
 
 ## Customise it to your liking
 

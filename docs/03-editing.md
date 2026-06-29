@@ -137,6 +137,32 @@ The table button (in the formatting toolbar) opens a small grid. Move the pointe
 
 <div align="center"><img src="images/table-insert.png" width="460" alt="The Insert table popup: a hover size grid on the left (a 3 by 3 selection lit), with Rows and Columns steppers, a Position control and Header row / column toggles on the right"></div>
 
+### Images in table cells
+
+You can put a sized, aligned image in a table cell. Two ways, and you can mix them
+in one table:
+
+- **Obsidian pipe syntax**, the same one [Inserting an image](#inserting-an-image)
+  writes: `![alt|72](path)` for width, `![alt|72x48](path)` for width and height,
+  and add an alignment to centre it in the cell, `![alt|72|center](path)`. Use the
+  plain pipe; you do **not** need to escape it inside the cell.
+- **HTML**, `<img src="path" width="72">`, which is handy if you prefer to set the
+  height too or already have HTML to hand.
+
+A column can also be centred the normal markdown way, with a `:---:` separator, so
+its cells (image or text) centre as a column.
+
+How it works: a bare `|` is normally the cell separator, so the viewer recognises
+the `![ ... ]( ... )` image span and treats the pipes inside it as part of the
+image, not as new columns. Your source file keeps the plain pipe exactly as you
+typed it; the handling is only for rendering.
+
+What breaks it: the image has to be a single, well-formed `![alt](path)` span on
+the line. A stray `]` or `)` inside the alt text or the path, an unclosed bracket,
+or a real line break in the middle will end the span early and the rest spills into
+the next column. If a cell ever splits oddly, fall back to the HTML `<img>` form,
+which has no pipes to confuse the table.
+
 ## Footnotes
 
 Footnotes attach a note or citation to a point in the text. The **Footnote** button on the formatting toolbar adds both halves at once: a `[^N]` marker where the cursor is, and a matching `[^N]: ` definition at the end of the document. The number is the lowest free one, so if you delete a footnote its number comes free again and the next one you add reuses it instead of always climbing.
