@@ -40,10 +40,14 @@ loads inside Opus and uses the Microsoft Edge WebView2 runtime to draw itself.
 
 It is **file-type aware**: open a file and DopusWorX picks the right view for it.
 
-- **Markdown** gets Reading, Live and Source, with a split preview.
-- **Source-code** files open in Source view with syntax highlighting.
+- **Markdown** gets Reading, Live and Source, with a split preview, and renders
+  maths (LaTeX / AsciiMath) and Mermaid diagrams inline.
+- **Source-code** files open in Source view with syntax highlighting (around 150
+  languages).
 - **CSV / TSV** open as an editable grid.
 - **HTML** renders as its own page, with a Source view and a split.
+- **Binary files** open in a hex inspector (offset / hex / ASCII with a data
+  inspector), with an opt-in byte editor.
 
 ## Reading, Live and Source
 
