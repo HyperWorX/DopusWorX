@@ -92,3 +92,25 @@ Every marker token is coloured via the palette accent; bold / italic / strike / 
 </tr>
 </table>
 
+## Appearance settings
+
+The palettes above set a whole look at once. You pick them from the **Global
+palette** dropdown in Settings &rsaquo; Appearance, with dark and light palettes
+grouped and Default Auto following the Opus pane. For finer control, the rest of
+the Appearance tab overrides individual colours, fonts, headings, rules and page
+layout on top of the active palette; an empty field falls back to the palette
+default.
+
+A few related controls sit alongside the palette picker:
+
+- **Syntax palette** colours fenced code blocks independently of the page.
+  Match palette (the default) derives code colours from the active palette;
+  picking a named entry locks the code colouring regardless of the page. A
+  separate toggle, **Use syntax palette in source mode**, extends it to the
+  Source editor.
+- **DOpus theme counts as** tells the viewer whether to treat your Directory
+  Opus theme as light or dark when the automatic guess gets it wrong.
+- The **Themes** menu at the bottom of Settings saves your current tweaks as a
+  reusable palette, style or theme of your own, and **Import...** / **Export...**
+  move your whole settings file between machines.
+

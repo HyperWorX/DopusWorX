@@ -13,7 +13,7 @@
    keyboard (arrow keys to move, Enter to choose, Escape to close) and a press
    and hold on a touchscreen.
 5. Open **Settings** (the gear icon) to choose a palette, set fonts and spacing,
-   turn Mermaid diagrams on, pick which view Markdown opens in,
+   adjust the Mermaid diagram options, pick which view Markdown opens in,
    customise the toolbar, and map which file types open in DopusWorX.
 
 ## More
@@ -24,5 +24,5 @@
 - [Diagrams](08-mermaid.md) - Mermaid flowcharts, sequence, class, state and more.
 - [CSV grids](05-csv.md) - sorting, editing, filtering, freezing and more.
 - [Context menus](06-context-menus.md) - the right-click menus, by mouse, keyboard or touch, and the Save menu.
-- [Palettes](07-palettes.md) - the built-in palettes and the theme editor.
+- [Palettes](07-palettes.md) - the built-in palettes and the Appearance settings.
 - [Binary inspector](09-binary-inspector.md) - the hex view, the data inspector and the opt-in byte editor.

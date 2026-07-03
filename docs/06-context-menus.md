@@ -13,7 +13,7 @@ The menu is built fresh on every right-click, so it only ever lists actions that
 - The **mode** you are in: Reading, Live, or Source.
 - The **file kind**: a Markdown document, a code or text file, or a CSV / TSV table.
 
-Live, Source, and code Edit are editable surfaces. Reading and code View are read-only, so the editing items (Cut, Paste, Insert image, Find, Replace) are held back there.
+Live, Source, and code Edit are editable surfaces. Reading and code View are read-only, so the editing items (Cut, Paste, Insert, Alignment, Find / Replace) are held back there.
 
 ### Markdown and document views
 
@@ -28,10 +28,14 @@ These are the items you can see, roughly top to bottom. Not all show at once.
   - **Document as Rich text** copies it as formatted rich text, so it pastes with its styling into Word and the like.
   - **Document as Plain text** strips the markup and copies just the words.
 - **Paste.** Editable surfaces only.
-- **Insert image...** Editable Markdown only. It opens the same image dialog as the editing toolbar's image button. It is Markdown-only because it writes a Markdown image line `![alt](path)`, which is inert anywhere else. Code, HTML, CSV and even LaTeX / TeX source editors do not show it: LaTeX is prose-like for maths but uses `\includegraphics`, not Markdown image syntax.
-- **Insert table...** Editable Markdown only. Opens the same table dialog as the editing toolbar's table button (size grid or Cols × Rows, table position, header row and header column).
-- **Find...** and **Replace...** Editable surfaces only. They open the editor's find or find-and-replace bar.
+- **Insert.** Editable Markdown only. A submenu that gathers the things you drop into a document:
+  - **Image...** opens the same image dialog as the editing toolbar's image button. The submenu is Markdown-only because it writes a Markdown image line `![alt](path)`, which is inert anywhere else. Code, HTML, CSV and even LaTeX / TeX source editors do not show it: LaTeX is prose-like for maths but uses `\includegraphics`, not Markdown image syntax.
+  - **Table...** opens the same table dialog as the editing toolbar's table button (size grid or Cols × Rows, table position, header row and header column).
+  - **Table of Contents** drops a contents block at the top of the document, or refreshes the one already there. It sits between two hidden markers and keeps itself in step as you add, remove or rename headings, so it never goes stale. Its title and numbering follow the Table of contents settings (see [03-editing.md](03-editing.md)).
+- **Alignment.** Editable Markdown only. A submenu of **Left**, **Center**, **Right** and **Justify** that aligns the selection, the table under the caret, or the current line. It wraps the block in an alignment container that renders the same in Reading, Live and export. On a table the wrapper moves the table itself, not just the text in its cells, the same as the table directive's `center` and `right` flags (see Table options in [03-editing.md](03-editing.md)). Picking a new alignment replaces the existing one rather than stacking wrappers; picking the block's current alignment again removes it, and **Left** (the default) always removes it - a clean toggle, never a nest.
+- **Find / Replace...** Editable surfaces only. Opens the find panel with the Replace row already showing. In a read-only view use Ctrl+F or the toolbar magnifier instead: find works in every mode, only the menu item is held back.
 - **Go to line...** On any editor surface, including the read-only code View. It opens a small popup; type a line number and press Enter (or click Go) to jump to that line and centre it. Ctrl+G does the same.
+- **Format document.** Code files DopusWorX has a formatter for (JSON today). Pretty-prints the file - the fix for a minified one-line file - as a normal edit: it marks the file dirty and only reaches disk when you save.
 - **Math.** A single submenu that changes with what is under your cursor. It only appears where maths makes sense (a prose-like file with maths switched on, or a rendered equation you have clicked):
   - On plain text or a selection, it offers **Inline math  $...$** and **Block math  $$...$$**, which wrap the selection (or drop an empty equation at the cursor).
   - With the cursor inside an existing `$...$` or `$$...$$` region, it offers the swaps instead: **Convert to inline** / **Convert to block**, and **Convert to LaTeX** / **Convert to AsciiMath** (labelled for whichever the equation is now). A fenced `am` block only offers the LaTeX / AsciiMath swap.
@@ -44,13 +48,13 @@ These are the items you can see, roughly top to bottom. Not all show at once.
 
 #### How the menu shifts by mode
 
-- **Reading** is read-only. No Cut, Paste, Insert image, Find, Replace or Go to line (it has no editor). You still get Copy (with the document-as forms), Copy link / image address on a link or image, Copy equation on a rendered equation, Print / Save as PDF, Select all and Zoom.
-- **Live** and **Source** are editable. The full editing set turns on: Cut (with a selection), Paste, Insert image (Markdown only), Find, Replace, Go to line, and the Math insert / convert actions (prose-like files).
+- **Reading** is read-only. No Cut, Paste, Insert, Alignment or Go to line, and no Find / Replace menu item (find itself still works in Reading from the toolbar or Ctrl+F, searching the rendered page). You still get Copy (with the document-as forms), Copy link / image address on a link or image, Copy equation on a rendered equation, Print / Save as PDF, Select all and Zoom.
+- **Live** and **Source** are editable. The full editing set turns on: Cut (with a selection), Paste, the Insert and Alignment submenus (Markdown only), Find / Replace, Go to line, and the Math insert / convert actions (prose-like files).
 
 #### How it shifts by file kind
 
-- **Markdown** gets the full Copy submenu (Markdown / HTML / Rich text / Plain text, plus Table as CSV when you right-click a table), Insert image, Insert table, the Math actions, and Print / Save as PDF.
-- **Code and text** files get a simpler Copy (**Selection** and **Entire document**), plus Find and Replace when editable, and Go to line in both View and Edit. No Insert image and no Print entry. LaTeX / TeX source counts as prose-like for maths, so it gets the Math actions, but not Insert image (which writes Markdown image syntax).
+- **Markdown** gets the full Copy submenu (Markdown / HTML / Rich text / Plain text, plus Table as CSV when you right-click a table), the Insert submenu (image, table, Table of Contents), the Alignment submenu, the Math actions, and Print / Save as PDF.
+- **Code and text** files get a simpler Copy (**Selection** and **Entire document**), plus Find and Replace when editable, and Go to line in both View and Source. No Insert and no Print entry. LaTeX / TeX source counts as prose-like for maths, so it gets the Math actions, but not Insert image (which writes Markdown image syntax).
 - **CSV / TSV** in the table view gets its own grid actions, below.
 - **Binary files** open in the hex inspector, which carries its own short menu: **Copy** (as hex bytes or as text), **View as text** to leave the inspector for the normal text view, and the usual **Select all** and **Zoom**. Any text or code file also gets a **View as hex** item, to open it in the inspector on demand. See [09-binary-inspector.md](09-binary-inspector.md).
 

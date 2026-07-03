@@ -25,8 +25,8 @@ applies one refinement of its own: if the path ends in `.csv` or `.tsv` it
 rewrites the kind to `csv` so the file opens as the grid rather than as code.
 
 Each kind resolves to a **format module** in the web layer's format registry.
-The registry currently holds four modules: `markdown`, `code`, `html` and
-`csv`. The module decides which view modes the toolbar offers, what their labels
+The registry currently holds five modules: `markdown`, `code`, `html`, `csv` and
+`binary` (the hex inspector). The module decides which view modes the toolbar offers, what their labels
 are, how the read-only view renders, and which editor (if any) the editable
 modes mount. An unknown kind falls back to the Markdown module.
 
@@ -84,10 +84,10 @@ toolbar shows no mode tabs for a code file, just the single Source surface.
 <div align="center"><img src="images/code-view.png" width="640" alt="A Python file in Source view: syntax highlighting, a line-number gutter, and the code-editing toolbar along the bottom"></div>
 
 Source view is a CodeMirror editor with syntax highlighting, a line-number
-gutter (its style is configurable), word wrap, a copy button, colour swatches
-next to colour literals, and a code-theme picker that is independent of the page
-palette. The file is editable and saves through the same dirty / recovery / Save
-pipeline as Markdown.
+gutter (its style is configurable), word wrap, and clickable colour swatches
+next to colour literals. Its colours can follow the Syntax palette chosen in
+Settings, independent of the page palette. The file is editable and saves
+through the same dirty / recovery / Save pipeline as Markdown.
 
 ### Supported languages and extensions
 
@@ -162,7 +162,15 @@ Markdown.
 A large file with almost no line breaks (minified or single-line) is not run
 through the live editor, which would stall on it. It falls back to a static,
 read-only view, shown as raw text with a note that highlighting and editing are
-off.
+off. The note offers two ways out:
+
+- **Format** (for file types DopusWorX can pretty-print - JSON today) adds the
+  line breaks back, turning the one-line blob into a normal readable, highlighted,
+  editable file. It is an ordinary edit: the file is marked dirty and nothing is
+  written to disk until you save. The same action is on the right-click menu as
+  **Format document** for any JSON file, minified or not.
+- **Show anyway** loads the raw text into the editor regardless, if you just need
+  to make a quick change without reformatting.
 
 A file that is binary rather than text opens in the binary inspector: a hex view
 of its bytes with a panel that reads the values under the cursor. DopusWorX
