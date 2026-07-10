@@ -3,7 +3,7 @@
 DopusWorX is file-type aware. When you open a file it works out what kind of
 document it is and picks the right view, so you never land in a mode that makes
 no sense for the content. A code file opens straight into an editable source
-view; a Markdown file opens in Reading mode with Live and Source a click away; a
+view; a Markdown file opens in Reading mode by default (configurable, and DopusWorX can remember the view you last used per file -- see [Which view a file opens in](03-editing.md#which-view-a-file-opens-in)) with Live and Source a click away; a
 CSV opens as a grid; an HTML file renders as a page. This page documents exactly
 which extensions map to which view and how each view behaves.
 
@@ -16,7 +16,7 @@ The native plugin (the part that lives inside Directory Opus) decides a coarse
 extension-first:
 
 - the Markdown extensions become kind `markdown`
-- `.html`, `.htm`, `.xhtml` become kind `html`
+- `.html`, `.htm` become kind `html`; `.xhtml` is also mapped to the `html` kind if it is handled (it is not in the default handled set -- add it as a custom type in the File types panel to activate it)
 - anything else in the handled set becomes kind `code`
 - a file with no extension falls back to `markdown`
 
@@ -40,6 +40,7 @@ they open into.
 | Markdown | `.md` `.markdown` `.mdown` `.mkd` `.mkdn` `.mdwn` |
 | HTML | `.html` `.htm` (the MIME and Source highlighter also recognise `.xhtml`) |
 | CSV / TSV grid | `.csv` `.tsv` |
+| Binary (hex inspector) | `.bin` `.dat` `.exe` `.dll` `.so` `.dylib` `.o` `.obj` `.sys` `.class` `.pyc` `.wasm` `.img` `.iso` `.db` `.ttf` `.otf` |
 | Source code | everything in the language table below, plus `.json` `.xml` `.txt` `.log` |
 
 JSON, XML, plain text and logs are not a separate kind: they resolve to the
@@ -52,7 +53,8 @@ the dedicated grid.
 Extensions: `.md`, `.markdown`, `.mdown`, `.mkd`, `.mkdn`, `.mdwn`.
 
 Markdown is the richest format. The toolbar offers three modes, defaulting to
-Reading:
+Reading (configurable, and DopusWorX can remember the view you last used per file
+-- see [Which view a file opens in](03-editing.md#which-view-a-file-opens-in)):
 
 - **Reading** renders the document fully as read-only HTML. Task-list
   checkboxes are clickable here, and ticking one writes the `[ ]` / `[x]` back
@@ -69,6 +71,17 @@ Rendering runs Markdown through markdown-it with task lists, footnotes,
 definition lists, abbreviations, marks, subscript / superscript, inline and
 display maths (`$...$` / `$$...$$`), and Obsidian-style wikilinks and embeds.
 Output is sanitised with a strict allowlist before it reaches the page.
+
+A YAML frontmatter block at the top of a file (a `---` fence, `key: value` lines,
+closing `---`) is recognised and kept out of the rendered document. Reading hides
+it entirely; Live hides it until you move your cursor into it, when the raw YAML
+returns for editing -- move away and it hides again; Source shows it as written.
+One key is special: `banner:` takes an image path or URL and renders it as a
+banner strip above the first heading in Reading and Live. See
+[Frontmatter and the banner image](03-editing.md#frontmatter-and-the-banner-image)
+for banner height, local path resolution, and the image search tool.
+
+<div align="center"><img src="images/frontmatter-banner.png" width="640" alt="A Markdown file in Reading mode showing a banner image above the first heading, loaded from the path set in the YAML frontmatter block"></div>
 
 Fenced code blocks inside a Markdown document are syntax-highlighted in **every**
 Markdown mode (Reading, Live and Source's preview) using the same highlighter
@@ -91,13 +104,14 @@ through the same dirty / recovery / Save pipeline as Markdown.
 
 ### Supported languages and extensions
 
-DopusWorX highlights around 150 languages. The common ones in the table below are
-built in and highlight instantly; the rest load on demand the first time you open
-a file in that language, so the base viewer stays small. You can also choose the
-grammar for any type yourself with the **Highlight Grammar** column in the File
-types panel, so an extension that isn't listed (or one that means something
-unusual to you) can be highlighted as whichever language you pick. Anything with
-no grammar opens as plain text rather than failing.
+DopusWorX highlights around 150 languages. The languages listed without a footnote
+are built in and highlight instantly; MATLAB/Octave and Mathematica grammars load
+on demand the first time you open such a file. The rest of the on-demand languages
+load the first time you open a file in that language, so the base viewer stays
+small. You can also choose the grammar for any type yourself with the **Highlight
+Grammar** column in the File types panel, so an extension that isn't listed (or
+one that means something unusual to you) can be highlighted as whichever language
+you pick. Anything with no grammar opens as plain text rather than failing.
 
 | Language | Extensions |
 | --- | --- |
@@ -118,11 +132,14 @@ no grammar opens as plain text rather than failing.
 | Dart | `.dart` |
 | PHP | `.php` |
 | R | `.r` |
-| MATLAB / Octave | `.m` |
-| Mathematica | `.nb` `.wl` `.wls` `.m` |
+| MATLAB / Octave | `.m` ¹ |
+| Mathematica | `.nb` `.wl` `.wls` `.m` ¹ |
 | Shell | `.sh` `.bash` `.zsh` |
 | PowerShell | `.ps1` `.psm1` |
 | Batch / CMD | `.bat` `.cmd` |
+| VBScript | `.vbs` |
+| AutoHotkey | `.ahk` |
+| NirCmd | `.ncl` |
 | Lua | `.lua` |
 | Ruby | `.rb` |
 | Perl | `.pl` `.pm` |
@@ -146,6 +163,10 @@ Mathematica package both highlight correctly. In the File types panel `.m` lives
 on the MATLAB / Octave row, and you can pin it to a specific grammar there if you
 only ever use one.
 
+¹ MATLAB/Octave (`.m`) and Mathematica (`.nb`, `.wl`, `.wls`) are not in
+DopusWorX's default claimed set. A user must open Settings > File types and enable
+them (or press **Apply file associations**) before the plugin handles those files.
+
 `.html`, `.htm` and `.xhtml` appear here too because they have a Source editor;
 the difference is that the HTML kind also gives them a rendered View (see below).
 A bare `.html` routed as code (rather than as the HTML kind) still gets HTML
@@ -159,10 +180,10 @@ Markdown.
 
 ### Minified and binary files
 
-A large file with almost no line breaks (minified or single-line) is not run
-through the live editor, which would stall on it. It falls back to a static,
-read-only view, shown as raw text with a note that highlighting and editing are
-off. The note offers two ways out:
+A file containing an extremely long single line (100,000 characters or more --
+typically minified output or single-line JSON) is not run through the live editor,
+which would stall on it. It falls back to a static, read-only view, shown as raw
+text with a note that highlighting and editing are off. The note offers two ways out:
 
 - **Format** (for file types DopusWorX can pretty-print - JSON today) adds the
   line breaks back, turning the one-line blob into a normal readable, highlighted,
@@ -200,24 +221,25 @@ layer).
 HTML files have two modes:
 
 - **View** renders the page in an isolated, sandboxed iframe, so it behaves like
-  its own website with its own CSS and layout, free of the Markdown palette. A
-  saved, unedited file loads the real document through a local virtual host, so
-  its own relative stylesheets, scripts, images and fonts resolve from the
-  file's folder. Unsaved edits render the live buffer with an injected base URL
-  so relative resources still resolve. The rendered markup is sanitised:
-  scripts, iframes, forms, inputs, event handlers and external link / base /
-  meta tags are stripped.
+  its own website with its own CSS, layout, scripts, images and fonts, free of
+  the Markdown palette. A saved, unedited file loads the real document through a
+  local virtual host, so relative stylesheets, scripts, images and fonts resolve
+  from the file's folder. Unsaved edits render the live buffer with an injected
+  base URL so relative resources still resolve. The sandbox runs scripts in an
+  opaque origin with no access to DopusWorX, your profile, cookies or storage,
+  and blocks top navigation, popups and form submission.
 - **Source** is the raw markup in a highlighted, editable editor.
 
 Click Source a second time for a **split**: Source on the left, the rendered
 page on the right. The split preview renders inline rather than through the
 sandboxed iframe, reusing the same divider, drag and scroll-link machinery as
-the Markdown split.
+the Markdown split. The inline renderer sanitises the markup: scripts, iframes,
+forms, inputs, event handlers and external link / base / meta tags are stripped.
 
 <table>
 <tr>
-<td width="50%"><img src="images/html-view.png" alt="HTML rendered view"></td>
-<td width="50%"><img src="images/html-split.png" alt="HTML View / Source split"></td>
+<td width="50%"><img src="images/html-view.png" width="360" alt="An HTML file rendered in View mode: the document displays as its own styled page inside the viewer pane, with full CSS and layout applied"></td>
+<td width="50%"><img src="images/html-split.png" width="360" alt="HTML View / Source split: the raw markup editor on the left and the rendered preview on the right, separated by a draggable divider"></td>
 </tr>
 <tr>
 <td align="center"><b>Rendered view</b></td>
@@ -232,6 +254,10 @@ grammars highlighted. Plain text (`.txt`) and logs (`.log`) open in Source view
 as plain text. None of these have a separate rendered mode; the editable source
 is the view.
 
+A code file saved under a `.txt` wrapper, like `script.js.txt`, is highlighted by
+its inner extension, so code shared as text still reads as code; a plain
+`notes.txt` stays unhighlighted.
+
 YAML, TOML, INI / conf, and every other entry in the language table follow the
 same rule: Source view, highlighted where a grammar exists, editable, no
 rendered mode.
@@ -240,8 +266,10 @@ rendered mode.
 
 Settings has a **File types** tab that controls which types
 DopusWorX handles and how they open. The panel lists one row per supported type
-group (Markdown, HTML, plain text, and every code language), each with three
+group (Markdown, HTML, plain text, Binary, and every code language), each with three
 checkboxes:
+
+<div align="center"><img src="images/file-types-panel.png" width="560" alt="The File types panel: one row per type group with nested Pane, DOpus and Explorer tick columns, a Highlight Grammar dropdown per row, and the Apply file associations button below"></div>
 
 - **Pane** - the type previews in the DopusWorX viewer pane while you browse.
   Double-click is left alone, so a script still runs on double-click. A newly
@@ -259,9 +287,17 @@ checkboxes apply the same rule to a whole column at once.
 Each row also has a **Highlight Grammar** column: a dropdown that sets which
 grammar that type opens with. It defaults to the type's own language and can be
 set to any of the supported languages, so you can open `.tpl` as C++ or pick a
-different grammar for any type. A grammar change is saved with the normal Apply
-(it does not need Apply file associations), and a single "reset all" link puts
-every row back to its default.
+different grammar for any type. The Binary row is an exception -- it shows an
+inert **hex** marker rather than a picker, because binary files have no syntax
+grammar and open directly in the hex inspector. A grammar change is saved with
+the normal Apply (it does not need Apply file associations), and a single "reset
+all" link puts every row back to its default.
+
+The **Binary** group (`.bin`, `.dat`, `.exe`, `.dll`, `.wasm`, `.iso`, fonts, and
+related blob types) defaults to **Pane** only. The preview column is on so
+selecting one of these files shows it in the hex inspector; the DOpus and Explorer
+double-click columns stay off so a `.exe` still runs on double-click in the normal
+way.
 
 ### Custom mappings
 
@@ -303,11 +339,18 @@ restart.
 The handled-extension list lives in `settings.json` under `fileAssociations`. Four
 `;`-separated keys hold the extension lists - `handledExts`, `dblClickOpusExts`,
 `dblClickWinExts` and `customExts` - and a fifth key, `langOverrides`, carries the
-Highlight Grammar mappings. When the four extension-list keys are empty the settings
-panel computes its display with every type ticked through the DOpus tier (enabled
-with DOpus double-click), but the native C++ viewer itself handles Markdown only
-until you press Apply file associations, which writes your real choices into these
-keys.
+Highlight Grammar mappings. When the four extension-list keys are empty the
+settings panel seeds every type with the Pane column ticked. The DOpus column (in-Opus double-click) is also
+ticked by default for every type that cannot execute on double-click -- so scripts
+(`.bat`, `.cmd`, `.ps1`, `.py`, `.rb`, `.pl`, `.js`, `.vbs`, `.ahk`),
+MATLAB/Mathematica files (`.m`, `.nb`, `.wl`, `.wls`), and binary types all
+default to Pane preview only, while document types (Markdown, HTML, CSV, JSON,
+source code) get both Pane and DOpus ticked. Until you press Apply file
+associations, the native C++ viewer falls back to a smaller compiled-in default
+set: most of the Handled extensions table, but none of the Binary types and not
+the rarer source extensions (`.hh`, `.pm`, and the MATLAB/Mathematica group).
+Pressing the button writes your real choices into these keys, and the viewer
+follows them from then on.
 
 ### How the plugin claims types (the GUID claim)
 
@@ -367,3 +410,7 @@ strict UTF-8 decode failed.
 CJK, Arabic, Hebrew and other scripts render correctly throughout. The detected
 encoding is remembered so a save round-trips it, including whether a UTF-8 file
 had a BOM, and **line endings (LF / CRLF) are preserved on save**.
+
+The top toolbar shows the open file's detected encoding and dominant line ending
+(for example, "UTF-8 · LF") for every file type; hovering it shows the full
+detail as a tooltip. The readout updates on each file load.

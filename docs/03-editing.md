@@ -8,11 +8,11 @@ A file opens in one of three modes, picked from the buttons at the left of the t
 
 | Mode | What it is for |
 |---|---|
-| **Reading** | A clean, rendered, read-only view. This is what the document looks like finished. Task checkboxes are still clickable here, and ticking one writes `[ ]` to `[x]` back to the source line. |
-| **Live** | An editor that looks like the rendered output as you type, the way Obsidian's Live Preview works. Click into a line and the raw markdown markers for that line appear so you can change them; click away and the line renders again. |
+| **Reading** | A clean, rendered, read-only view. This is what the document looks like finished. Task checkboxes are still clickable here, and ticking one writes `[ ]` to `[x]` back to the source line - including checkboxes inside table cells and inside blockquotes. **Alt+double-click** any text to drop into Live with the cursor on that word; a plain double-click still just selects. |
+| **Live** | An editor that looks like the rendered output as you type, the way Obsidian's Live Preview works. Click into a line and the raw markdown markers for that line appear so you can change them; click away and the line renders again. Clicking a word inside a rendered block, such as a table cell, a quote or a code line, puts the cursor on that exact word when the block opens for editing, not at the start of the block. Typographic ("curly") apostrophes render in Live exactly as they do in Reading - click into the word and the straight source character comes back under the caret for editing. Task checkboxes are live here too: clicking one toggles the `[ ]` / `[x]` in the source line, including checkboxes in table cells. |
 | **Source** | A plain-text editor showing the raw markdown (or raw code) with syntax highlighting and nothing hidden. The power-user surface. |
 
-Click **Reading**, **Live** or **Source** in the toolbar to switch between the modes. Not every file kind offers all three. Code and text files always open as an editable Source view; markdown gives you all three.
+Click **Reading**, **Live** or **Source** in the toolbar to switch between the modes. Not every file kind offers all three. Code and text files always open as an editable Source view; markdown gives you all three. Switching modes keeps your place: the view stays where you were, and your cursor position and any active selection survive the round trip, even through Reading. If you scroll around while in Reading, your new scroll position is what you come back to, and the cursor restores without jumping the view to it.
 
 ### Which view a file opens in
 
@@ -86,7 +86,10 @@ The common inline wraps also have keyboard shortcuts in markdown Live and Source
 | **Numbered list** | `1. `, `2. `, `3. ` down the selected lines, renumbered in sequence (click again to remove) |
 | **Task list** | `- [ ] ` on each selected line, preserving any indent so it works inside nested lists (click again to remove) |
 
-With the cursor on a list line, **Tab** indents it and **Shift+Tab** outdents it, the same two-space step as the indent buttons below.
+**Tab** indents the current line and **Shift+Tab** outdents it, two spaces at a time. This works on any line in the editor, not just list lines - the same two-space step as the indent buttons below.
+
+The vertical gap between list items is adjustable: **List item spacing** in
+Settings, under Body text, one value that Reading and Live follow identically.
 
 ### Indent
 
@@ -103,6 +106,8 @@ With the cursor on a list line, **Tab** indents it and **Shift+Tab** outdents it
 | **Fenced code block** | a ```` ``` ```` fence around the selection, or an empty fence with the cursor on the body line. The fence always starts and ends on its own line so it parses cleanly. |
 | **Insert image** | opens the image popup (below) |
 | **Insert table** | opens the table size grid (below) |
+
+A `---` on its own line renders as a horizontal rule divider. Its appearance - solid, gradient fade, centre fade, dotted, dashed, double line, or three centred diamonds - is controlled by the **Horizontal rule style** setting in Settings > Appearance > Rules and dividers, along with separate colour and thickness controls. See [07-palettes.md](07-palettes.md) for the full Appearance tab.
 
 ## The code-editing toolbar
 
@@ -150,7 +155,7 @@ For safety, the viewer only ever serves images from folders your open document p
 
 ## Inserting a table
 
-The table button (in the formatting toolbar) opens a small grid. Move the pointer over it to pick the size, up to 8 columns by 8 rows, with the current choice shown as "N × M". Click to drop a markdown table at the cursor: the first row is the header, with the separator row beneath it, and the cursor lands in the first cell ready to fill in. Click outside the popup, or press Escape, to close it without inserting.
+The table button (in the formatting toolbar) opens a small popup. Move the pointer over the grid to pick a size, up to 10 columns by 10 rows, with the current choice shown as "N × M". The **Rows** stepper accepts 1-100 and the **Columns** stepper accepts 1-30, so you can build tables much larger than the grid. The **Position** control (Left / Centre / Right) sets where the table sits on the page; Centre and Right write a `dwx-table` directive above the table (see [Table options](#table-options) below). The **Headers** section has two toggles: **Row** is on by default and renders the first row as a shaded header - uncheck it to render that row as a plain data row instead; **Column** shades the first column like a row-label header. Both use the same `dwx-table` directive as Position. Click to drop a markdown table at the cursor: the cursor lands in the first cell ready to fill in. Click outside the popup, or press Escape, to close it without inserting.
 
 <div align="center"><img src="images/table-insert.png" width="460" alt="The Insert table popup: a hover size grid on the left (a 3 by 3 selection lit), with Rows and Columns steppers, a Position control and Header row / column toggles on the right"></div>
 
@@ -215,22 +220,42 @@ you use it on a table (see [06-context-menus.md](06-context-menus.md)).
 
 Right-click an editable markdown document and choose Insert &rsaquo; Table of Contents to drop a contents list at the top, under a leading H1 title if the document has one, otherwise below any frontmatter. Choose it again to refresh the list.
 
-The block sits between two hidden `<!-- toc -->` markers and keeps itself in step: add, remove, rename or reorder a heading and the list updates on its own, so it never drifts from the document. Each entry links to its heading.
+The block sits between a hidden `<!-- toc -->` marker and its `<!-- /toc -->` closing marker and keeps itself in step: add, remove, rename or reorder a heading and the list updates on its own, so it never drifts from the document. Each entry links to its heading.
 
 Two settings under Settings &rsaquo; Appearance &rsaquo; Table of contents set the look, and both update an existing TOC in place:
 
 - **List style**: Numbered (1. 2. 3.) or Bulleted.
 - **Title style**: No title, Classic (bold with a rule), Styled (small caps with a top rule), Accented (an accent bar) or Coloured (an accent banner).
 
+Only real document headings appear in the list. A heading written inside a blockquote (`> ## Heading`), a table cell, or a fenced code block is not counted as document structure and stays out of the contents.
+
 ## Frontmatter and the banner image
 
 A markdown file can open with a YAML frontmatter block: a `---` fence, some `key: value` lines, then a closing `---`, before any content. DopusWorX recognises it and keeps it out of the rendered document, rather than showing the `---` as a horizontal rule and the keys as stray text.
 
 - **Reading** hides the block.
-- **Live** hides it too, until you put the cursor in it, when the raw YAML comes back for editing (the same cursor-on-line behaviour as fenced code and maths). Move away and it hides again.
+- **Live** shows the block as faint, dimmed YAML you can click into and edit directly - unless the file has a `banner:` key, in which case the banner image stands in for the block until you click it (see below).
 - **Source** shows the frontmatter as written.
 
 One key is special: **`banner:`** takes an image path or URL and renders that image as a banner strip across the top of the document, above the first heading, in Reading and Live. It resolves local paths the same way inline images do (see [How local images are found](#how-local-images-are-found)).
+
+The banner shows in Live from the moment the file opens; it stays up until you click it, when the raw frontmatter comes back so you can edit the `banner:` line. Move the cursor out of the frontmatter and the banner renders again. Its left and right edges fade evenly into the page so it melts into the document.
+
+Set its height with **Banner height** in Settings, under Content &rsaquo; Images. Leave it empty for the default, which scales with the pane width. Two further keys control geometry per file: `banner_y: N` (an integer from 0 to 100, where 0 anchors the crop to the top of the image and 100 to the bottom; bare integers and the `%` suffix both work) and `banner_height: Npx` (a pixel value from 24 to 2000 that overrides the global Settings height for this document only). Omit either key to get the defaults.
+
+### Set banner image
+
+You do not have to find a picture by hand. Right-click a markdown document and choose **Set banner image** to open a search box: type what you want, press Enter, and click a result to open a position preview: the image appears as a banner strip. Drag it up or down to choose the vertical crop, then click **Set banner** to write the frontmatter. Nothing is written until you click Set. If the document already has a banner, reopening the picker seeds the preview from its current position so you can adjust the crop without re-searching.
+
+<div align="center"><img src="images/banner-picker.png" width="460" alt="The banner image picker showing a search result selected and the position preview strip, with the drag-to-reposition hint and per-file height field below it"></div>
+
+By default it searches [Wikimedia Commons](https://commons.wikimedia.org), the largest free image library, so it works with no setup. If Commons is unreachable it falls back to [Openverse](https://openverse.org) automatically. To search Unsplash instead, paste your own free Unsplash Access Key into **Unsplash Access Key** in Settings, under Images (register a free application at unsplash.com/developers). You can also add a free Openverse API key in the same section to lift Openverse's anonymous rate limit. Repeated searches are remembered, so trying the same word again is instant and does not count against any limit.
+
+If the first page of results is not quite what you want, click **More results** to load the next page (20 results per page). The button hides itself once the provider is exhausted.
+
+The preview also shows a **This file's banner height** field. Type a pixel value (24-2000) to override the global Settings height for this file only; leave it blank to use the global setting. Set writes it as `banner_height: Npx` frontmatter. Clearing the field and clicking Set removes the override, restoring the global height.
+
+The picked image is a web URL, so it needs a connection to load the first time; if a search comes back empty, wait a moment and try again.
 
 ## Wikilinks and embeds
 
@@ -261,7 +286,7 @@ In Source mode you write footnotes by hand as plain markdown: a `[^id]` marker i
 
 The magnifier button on the top toolbar, or **Ctrl+F**, opens the find and replace panel. Find works in every mode: in Live and Source it searches the editor, and in Reading it searches the rendered page, with the count showing your position ("2 / 5"). Replace needs an editor, so the Replace row is available in Live and Source only. (In code Source mode, the code toolbar's Find button opens the editor's own search instead.)
 
-<div align="center"><img src="images/find-replace-panel.png" width="560" alt="The find and replace panel: Find and Replace fields, a live match count, the case, whole-word and regex toggles, and the previous/next arrows"></div>
+<div align="center"><img src="images/find-replace-panel.png" width="478" alt="The find and replace panel: Find and Replace fields, a live match count, the case, whole-word and regex toggles, and the previous/next arrows"></div>
 
 - Type in the **Find** field. The match count shows beside it live ("3 matches", "no matches", or "bad regex" if a regular expression will not compile). If you had a single line selected when you opened the panel, it seeds the Find field for you.
 - **Enter** jumps to the next match and **Shift+Enter** to the previous, the same as the **‹** and **›** arrows. Each match is scrolled to the centre of the view so it is always in sight.
@@ -274,9 +299,21 @@ The magnifier button on the top toolbar, or **Ctrl+F**, opens the find and repla
 
 Click the close control (or press Esc) to dismiss the panel; the match highlights clear with it. On a narrow pane the panel's controls wrap onto a second line so it always fits.
 
+## Spell check
+
+Turn on **Spell check while editing** in Settings, under File reading & saving (with the dictionary picker just below it), and misspelled words get a wavy red underline in the Live and Source editors of markdown documents. Reading mode is left clean. Code, inline code, links and URLs are skipped, so a filename or a URL is never flagged, and so are all-capitals words and camelCase identifiers.
+
+Right-click an underlined word for a short list of suggestions at the top of the menu; click one to replace the word.
+
+### Dictionaries
+
+The **Dictionaries** picker (next to the spell-check toggle) chooses which languages to check against. English (US) is built in and works offline straight away. Open the dropdown to add more: English (UK), Australian and Canadian English, the German family including Austrian, Swiss and Low German (with compound words handled properly), and the major European languages plus Greek, Turkish, Hebrew, Korean and others - over fifty in all.
+
+Each added dictionary downloads once, a few hundred kilobytes, and is then cached so it works offline from then on. A pill shows "downloading" while it fetches and turns into a plain chip when it is ready. Add as many as you like and they are all used together, so a note that mixes languages is checked against every one - a word is treated as correct if any of your dictionaries knows it. Remove one with the × on its chip.
+
 ## Go to line
 
-Press **Ctrl+G** in any editor surface - markdown Live or Source, and code files in View or Source - to open the Go to line popup. It opens seeded with the current line; type a line number (within the document's length) and press Enter, or click Go, to jump to that line and centre it. The same action is on the right-click menu as Go to line. (In the [binary inspector](09-binary-inspector.md), Ctrl+G jumps to a byte offset instead.)
+Press **Ctrl+G** in any editor surface - markdown Live or Source, and code files in Source - to open the Go to line popup. It opens seeded with the current line; type a line number (within the document's length) and press Enter, or click Go, to jump to that line and centre it. The right-click menu also offers Go to line, in Source view only, where lines are the visible unit; Live renders blocks, so a line number means nothing there and the menu leaves it out. (In the [binary inspector](09-binary-inspector.md), Ctrl+G jumps to a byte offset instead.)
 
 ## Saving
 
@@ -300,6 +337,8 @@ Ctrl+R or F5 reloads the file from disk, in any mode, not just Reading. If you h
 
 ### If the file changes underneath you
 
+<div align="center"><img src="images/conflict-banner.png" width="640" alt="The frosted conflict banner overlaying the document, showing the 'Edits here and a change outside' message with Keep my edits and Discard and reload buttons"></div>
+
 Your unsaved work is never silently dropped. Whenever two versions of a file are in play, a banner appears and stays until you choose. The message and buttons fit the case:
 
 - **Unsaved edits from last time.** Reopen a file you edited without saving and the banner offers **Keep my edits** (carry on where you left off), **Save a copy & reload** (write your edits to a timestamped copy beside the file, then load the disk version) or **Discard and reload**.
@@ -307,6 +346,8 @@ Your unsaved work is never silently dropped. Whenever two versions of a file are
 - **Edits here and a change outside.** If you have unsaved edits and the file also changed on disk or in another window, **Keep my edits** keeps your version and makes your next save win; **Discard and reload** takes the disk version.
 - **A save lost the race.** If a save finds the disk copy changed first, **Keep my edits** saves your version over it; **Discard and reload** takes the disk version.
 - **No local edits, new content elsewhere.** If your copy is clean and the file changed on disk or was saved by another window, the banner asks whether to **Reload** or **Keep current view**.
+
+This prompt is controlled by **Ask before reloading external changes** in Settings, under File reading &amp; saving (on by default). Turn it off and a clean file reloads straight away with a brief notice instead of a banner - useful for logs or generated files that update on their own. Unsaved edits always prompt regardless of this setting.
 
 Every Keep or Discard shows a brief toast with an **Undo** button that brings the banner back so you can choose again.
 
@@ -318,6 +359,8 @@ If you would rather never see the reopen banner, turn on **Always reload externa
 
 The undo and redo buttons on the top toolbar step through your edit history. **Hold** either button for about half a second to open a list of recent states. Each entry leads with what the step did and a quoted snippet of the text it touched - Cut "Some words…", Paste "the new paragraph…" - plus how much the document grew or shrank (+120, −45) and how long ago. Click an entry to jump straight back to that state instead of stepping one edit at a time. The list keeps up to 40 recent states per file.
 
+<div align="center"><img src="images/undo-history.png" width="460" alt="Holding the undo button opens a history of checkpoints, each named with its action, a quoted snippet, a size delta and an age"></div>
+
 ### Live word count
 
 A small pill under the top toolbar shows the document's word, character and line counts as you type. Select text and it switches to the selection's character and word count, with the full document figures in the tooltip. Turn **Show document stats** off in Settings, under Toolbars, to hide it.
@@ -325,6 +368,10 @@ A small pill under the top toolbar shows the document's word, character and line
 ### Auto-hiding toolbars
 
 Each toolbar can either stay put or slide out of the way. The pushpin on the corner of a toolbar toggles it: pinned means always visible, unpinned means auto-hide. When a bar is hidden, move the pointer to the edge where it lives and it slides back in. The choice is saved and applies to every open pane. The same pair of choices lives in Settings, under Toolbars, as **Top toolbar display** and **Edit toolbar display**.
+
+### Toolbar colours
+
+The **Toolbar colours & opacity** section of the Toolbars tab recolours both toolbar pills: background, text and icons, border, and the resting opacity (they always sharpen to fully opaque under the pointer). Leave a field empty to keep the active palette's own toolbar chrome. Whatever background you pick, the selected mode tab and hover feedback adjust automatically to stay readable - on a bright bar the active tab becomes a dark pill with the bar's colour for its label, and the reverse on a dark bar. A **Reset all** link on the section heading clears all four fields back to the palette defaults in one click.
 
 ### Zoom
 
@@ -341,13 +388,46 @@ Two settings control how long lines of code behave, separately for the two surfa
 
 In Source and code editing the line your cursor is on lifts slightly toward you, so it is easy to see where you are working. It is on by default; turn **Magnify active row** off in Settings, under Code & source files, for a flat view. It does not apply in Live mode. A related toggle in the same section, **Highlight active row** (also on by default), tints the current line and its line number together as one accent band.
 
+### Keyboard shortcut guide
+
+Press **F1** at any time to open a full reference of every keyboard shortcut, grouped by task with keycap styling. In Reading mode **?** also opens it. Close it with Escape, F1 again, or a click outside the panel. The guide lists only shortcuts that are actually bound, so every entry works. It is also reachable from the right-click menu under **Keyboard shortcuts**.
+
 ### Formatting characters and whitespace
 
-Source view marks spaces with faint dots and tabs with arrows out of the box; **Show whitespace dots in Source** (Settings, under Code & source files) turns that off. **Show formatting characters** (Settings, under Markdown rendering) goes further: it adds a line-ending badge (LF or CRLF) to each line and shows the whitespace marks in Live mode too, not just Source.
+Source view marks spaces with faint dots and tabs with arrows out of the box. The opacity of these marks is adjustable: **Whitespace dot opacity** (Settings, under Code & source files, next to the show/hide toggle) lets you dial them from barely visible to fully solid, applied live. **Show whitespace dots in Source** turns the marks off entirely. **Show formatting characters** (Settings, under Markdown rendering) goes further: it adds a line-ending badge (LF or CRLF) to each line and shows the whitespace marks in Live mode too, not just Source.
 
 ### Single newlines as line breaks
 
-Standard markdown joins lines separated by a single newline into one paragraph. If you want a newline in the source to be a visible line break in Reading and Live (the way chat apps and some note tools treat it), turn on **Render single newlines as line breaks** in Settings, under Markdown rendering.
+Standard markdown joins lines separated by a single newline into one paragraph, and both views honour that. With the setting **off** (the default), a hard-wrapped paragraph flows to the pane width in Reading *and* in Live - Live renders each interior newline as a space, so three short source lines read as one flowing paragraph, exactly as Reading shows them. Switch to Source to see (or edit) the raw line breaks.
+
+If you want a newline in the source to be a visible line break instead (the way chat apps and some note tools treat it), turn on **Render single newlines as line breaks** in Settings, under Markdown rendering. Every line you type then stays on its own line in Reading and Live alike, and the caret, cut and paste all work line by line, matching the source exactly.
+
+To force a line break within a paragraph while the setting is off, end the line with two spaces or a backslash (a markdown hard break), or leave a blank line to start a new paragraph.
+
+### Selection match highlighting
+
+Select two or more characters and every other occurrence of that text is softly tinted in all three modes - Reading, Live and Source - so you can see where a word or phrase appears without running a search. The highlight is capped at 100 matches so large documents are not washed out. Turn it on or off with **Highlight matching text** in Settings, under Markdown rendering (on by default).
+
+### Ctrl+click to open a URL
+
+In a Source editor (markdown Source or code Source), hold **Ctrl** (Cmd on Mac) and click a web address to open it in your browser. A plain click still places the cursor. Only `http` and `https` addresses open; `file://` links stay blocked.
+
+### Scroll position memory
+
+Within a session, DopusWorX remembers where you were scrolled in each file and puts you back there when you return to it.
+
+### Gutter line selection
+
+Click a line number to select that whole line; drag or **Shift+click** to extend the selection; **Ctrl+click** (Cmd on Mac) to add or remove individual lines for simultaneous multi-line edits. **Delete** removes the selected lines. This works in every editor that shows line numbers.
+
+### Code and source appearance settings
+
+Several appearance options for Source editors and rendered code blocks live in Settings, under Code &amp; source files and Settings > Appearance.
+
+- **Tab width** (Code &amp; source files): how many columns a tab character occupies in Source and code editors. Accepts 1-8, default 4.
+- **Line-number gutter** (Code &amp; source files): Off (no line numbers), Plain (neutral gutter), Accent bar (coloured bar on the left edge over a light tint), or Filled accent (accent colour fills the gutter column with numbers on top).
+- **Source editor** (Appearance): five optional overrides - Source font (falls back to the Code font if empty), Source font size in px (falls back to the Code font size if empty), Source line height as a multiplier (falls back to the Code line height if empty), Source text colour (follows the active palette if empty; syntax tokens keep their own colours), and Source line-highlight colour (follows the UI accent or syntax palette if empty). Setting any field overrides only that property.
+- **Code blocks** (Appearance): four optional fields that govern rendered code blocks in markdown - Code font, Code font weight, Code font size, and Code line height. Empty fields follow the palette or body defaults.
 
 ## Keyboard shortcuts
 
@@ -365,5 +445,13 @@ Standard markdown joins lines separated by a single newline into one paragraph. 
 | **Ctrl+P** | Print / Save as PDF |
 | **Ctrl+B / Ctrl+I** | Bold / italic (markdown Live and Source) |
 | **Ctrl+Shift+C / Ctrl+Shift+X** | Inline code / strikethrough (markdown Live and Source) |
-| **Tab / Shift+Tab** | Indent / outdent the current list line |
+| **Ctrl+Shift+I** | Insert image (markdown Live and Source) |
+| **Ctrl+Shift+T** | Insert table (markdown Live and Source) |
+| **Ctrl+Shift+M** | Math symbol panel (markdown Live and Source) |
+| **Ctrl+Z** | Undo (all editor surfaces) |
+| **Ctrl+Y / Ctrl+Shift+Z** | Redo (all editor surfaces) |
+| **Tab / Shift+Tab** | Indent / outdent the current line (any editor line, not just list lines) |
+| **Ctrl+Alt+Left / Ctrl+Alt+Right** | Back / forward through the files this viewer has shown (mouse back/forward buttons work too) |
+| **F11** | Toggle full screen (standalone viewer window) |
+| **F1** | Open the keyboard shortcut guide (any mode; `?` also works in Reading) |
 | **Ctrl+mouse wheel** | Zoom |

@@ -55,7 +55,7 @@ Most people can leave it on **Auto-render**. The two fixed modes are there if yo
 
 ### How Auto-render decides
 
-In Auto-render mode DopusWorX looks at each equation on its own. If it contains a backslash command (`\frac`, `\alpha`, a multi-letter `\name`), or a braced sup/subscript group, it is treated as LaTeX. Otherwise it is read as AsciiMath. This mirrors the same rule the Obsidian AsciiMath plugin uses, so notes written for that plugin behave the same way here.
+In Auto-render mode DopusWorX looks at each equation on its own. If it contains a backslash command (`\frac`, `\alpha`, a multi-letter `\name`), or a braced group after a non-subscript operator (such as `x^{2}`) -- note that a braced subscript on its own like `x_{10}` is deliberately excluded and still reads as AsciiMath -- it is treated as LaTeX. Otherwise it is read as AsciiMath. This mirrors the same rule the Obsidian AsciiMath plugin uses, so notes written for that plugin behave the same way here.
 
 Two finer points:
 
@@ -99,9 +99,9 @@ Where they work:
 
 ## The symbol panel
 
-Click the **&Sigma;** button on the editing toolbar to open a small floating panel, so you do not have to memorise anything. The button only appears once maths is switched on, and the panel floats inside the viewer pane rather than opening a separate window.
+Click the **&Sigma;** button on the editing toolbar, or press **Ctrl+Shift+M**, to open a small floating panel, so you do not have to memorise anything. The button only appears once maths is switched on, and the panel floats inside the viewer pane rather than opening a separate window.
 
-<div align="center"><img src="images/maths-panel.png" width="640" alt="The maths symbol panel: category tabs, a grid of symbols, the inline and display equation buttons, a styles row, and the live preview surface with a Preview toggle"></div>
+<div align="center"><img src="images/maths-panel.png" width="640" alt="The restyled maths symbol panel: category tabs above a scrollable symbol grid, the inline and display equation buttons, a scrolling styles strip with dividers, and the live preview surface with Live and Source buttons"></div>
 
 Everything you click goes into the editor you are working in (Live or Source).
 
@@ -120,7 +120,7 @@ The panel groups symbols into tabs. Click a tab, then click a symbol to drop it 
 
 ### It matches your style
 
-The same button knows both spellings. The **α** button types `\alpha` when you are writing LaTeX and `alpha` when you are writing AsciiMath, so whatever it inserts always fits the note. Templates work the same way: the fraction button drops `\frac{}{}` in LaTeX or `()/()` in AsciiMath, with the cursor parked in the first slot.
+The same button knows both spellings. The **α** button types `\alpha` when your Maths syntax setting is LaTeX or Auto-render, and `alpha` when it is AsciiMath. Templates work the same way: the fraction button drops `\frac{}{}` in LaTeX and Auto-render, or `()/()` in AsciiMath, with the cursor parked in the first slot. In Auto-render the LaTeX form is inserted, which the renderer handles correctly.
 
 Where a symbol has no clean AsciiMath spelling, the panel falls back to AsciiMath's raw-LaTeX escape (`tex"\cmd"`), which still renders correctly.
 
@@ -129,7 +129,7 @@ Where a symbol has no clean AsciiMath spelling, the panel falls back to AsciiMat
 Two buttons start or wrap an equation:
 
 - **`$x$`** for inline. With text selected, it wraps the selection in single dollars. With nothing selected, it drops an empty inline equation with the cursor ready inside.
-- **`$$x$$`** for display. Same idea, but a block on its own line(s). If your cursor is already sitting in an inline equation, this button promotes it to display in place (and the inline button demotes it back).
+- **`$$x$$`** for display. Same idea, but a block on its own line(s). If your cursor is already sitting in an inline equation, this button promotes it to display in place. To convert a display equation back to inline, use the right-click Math submenu (see [Context menus](06-context-menus.md)).
 
 ### Styles and accents row
 
@@ -142,23 +142,25 @@ The bottom of the panel is a preview surface with two modes, switched by the **L
 - **Live** is a WYSIWYG editor (built on MathLive, the Word-style equation editor). It shows the equation your cursor is in as it will actually look, with placeholder boxes you click to fill. Type or click symbols and the underlying note updates as you go. It edits in LaTeX under the hood, so it understands your custom macros and the built-in `\sfrac` / `\nicefrac` too.
 - **Source** shows the equation's raw text in a plain box. Edit it there and the note updates live. Click an empty `{}`, `()` or `[]` box to fill a template slot.
 
-A fenced `am` block is edited in **Source** (the Live editor is LaTeX-only, so it hands AsciiMath blocks over to Source).
+A fenced `am` block is edited in **Source**: the Live editor is LaTeX-only, so for an `am` block it shows a note asking you to switch to Source, and you click **Source** to do so.
 
 The **Preview** checkbox at the very bottom shows or hides this surface. With it off, the symbol and template buttons above still work, inserting straight at your cursor in the note; you just lose the preview.
-
-### The convert button
-
-The convert action rewrites the equation your cursor is in from one style to the other, **in place**, keeping the surrounding `$...$` or `$$...$$` (or the `am` fence). AsciiMath becomes LaTeX, LaTeX becomes AsciiMath. It is meant for readable, re-editable output rather than a guaranteed round-trip, and it tells you what it did (or why it could not) in the panel.
 
 ### Memory and dismissing
 
 The panel remembers, per note, whether it was open and which category tab you had selected, so reopening a note picks up where you left off. Click the **×**, or click away into plain prose, to close it.
+
+## Converting between styles
+
+Right-click on an equation and choose **Math &rarr; Convert to LaTeX** or **Math &rarr; Convert to AsciiMath** to rewrite it from one style to the other, in place, keeping the surrounding `$...$` or `$$...$$` (or the `am` fence). It is intended for readable, re-editable output rather than a guaranteed round-trip. For full details see [Context menus](06-context-menus.md).
 
 ## Editing equations in the note
 
 Equations are drawn both when you are reading a note and while you are editing it.
 
 In the editor, click into a rendered equation and its plain text comes back so you can change it. Click away and it is drawn again. If you have used Obsidian's live preview, this is the same behaviour.
+
+In Source view, when Render maths is on, the equation source is coloured to help you read it: delimiters (`$`, `$$`) take the palette accent colour, LaTeX commands (`\frac`, `\sum` and so on) take the syntax keyword colour, and the equation body gets a faint accent-tinted background. Toggling Render maths off removes all of that colouring instantly.
 
 ## Maths fonts
 
@@ -178,7 +180,7 @@ DopusWorX can draw maths with either of two engines, and KaTeX is the default. T
 | **KaTeX** (default) | HTML and CSS with its own bundled fonts. Renders big operators (sums, integrals) reliably regardless of the system's MathML quality, which is why it is the default. |
 | **Temml** | Converts LaTeX to MathML and lets the browser lay it out. Lighter, ships no fonts of its own, and is the engine the maths-font options use. |
 
-The `mathRenderer` key also accepts an `off` value, which leaves the literal `$...$` source untouched (the same as turning Render maths off).
+The `mathRenderer` key accepts `katex` or `temml`. To leave equations as literal source rather than rendering them, turn Render maths off instead.
 
 Whichever engine draws, AsciiMath is quietly converted to LaTeX first, so the two input styles always end up looking the same. The style you pick is about how you *type*, not how the result *looks*.
 
@@ -187,7 +189,7 @@ Whichever engine draws, AsciiMath is quietly converted to LaTeX first, so the tw
 If you keep reaching for the same shorthand, define it once. DopusWorX accepts LaTeX `\newcommand`, `\renewcommand`, `\providecommand` and `\def` definitions in two places:
 
 - **mathMacros** in Settings: paste your definitions straight in, one per line.
-- **mathMacrosFile**: point at a file the native side reads in, if you would rather keep them out of the settings.
+- **Macros file**: Browse to a `.tex`, `.txt` or `.sty` file and its definitions are loaded into the box above, where you can edit them. If you change the file later, Browse to it again to refresh.
 
 For example:
 
@@ -218,6 +220,9 @@ DopusWorX never silently drops an equation. You always get either the maths or a
 
 - **It still looks like `$...$` text.** You have turned Render maths off, you are missing the closing `$`, or the maths engine could not load. In each case DopusWorX keeps your source rather than leave a gap.
 - **The source comes out red, with a small note underneath.** DopusWorX could not make sense of that equation, so it leaves the text you typed in place, shown in red, and puts a short plain-language note underneath saying what went wrong (an unknown command, an unmatched brace, two superscripts in a row, and so on) instead of raw engine jargon. The note stays readable on any theme. Hover it to see the engine's own message in full.
+
+<div align="center"><img src="images/maths-error.png" width="520" alt="A malformed equation keeps its typed source, shown in red, with a short plain-language note underneath explaining what went wrong"></div>
+
 - **It drew, but looks wrong.** Usually you are in the wrong style, or you hit an in-between case. The classic one is `$1/2$` stacking when you wanted a slash: type `$1//2$`, or use `\frac` / `\sfrac` to pick the exact shape.
 
 ## A little about what happens behind the scenes

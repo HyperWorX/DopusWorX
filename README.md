@@ -6,7 +6,7 @@
 
 Markdown, maths, diagrams, code, CSV, HTML and binary files, rendered and editable right in the Opus viewer pane.
 
-![DopusWorX in action](img/hero.gif)
+![DopusWorX in action](img/hero-anim.gif)
 
 Windows x64 &nbsp;·&nbsp; needs the Microsoft Edge WebView2 runtime &nbsp;·&nbsp; proprietary, © 2026 HyperWorX
 
@@ -35,8 +35,9 @@ If DopusWorX brings value to your day and you appreciate the work behind it, you
 ## What it is
 
 A native Directory Opus viewer plugin: a Windows DLL that renders documents in
-the Opus viewer pane and the pop-out viewer window. It is not a separate app. It
-loads inside Opus and uses the Microsoft Edge WebView2 runtime to draw itself.
+the Opus viewer pane, the pop-out viewer window, and QuickShow popups. It is not
+a separate app. It loads inside Opus and uses the Microsoft Edge WebView2 runtime
+to draw itself.
 
 It is **file-type aware**: open a file and DopusWorX picks the right view for it.
 
@@ -85,16 +86,28 @@ scrolling.
 <div align="center"><img src="img/source-split.png" width="640" alt="The split view: raw Markdown source on the left, the live preview on the right, with a draggable divider between them"></div>
 
 A full formatting toolbar sits underneath: bold, italic, strikethrough,
-highlight, inline code, links, footnotes, a heading button that cycles H1 to H6,
+highlight, inline code, links, footnotes, clear formatting, a heading button that cycles H1 to H6,
 bulleted, numbered and task lists, indent and outdent, blockquotes, fenced code,
 image insert, and a table insert with a size grid. Find and replace handles case,
 whole word and regex, and Ctrl+G jumps to a line. There is
 undo and redo with a history dropdown, and a live word, character and line count.
 
+Insert a Table of Contents that keeps itself up to date as you edit (list style and title style are configurable in Settings), and fold whole heading sections away with the fold glyph in the margin.
+
+Spell check underlines misspellings as you type in Live and Source, skipping code, links and URLs; English (US) is built in and more than fifty other dictionaries download once and are cached offline.
+
 A right-click menu is there throughout, and you do not need a mouse for it: open
 it from the keyboard and the arrows move, Home and End jump, Enter or Space
-activate, and Escape closes; on a touchscreen a press and hold opens it. See
+activate, and Escape closes; on a touchscreen a press and hold opens it. Press F1
+anywhere (or ? in Reading) for a pop-up guide to every keyboard shortcut; it is
+also in the right-click menu. Markdown documents (and CSV tables) can be printed
+or saved as a PDF of the whole rendered document, colours and all, from the
+right-click menu. The Print option is also in the Save menu for every file type.
+Ctrl+P works from anywhere in the viewer. See
 [`docs/06-context-menus.md`](docs/06-context-menus.md) for the full set.
+
+The viewer keeps a back/forward history of the files it has shown -- step through
+it with the mouse back and forward buttons or Ctrl+Alt+Left/Right, browser-style.
 
 ## Maths
 
@@ -103,8 +116,8 @@ activate, and Escape closes; on a touchscreen a press and hold opens it. See
 - **Auto-render** reads each equation on its own and works out which style you
   used, so you can mix the two in one note and not think about it.
 - The **symbol panel (Σ)** lets you browse symbols by category and drop them in.
-  It inserts in whichever style you are writing, so the same button types
-  `\alpha` in LaTeX and `alpha` in AsciiMath.
+  It inserts to match your Maths syntax setting: `\alpha` in LaTeX and
+  Auto-render, `alpha` in AsciiMath.
 - Click into a rendered equation and the source comes back; click away and it
   redraws. A live preview shows the equation under your cursor, and a convert
   button rewrites it from one style to the other in place.
@@ -122,7 +135,7 @@ notes stay quick. See [`docs/04-maths.md`](docs/04-maths.md) for the full guide.
 ## Diagrams
 
 Turn a fenced ```` ```mermaid ```` block into a flowchart, sequence, class, state,
-ER, pie or Gantt diagram, drawn from plain text with [Mermaid](https://mermaid.js.org/).
+ER, pie, Gantt or any other Mermaid diagram type, drawn from plain text with [Mermaid](https://mermaid.js.org/).
 On by default; the ~3 MB engine loads only on a note that actually contains a
 diagram.
 
@@ -168,6 +181,11 @@ code, since there is nothing to render).
 - Colour values get a swatch and a colour picker, and diff and patch files colour
   their added and removed lines.
 
+Code files are fully editable, with a code-editing toolbar: toggle comments in
+the file's own comment style, duplicate a line, move lines up or down, and indent
+or outdent. Click or drag line numbers to select whole lines, and Ctrl-click to
+build a multi-cursor selection.
+
 Fenced code blocks inside a Markdown document are highlighted in every Markdown
 mode.
 
@@ -187,8 +205,10 @@ forced open with View as hex from the right-click menu. See
 ## CSV and tables
 
 CSV and TSV open as an editable grid: click a header to sort, double-click a cell
-to edit, add or delete rows with undo and redo, filter, freeze the first column,
-override the delimiter, and copy the whole thing out as a Markdown table.
+to edit, add or delete rows and columns with undo and redo, select and paste
+blocks of cells, filter, freeze the first column, override the delimiter, and copy
+the whole thing out as a Markdown table. Column widths, delimiter and zoom are
+remembered per file, and an untouched file saves back byte-for-byte identical.
 
 <div align="center"><img src="img/csv-grid.png" width="640" alt="A CSV open as an editable grid: World Cup results by team across the years"></div>
 
@@ -237,6 +257,23 @@ Obsidian-style linking and embeds work too:
   This works inside table cells too, with the plain pipe and no escaping, e.g.
   `| ![logo|72|center](path) |`.
 
+## Frontmatter and the banner image
+
+Add a `banner:` line to the YAML frontmatter at the top of any note and
+DopusWorX renders that image as a full-width strip across the top of the
+document. In Reading mode the frontmatter block is hidden entirely; in Live mode
+it shows as the banner image from the moment the file opens -- click it and the
+raw YAML comes back for editing, move away and the banner renders again.
+
+<div align="center"><img src="img/frontmatter-banner.png" width="640" alt="A note open in Live mode with a landscape banner image rendered across the top of the document, replacing the frontmatter block"></div>
+
+Right-click any markdown document and choose **Set banner image** to search for a
+picture without leaving the app: type a word, press Enter, and click a result. In
+the picker, drag the preview strip up or down to choose the vertical crop and set
+a pixel height for this file alone, then click **Set**. DopusWorX writes the
+`banner:`, `banner_y:` and `banner_height:` frontmatter for you. The global
+banner height is set in Settings under Content › Images.
+
 ## Customise it to your liking
 
 The Settings dialog is organised into clear tabs, **Appearance**, **Content**,
@@ -259,6 +296,10 @@ Diagrams, then Maths. Among the things you can change:
   search folders, auto-save, separate left and right page margins, gutters,
   formatting marks, and the full type and colour controls behind the palettes.
 
+Zoom any view from 50% to 300% with Ctrl and the scroll wheel or a trackpad
+pinch (or the right-click Zoom submenu); each view keeps its own level and the
+toolbars stay put.
+
 ## Robust and secure
 
 A viewer that edits your files has to be careful with them, and a lot of the work
@@ -279,8 +320,11 @@ here went into exactly that.
   redirect against an anchored allowlist of the real release hosts (so a
   look-alike domain gets nowhere), and refuses to install anything whose SHA256
   does not match the published hash.
-- **Tidy on your system.** The viewer DLL writes no registry keys of its own; its
-  settings, themes and cache all live under your profile.
+- **Tidy on your system.** The viewer DLL writes a single HKCU registry value
+  (LastPaneBg under `HKCU\Software\HyperWorX\DopusWorX`) to remember the
+  Directory Opus pane background colour across restarts; beyond that it writes
+  nothing to the registry. Its settings, themes and cache all live under your
+  profile.
 
 ## Staying up to date
 
@@ -299,7 +343,7 @@ For more detail than this page covers:
 - [Diagrams](docs/08-mermaid.md) - Mermaid flowcharts, sequence, class, state and more, plus the diagram settings.
 - [CSV grids](docs/05-csv.md) - sorting, in-cell editing, filtering, freezing, delimiters and more.
 - [Context menus](docs/06-context-menus.md) - the right-click menus, driven by keyboard or touch as well as mouse, and the Save menu.
-- [Palettes](docs/07-palettes.md) - every built-in palette and the theme editor.
+- [Palettes](docs/07-palettes.md) - every built-in palette and the Appearance settings.
 - [Binary inspector](docs/09-binary-inspector.md) - the hex view, the data inspector and the opt-in byte editor.
 
 ## Installation
@@ -314,7 +358,7 @@ For more detail than this page covers:
 For an unattended or scripted update, `Install.cmd /silent` (and `Uninstall.cmd
 /silent`, or the `/quiet` alias) run with no prompts.
 
-**Requirements:** Windows x64, Directory Opus 12 or later, and the Microsoft Edge
+**Requirements:** Windows x64, Directory Opus 13 or later, and the Microsoft Edge
 WebView2 runtime. WebView2 is already on most up-to-date Windows installs; if it
 is missing, DopusWorX shows a download link in the pane.
 

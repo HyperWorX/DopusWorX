@@ -52,9 +52,12 @@ Clicking another cell or clicking away from the cell you are editing commits the
 There are a couple of ways to add a row:
 
 - **Hover the row-number gutter** and a small **+** appears at the left of the gutter. Click it to insert a blank row above that row (the row you hovered moves down).
-- The right-click context menu and the toolbar row actions insert a blank row above or below the selected row, or append a row at the end when nothing is selected.
+- Right-click a body row and use the **Insert** submenu to add a blank row above or below it. You can also press **Ctrl+Enter** in any body cell to insert a row below it.
+- To add several rows at once, use **Insert > Add rows...** in the right-click menu.
 
 To delete a row, hover its gutter cell and click the **✕** that appears. The grid always keeps at least one row, so the last remaining row cannot be deleted.
+
+<div align="center"><img src="images/csv-row-controls.png" width="420" alt="Hovering a row number reveals the + control to insert a row above and the ✕ control to delete the row"></div>
 
 ## Adding and deleting columns
 
@@ -63,11 +66,17 @@ Hover a column header and a small floating **+ / ✕** control appears just abov
 - **+** adds a blank column to the right of that column.
 - **✕** deletes that column.
 
+<div align="center"><img src="images/csv-column-control.png" width="420" alt="Hovering a column header reveals a floating control above it: + adds a column to the right, ✕ deletes the column"></div>
+
+The right-click menu also lets you insert a column to the left or right of the clicked cell, or add several at once via **Insert > Add columns...**
+
 The grid always keeps at least one column, so the last column cannot be deleted. If you delete the column you were sorting by, the sort is cleared; user-set column widths move along with their columns when you insert or delete.
 
 ## Undo and redo
 
-Every change to the data is undoable: cell edits, row inserts and deletes, column inserts and deletes. Undo and redo restore the data only; the current view (sort, filter, widths) stays where it is. The history holds up to 100 steps. Starting a new edit after undoing clears the redo stack, as you would expect.
+The undo and redo buttons in the toolbar work on the grid. Hover one and its tooltip names the change it will reverse (for example, "Undo delete column").
+
+Every change to the data is undoable: cell edits, row inserts and deletes, column inserts and deletes. Undo and redo restore the data and any column widths you have set; the sort and filter you have applied stay where they are. The history holds up to 100 steps. Starting a new edit after undoing clears the redo stack, as you would expect.
 
 ## Filtering
 
@@ -93,7 +102,7 @@ The delimiter is auto-detected, and the dropdown shows what was detected (for ex
 | tab | tab |
 | pipe | `\|` |
 
-Changing the override re-parses the current contents, including any edits you have already made, so your edits survive the switch. The active sort is cleared on a delimiter change, and later saves use the delimiter you chose.
+Changing the override re-parses the current contents, including any edits you have already made, so your edits survive the switch. The active sort is cleared on a delimiter change, and later saves use the delimiter you chose. Your choice is remembered per file, so the same file reopens with the delimiter you picked.
 
 ## Numeric columns
 
@@ -109,9 +118,9 @@ A cell whose text is long (more than 40 characters) or contains a line break get
 
 ## Copying
 
-- The right-click **Copy** menu copies the focused cell's text to the clipboard. If you have selected a block of cells, Copy takes the whole block as tab-separated rows instead.
-- Select cells by clicking one, **Shift+click** to extend a rectangle from the anchor, or **Ctrl+click** (Cmd+click on a Mac) to toggle individual cells. The copied block reads from the current view, so it matches what is on screen under any sort or filter.
-- **Copy the whole grid as a Markdown table**: available from the host's right-click menu. It emits the current view (header row plus the filtered and sorted body) as a pipe-delimited Markdown table, with pipes and newlines inside cells escaped so the table stays well-formed.
+Right-click anywhere in the grid to open the menu. The **Copy** submenu offers four options: **Selected cells** (appears only when you have a block selected -- copies them as tab-separated text laid out as on screen), **Cell** (the value of the clicked cell), **Table as Markdown** (the current view, respecting any filter and sort, as a pipe-delimited Markdown table with pipes and newlines inside cells escaped), and **Document (CSV source)** (the raw file text). Clicking the **Copy** parent item directly copies any native text selection, or the raw source if nothing is selected. For the full list of grid menu actions see [06-context-menus.md](06-context-menus.md#csv-and-tsv-table-view).
+
+Select cells by clicking one, **Shift+click** to extend a rectangle from the anchor, or **Ctrl+click** (Cmd+click on a Mac) to toggle individual cells -- unless the cell contains a web address, in which case Ctrl+click opens it in your browser instead. The copied block reads from the current view, so it matches what is on screen under any sort or filter.
 
 ## Pasting
 

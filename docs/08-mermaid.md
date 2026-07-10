@@ -12,7 +12,7 @@ Diagrams are on by default. A note with no diagrams behaves exactly as before, a
 
 Settings &middot; Content &middot; Diagrams &middot; **Render Mermaid diagrams**. It is on by default.
 
-Turned off, a `mermaid` block shows as an ordinary code block, so you can see and copy the source. Turn it back on and it is drawn as a diagram the next time the note is read or edited.
+Turned off, a `mermaid` block shows as an ordinary code block, so you can see and copy the source. Turn it back on and any mermaid blocks on screen are redrawn straight away, in whichever mode you are in.
 
 The engine is about 3 MB. It downloads the first time you open a note that contains a diagram and then stays cached, so diagram-free notes pay nothing for it.
 
@@ -51,6 +51,8 @@ Diagrams draw both when you are reading a note and while you are editing it in L
 - **Reading** shows the finished diagram.
 - **Live** shows the diagram too, until you click it. A click drops your cursor into the block and brings the source back so you can edit it. Click away and it redraws.
 - **Source** always shows the raw text.
+
+The **Source split preview** (see [03-editing, The Source split preview](03-editing.md#the-source-split-preview)) is different: the left pane shows the raw source, but the right pane renders the document, diagrams included. Diagrams that were already rendered during the current session are drawn from the shared render cache and appear without delay; a diagram opened in split for the first time renders asynchronously and may show the raw block briefly.
 
 So you never leave your note to change a diagram: click, edit the description, click out, done.
 
@@ -192,11 +194,11 @@ The settings used here behave like every other DopusWorX setting:
 
 ## When a diagram does not show up
 
-DopusWorX never silently drops a diagram. You always get the diagram or a visible reason.
+DopusWorX aims to give you a visible reason when a diagram does not show up, but there is one silent exception.
 
 - **It still looks like a code block.** Diagrams have been turned off, or the fence label is not exactly `mermaid`.
 - **A brief flash of source is normal.** The first diagram in a note shows its text for an instant while the engine wakes up, then becomes the diagram. That is not a fault.
-- **A red ⚠ box with your text in it.** The description could not be parsed. Hover the box for Mermaid's own reason. The source is always shown inside the box, so nothing is lost. A broken diagram never takes the rest of the note down with it:
+- **A red ⚠ box with your text in it.** The description could not be parsed. A short reason is printed beneath it -- for a syntax error, the line number and offending token; for other failures, a brief summary. Hover the box for Mermaid's full message. The source stays visible, so nothing is lost. A broken diagram never takes the rest of the note down with it:
 
 ```mermaid
 flowchart TD
@@ -204,6 +206,10 @@ flowchart TD
 ```
 
 (That block is deliberately broken, to show the error box.)
+
+<div align="center"><img src="images/mermaid-error.png" width="540" alt="A broken diagram: the source shown in red with a Mermaid parse-error note beneath it, the rest of the note untouched"></div>
+
+- **It still looks like a code block, and you expected a diagram.** The diagram engine could not be downloaded -- usually because there was no network connection when the page first loaded. Reload the file once connectivity is restored.
 
 
 ## A little about what happens behind the scenes
