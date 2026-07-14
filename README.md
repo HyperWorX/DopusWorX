@@ -341,6 +341,8 @@ For more detail than this page covers:
 
 ## Installation
 
+**Option 1 - _.exe single-file installer_:**
+
 Download **`DopusWorX_v<version>_Setup.exe`** from the
 [Releases page](https://github.com/HyperWorX/DopusWorX/releases) and run it.
 One UAC prompt and it does the rest: closes Directory Opus, installs the plugin
@@ -349,9 +351,13 @@ features, so removing it later is the normal Windows uninstall. Windows may show
 a SmartScreen prompt the first time, as it does for any new unsigned download -
 More info, then Run anyway.
 
-Prefer a zip? `DopusWorX_v<version>.zip` on the same page holds the identical
-plugin with plain `Install.cmd` and `Uninstall.cmd` scripts you can read before
+**Option 2 - _.zip archive containing plugin files and install scripts_:**
+
+Prefer transparency on what **`DopusWorX_v<version>_Setup.exe`** is doing? `DopusWorX_v<version>.zip` on the same page holds the identical
+plugin with plain `Install.cmd` and `Uninstall.cmd` scripts, which you can read (using any plain-text editor) before
 you run them. Extract it anywhere, run `Install.cmd`, accept the UAC prompt.
+
+**CLI Arguments:**
 
 For an unattended or scripted install, the setup exe takes `/VERYSILENT`, and
 the zip scripts take `/silent` (or `/quiet`).
@@ -385,7 +391,7 @@ beside it so every view has something to show straight away.
 
 <div align="center">
 
-### Support
+### Supporting the project :heart:
 
 If you find this useful, you can buy me a coffee.
 
