@@ -14,18 +14,11 @@ Windows x64 &nbsp;·&nbsp; needs the Microsoft Edge WebView2 runtime &nbsp;·&nb
 
 ---
 
-DopusWorX grew out of mdWorX, and for this release it has been **completely
-rewritten from the ground up** for a more robust and efficient design. It began
-as a Markdown viewer and became a document workspace: a full maths workspace,
-Mermaid diagrams that render by default, a binary and hex inspector with an
-opt-in byte editor, more file types, more palettes, and much sturdier file
-handling. It ships under its own name to match.
-
 Get the plugin from the [Releases Page](https://github.com/HyperWorX/DopusWorX/releases)
 
 ---
 <div align="center">
-If DopusWorX brings value to your day and you appreciate the work behind it, you can...
+If DopusWorX is useful to you and you'd like to support the work, you can...
 </br>
 </br>
 <a href="https://www.buymeacoffee.com/HyperWorX" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me a Coffee" height="48"></a>
@@ -36,7 +29,7 @@ If DopusWorX brings value to your day and you appreciate the work behind it, you
 
 A native Directory Opus viewer plugin: a Windows DLL that renders documents in
 the Opus viewer pane, the pop-out viewer window, and QuickShow popups. It is not
-a separate app. It loads inside Opus and uses the Microsoft Edge WebView2 runtime
+a separate app; it loads inside Opus and uses the Microsoft Edge WebView2 runtime
 to draw itself.
 
 It is **file-type aware**: open a file and DopusWorX picks the right view for it.
@@ -106,7 +99,7 @@ right-click menu. The Print option is also in the Save menu for every file type.
 Ctrl+P works from anywhere in the viewer. See
 [`docs/06-context-menus.md`](docs/06-context-menus.md) for the full set.
 
-The viewer keeps a back/forward history of the files it has shown -- step through
+The viewer keeps a back/forward history of the files it has shown - step through
 it with the mouse back and forward buttons or Ctrl+Alt+Left/Right, browser-style.
 
 ## Maths
@@ -262,7 +255,7 @@ Obsidian-style linking and embeds work too:
 Add a `banner:` line to the YAML frontmatter at the top of any note and
 DopusWorX renders that image as a full-width strip across the top of the
 document. In Reading mode the frontmatter block is hidden entirely; in Live mode
-it shows as the banner image from the moment the file opens -- click it and the
+it shows as the banner image from the moment the file opens - click it and the
 raw YAML comes back for editing, move away and the banner renders again.
 
 <div align="center"><img src="img/frontmatter-banner.png" width="640" alt="A note open in Live mode with a landscape banner image rendered across the top of the document, replacing the frontmatter block"></div>
@@ -300,7 +293,7 @@ Zoom any view from 50% to 300% with Ctrl and the scroll wheel or a trackpad
 pinch (or the right-click Zoom submenu); each view keeps its own level and the
 toolbars stay put.
 
-## Robust and secure
+## Careful with your files
 
 A viewer that edits your files has to be careful with them, and a lot of the work
 here went into exactly that.
@@ -348,15 +341,20 @@ For more detail than this page covers:
 
 ## Installation
 
-1. Download the latest `DopusWorX_v<version>.zip` from the
-   [Releases page](https://github.com/HyperWorX/DopusWorX/releases).
-2. Quit Directory Opus.
-3. Extract the zip and run **`Install.cmd`**, then accept the UAC prompt. It
-   copies the plugin into the Directory Opus `Viewers` folder and relaunches
-   Opus. **`Uninstall.cmd`** in the same zip removes it.
+Download **`DopusWorX-Setup-v<version>.exe`** from the
+[Releases page](https://github.com/HyperWorX/DopusWorX/releases) and run it.
+One UAC prompt and it does the rest: closes Directory Opus, installs the plugin
+into the Opus `Viewers` folder, and starts Opus again. It registers in Apps &
+features, so removing it later is the normal Windows uninstall. Windows may show
+a SmartScreen prompt the first time, as it does for any new unsigned download -
+More info, then Run anyway.
 
-For an unattended or scripted update, `Install.cmd /silent` (and `Uninstall.cmd
-/silent`, or the `/quiet` alias) run with no prompts.
+Prefer a zip? `DopusWorX_v<version>.zip` on the same page holds the identical
+plugin with plain `Install.cmd` and `Uninstall.cmd` scripts you can read before
+you run them. Extract it anywhere, run `Install.cmd`, accept the UAC prompt.
+
+For an unattended or scripted install, the setup exe takes `/VERYSILENT`, and
+the zip scripts take `/silent` (or `/quiet`).
 
 **Requirements:** Windows x64, Directory Opus 13 or later, and the Microsoft Edge
 WebView2 runtime. WebView2 is already on most up-to-date Windows installs; if it

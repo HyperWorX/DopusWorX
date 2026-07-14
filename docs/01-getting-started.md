@@ -31,7 +31,7 @@
    applied are dropped quietly when you close. The **About** tab also has a
    **Check for updates** button; if a newer release is found, an **Install
    update** button appears -- click it and DopusWorX downloads, verifies, and
-   installs the update for you, so you do not need to download the zip again.
+   installs the update for you, so you do not need to download and run the installer yourself.
 
 <div align="center"><img src="images/settings-dialog.png" width="560" alt="The Settings window on the Appearance tab, showing the five tabs along the top and the Apply and Close buttons at the bottom"></div>
 
