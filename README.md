@@ -341,7 +341,7 @@ For more detail than this page covers:
 
 ## Installation
 
-Download **`DopusWorX-Setup-v<version>.exe`** from the
+Download **`DopusWorX_v<version>_Setup.exe`** from the
 [Releases page](https://github.com/HyperWorX/DopusWorX/releases) and run it.
 One UAC prompt and it does the rest: closes Directory Opus, installs the plugin
 into the Opus `Viewers` folder, and starts Opus again. It registers in Apps &
