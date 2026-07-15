@@ -23,8 +23,13 @@
    or Ctrl+Alt+Left and Ctrl+Alt+Right, the same way a browser does.
 6. Open **Settings** (the gear icon) to choose a palette, set fonts and spacing,
    pick the spell-check dictionaries, adjust the Mermaid diagram options, pick
-   which view Markdown opens in, customise the toolbar, and map which file types
-   open in DopusWorX. Changes take effect when you press **Apply**; if you close
+   which view Markdown opens in, customise the toolbar, map which file types
+   open in DopusWorX, and, on the Content tab under **Advanced**, pick which
+   graphics card the viewer renders on (handy on a laptop that has both an
+   integrated and a dedicated GPU; this one takes effect the next time DopusWorX
+   starts rather than straight away). Under that setting DopusWorX shows which card
+   it is drawing on right now, so you can see what Auto chose or check that your
+   choice took hold. Changes take effect when you press **Apply**; if you close
    the dialog with changes you have not applied, it asks before discarding them.
    The one exception is the file-type grid: its tick boxes and custom types only
    take effect when you press **Apply file associations**, and any you have not
@@ -32,6 +37,10 @@
    **Check for updates** button; if a newer release is found, an **Install
    update** button appears -- click it and DopusWorX downloads, verifies, and
    installs the update for you, so you do not need to download and run the installer yourself.
+   DopusWorX also checks for a new release on its own shortly after it starts. When one is
+   waiting it puts a small dot on the **About** tab and shows a slim notice at the top of
+   Settings the first time; dismiss the notice and it stays gone for that version. Installing
+   is still up to you -- the automatic check only tells you an update is there.
 
 <div align="center"><img src="images/settings-dialog.png" width="560" alt="The Settings window on the Appearance tab, showing the five tabs along the top and the Apply and Close buttons at the bottom"></div>
 
