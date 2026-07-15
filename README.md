@@ -25,6 +25,34 @@ If DopusWorX is useful to you and you'd like to support the work, you can...
 
 </div>
 
+## Contents
+
+- [What it is](#what-it-is)
+- [Features](#features)
+  - [Reading, Live and Source](#reading-live-and-source)
+  - [Maths](#maths)
+  - [Diagrams](#diagrams)
+  - [Code and source files](#code-and-source-files)
+  - [Binary files](#binary-files)
+  - [CSV and tables](#csv-and-tables)
+  - [HTML](#html)
+  - [Themes and palettes](#themes-and-palettes)
+  - [Markdown extras and Obsidian syntax](#markdown-extras-and-obsidian-syntax)
+  - [Frontmatter and the banner image](#frontmatter-and-the-banner-image)
+  - [Customise it to your liking](#customise-it-to-your-liking)
+  - [Careful with your files](#careful-with-your-files)
+  - [Staying up to date](#staying-up-to-date)
+- [Documentation](#documentation)
+- [Installation](#installation)
+  - [Option 1 - .exe single-file installer](#option-1---exe-single-file-installer)
+  - [Option 2 - .zip archive containing plugin files and install scripts](#option-2---zip-archive-containing-plugin-files-and-install-scripts)
+  - [CLI Arguments](#cli-arguments)
+- [Opening Markdown on double-click](#opening-markdown-on-double-click)
+- [Where your data lives](#where-your-data-lives)
+- [Try it](#try-it)
+- [Supporting the project](#supporting-the-project-heart)
+- [Licence](#licence)
+
 ## What it is
 
 A native Directory Opus viewer plugin: a Windows DLL that renders documents in
@@ -43,7 +71,9 @@ It is **file-type aware**: open a file and DopusWorX picks the right view for it
 - **Binary files** open in a hex inspector (offset / hex / ASCII with a data
   inspector), with an opt-in byte editor.
 
-## Reading, Live and Source
+## Features
+
+### Reading, Live and Source
 
 For a Markdown document there are three ways to look at it:
 
@@ -102,7 +132,7 @@ Ctrl+P works from anywhere in the viewer. See
 The viewer keeps a back/forward history of the files it has shown - step through
 it with the mouse back and forward buttons or Ctrl+Alt+Left/Right, browser-style.
 
-## Maths
+### Maths
 
 - Write it in **LaTeX** or **AsciiMath**, inline with `$...$`, on its own line
   with `$$...$$`, or as an ```` ```am ```` block.
@@ -125,7 +155,7 @@ notes stay quick. See [`docs/04-maths.md`](docs/04-maths.md) for the full guide.
 
 <div align="center"><img src="img/maths-panel.png" width="640" alt="The maths symbol panel beside a rendered equation"></div>
 
-## Diagrams
+### Diagrams
 
 Turn a fenced ```` ```mermaid ```` block into a flowchart, sequence, class, state,
 ER, pie, Gantt or any other Mermaid diagram type, drawn from plain text with [Mermaid](https://mermaid.js.org/).
@@ -160,7 +190,7 @@ colours from the active palette, so it suits a dark page or a light one:
 See [`docs/08-mermaid.md`](docs/08-mermaid.md) for the full guide, with a live
 example of every diagram type.
 
-## Code and source files
+### Code and source files
 
 Source-code files open in **Source view** (there is no Reading or Live mode for
 code, since there is nothing to render).
@@ -184,7 +214,7 @@ mode.
 
 <div align="center"><img src="img/code-view.png" width="640" alt="Source view with syntax highlighting, line-number gutter and copy button"></div>
 
-## Binary files
+### Binary files
 
 A file that is binary rather than text opens in a hex inspector: an offset / hex /
 ASCII view with a side panel that reads the bytes under the cursor as integers and
@@ -195,7 +225,7 @@ forced open with View as hex from the right-click menu. See
 
 <div align="center"><img src="img/binary-inspector.png" width="720" alt="The binary inspector: a data inspector panel reading the bytes under the cursor, beside the offset, hex and ASCII dump"></div>
 
-## CSV and tables
+### CSV and tables
 
 CSV and TSV open as an editable grid: click a header to sort, double-click a cell
 to edit, add or delete rows and columns with undo and redo, select and paste
@@ -205,7 +235,7 @@ remembered per file, and an untouched file saves back byte-for-byte identical.
 
 <div align="center"><img src="img/csv-grid.png" width="640" alt="A CSV open as an editable grid: World Cup results by team across the years"></div>
 
-## HTML
+### HTML
 
 HTML files have a rendered **View**, a **Source** view of the raw markup, and a
 **split** that shows both at once.
@@ -221,7 +251,7 @@ HTML files have a rendered **View**, a **Source** view of the raw markup, and a
 </tr>
 </table>
 
-## Themes and palettes
+### Themes and palettes
 
 Thirty built-in palettes, dark and light, from Dracula and Nord to Catppuccin,
 Everforest and Rosé Pine, alongside the signature ProWorX and GloWorX. By default
@@ -235,7 +265,7 @@ their own colour, headings can be coloured per level, and the page surface,
 rules, borders and shadows are all yours to tune. See
 [`docs/07-palettes.md`](docs/07-palettes.md) for a card of every palette.
 
-## Markdown extras and Obsidian syntax
+### Markdown extras and Obsidian syntax
 
 Full GitHub-flavoured Markdown: tables, task lists (tick the boxes in Reading or
 Live), footnotes editable in place, definition lists, abbreviations,
@@ -250,7 +280,7 @@ Obsidian-style linking and embeds work too:
   This works inside table cells too, with the plain pipe and no escaping, e.g.
   `| ![logo|72|center](path) |`.
 
-## Frontmatter and the banner image
+### Frontmatter and the banner image
 
 Add a `banner:` line to the YAML frontmatter at the top of any note and
 DopusWorX renders that image as a full-width strip across the top of the
@@ -267,7 +297,7 @@ a pixel height for this file alone, then click **Set**. DopusWorX writes the
 `banner:`, `banner_y:` and `banner_height:` frontmatter for you. The global
 banner height is set in Settings under Content › Images.
 
-## Customise it to your liking
+### Customise it to your liking
 
 The Settings dialog is organised into clear tabs, **Appearance**, **Content**,
 **Toolbars**, **File types** and **About**, with live preview and a plain-language
@@ -293,7 +323,7 @@ Zoom any view from 50% to 300% with Ctrl and the scroll wheel or a trackpad
 pinch (or the right-click Zoom submenu); each view keeps its own level and the
 toolbars stay put.
 
-## Careful with your files
+### Careful with your files
 
 A viewer that edits your files has to be careful with them, and a lot of the work
 here went into exactly that.
@@ -319,7 +349,7 @@ here went into exactly that.
   nothing to the registry. Its settings, themes and cache all live under your
   profile.
 
-## Staying up to date
+### Staying up to date
 
 DopusWorX checks for new releases from inside Settings and can fetch and install
 an update for you, gated by the security checks above. Releases are published on
@@ -341,7 +371,7 @@ For more detail than this page covers:
 
 ## Installation
 
-**Option 1 - _.exe single-file installer_:**
+### Option 1 - .exe single-file installer
 
 Download **`DopusWorX_v<version>_Setup.exe`** from the
 [Releases page](https://github.com/HyperWorX/DopusWorX/releases) and run it.
@@ -351,13 +381,13 @@ features, so removing it later is the normal Windows uninstall. Windows may show
 a SmartScreen prompt the first time, as it does for any new unsigned download -
 More info, then Run anyway.
 
-**Option 2 - _.zip archive containing plugin files and install scripts_:**
+### Option 2 - .zip archive containing plugin files and install scripts
 
 Prefer transparency on what **`DopusWorX_v<version>_Setup.exe`** is doing? `DopusWorX_v<version>.zip` on the same page holds the identical
 plugin with plain `Install.cmd` and `Uninstall.cmd` scripts, which you can read (using any plain-text editor) before
 you run them. Extract it anywhere, run `Install.cmd`, accept the UAC prompt.
 
-**CLI Arguments:**
+### CLI Arguments
 
 For an unattended or scripted install, the setup exe takes `/VERYSILENT`, and
 the zip scripts take `/silent` (or `/quiet`).
@@ -366,7 +396,7 @@ the zip scripts take `/silent` (or `/quiet`).
 WebView2 runtime. WebView2 is already on most up-to-date Windows installs; if it
 is missing, DopusWorX shows a download link in the pane.
 
-### Opening Markdown on double-click
+## Opening Markdown on double-click
 
 Out of the box Opus opens a `.md` file with whatever Windows has associated. To
 open it in the DopusWorX viewer instead, point the Markdown file type's *Left
