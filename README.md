@@ -32,6 +32,15 @@ the Opus viewer pane, the pop-out viewer window, and QuickShow popups. It is not
 a separate app; it loads inside Opus and uses the Microsoft Edge WebView2 runtime
 to draw itself.
 
+Under the hood it is two layers, not just a web page in a window. The plugin
+itself is a native C++ viewer DLL built against the Directory Opus plugin SDK,
+which is why it works in the viewer pane, the pop-out viewer and QuickShow rather
+than as a standalone window. WebView2 is only the surface it draws on: inside it,
+CodeMirror and its Lezer grammars drive the source and editing views across
+around 150 languages, markdown-it parses the Markdown, KaTeX and Temml draw the
+maths, and Mermaid draws the diagrams. The hex inspector, the CSV grid, the spell
+check and the theming are all written for this.
+
 It is **file-type aware**: open a file and DopusWorX picks the right view for it.
 
 - **Markdown** gets Reading, Live and Source, with a split preview, and renders

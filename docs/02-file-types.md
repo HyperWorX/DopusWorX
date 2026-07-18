@@ -104,7 +104,11 @@ through the same dirty / recovery / Save pipeline as Markdown.
 
 ### Supported languages and extensions
 
-DopusWorX highlights around 150 languages. The languages listed without a footnote
+DopusWorX highlights around 150 languages. The highlighting is driven by CodeMirror's
+Lezer grammars, with a handful of older languages (shell, diff, INI and the like) using
+CodeMirror's legacy stream modes instead; the same Lezer highlighter also colours fenced
+code blocks inside Markdown, so a language looks identical whether it is a standalone file
+or a fenced block. The languages listed without a footnote
 are built in and highlight instantly; MATLAB/Octave and Mathematica grammars load
 on demand the first time you open such a file. The rest of the on-demand languages
 load the first time you open a file in that language, so the base viewer stays
