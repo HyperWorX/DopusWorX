@@ -21,8 +21,19 @@ extension-first:
 - a file with no extension falls back to `markdown`
 
 The kind is sent to the web layer on the load message. The web layer then
-applies one refinement of its own: if the path ends in `.csv` or `.tsv` it
-rewrites the kind to `csv` so the file opens as the grid rather than as code.
+refines it in two ways.
+
+First, your own choice wins. If you have set an extension to Markdown, HTML, CSV
+or Binary in **Settings > File types**, that choice decides the view. So mapping
+Plain text to Markdown makes `.txt`, `.text` and `.log` files open as Markdown
+documents, with Reading, Live and Source, exactly as a `.md` file would. Picking
+a syntax grammar instead (Python, YAML and so on) only changes the colouring, as
+it always has -- those files stay in the source view. Pressing Apply in the File
+types panel takes effect on the open file straight away; there is no need to
+close and reopen it.
+
+Second, if nothing above applies and the path ends in `.csv` or `.tsv`, the kind
+becomes `csv` so the file opens as the grid rather than as code.
 
 Each kind resolves to a **format module** in the web layer's format registry.
 The registry currently holds five modules: `markdown`, `code`, `html`, `csv` and
@@ -97,10 +108,15 @@ toolbar shows no mode tabs for a code file, just the single Source surface.
 <div align="center"><img src="images/code-view.png" width="640" alt="A Python file in Source view: syntax highlighting, a line-number gutter, and the code-editing toolbar along the bottom"></div>
 
 Source view is a CodeMirror editor with syntax highlighting, a line-number
-gutter (its style is configurable), word wrap, and clickable colour swatches
-next to colour literals. Its colours can follow the Syntax palette chosen in
-Settings, independent of the page palette. The file is editable and saves
-through the same dirty / recovery / Save pipeline as Markdown.
+gutter (its style is configurable), word wrap, indentation guides, and clickable
+colour swatches next to colour literals. Folding is marked on the line itself
+rather than in a column of its own, so the gutter carries nothing but the line
+numbers and holds one width while you scroll. The editor has a colour scheme of
+its own, **Source editor palette** in Settings under Appearance: keep the page
+palette's colours (the default), follow whatever the document's code blocks are
+set to, or give the editor a named scheme, which is how you get a dark editor on
+a light page. The file is editable and saves through the same dirty / recovery /
+Save pipeline as Markdown.
 
 ### Supported languages and extensions
 
@@ -273,7 +289,7 @@ DopusWorX handles and how they open. The panel lists one row per supported type
 group (Markdown, HTML, plain text, Binary, and every code language), each with three
 checkboxes:
 
-<div align="center"><img src="images/file-types-panel.png" width="560" alt="The File types panel: one row per type group with nested Pane, DOpus and Explorer tick columns, a Highlight Grammar dropdown per row, and the Apply file associations button below"></div>
+<div align="center"><img src="images/file-types-panel.png" width="560" alt="The File types panel: one row per type group with nested Pane, DOpus and Explorer tick columns, a Highlight Grammar dropdown per row, and the Apply file associations button above the grid"></div>
 
 - **Pane** - the type previews in the DopusWorX viewer pane while you browse.
   Double-click is left alone, so a script still runs on double-click. A newly
@@ -288,14 +304,25 @@ The three columns nest: Pane < DOpus < Explorer. Ticking a higher tier ticks the
 ones below it, and unticking a lower tier clears the ones above it. Header
 checkboxes apply the same rule to a whole column at once.
 
-Each row also has a **Highlight Grammar** column: a dropdown that sets which
-grammar that type opens with. It defaults to the type's own language and can be
-set to any of the supported languages, so you can open `.tpl` as C++ or pick a
-different grammar for any type. The Binary row is an exception -- it shows an
-inert **hex** marker rather than a picker, because binary files have no syntax
-grammar and open directly in the hex inspector. A grammar change is saved with
-the normal Apply (it does not need Apply file associations), and a single "reset
-all" link puts every row back to its default.
+Each row also has a **Highlight Grammar** column: a dropdown that sets what that
+type opens as. It defaults to the type's own language and does two different
+things depending on what you pick.
+
+Pick a **language** (Python, YAML, C++, and the rest) and you change the syntax
+colouring only. The file still opens in the source view; `.tpl` as C++ just means
+C++ colours.
+
+Pick a **view** -- Markdown, HTML, CSV or Binary, which sit at the top of the
+list -- and you change how the file is presented. Setting Plain text to Markdown
+makes `.txt`, `.text` and `.log` open as Markdown documents with Reading, Live
+and Source, the same as a `.md` file. This is the setting to use if you keep
+notes in `.txt` files and want them rendered.
+
+The Binary row is an exception -- it shows an inert **hex** marker rather than a
+picker, because binary files have no syntax grammar and open directly in the hex
+inspector. A grammar change is saved with the normal Apply (it does not need
+Apply file associations) and takes effect on an already-open file immediately,
+and a single "reset all" link puts every row back to its default.
 
 The **Binary** group (`.bin`, `.dat`, `.exe`, `.dll`, `.wasm`, `.iso`, fonts, and
 related blob types) defaults to **Pane** only. The preview column is on so

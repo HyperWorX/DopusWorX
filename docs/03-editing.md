@@ -16,10 +16,10 @@ Click **Reading**, **Live** or **Source** in the toolbar to switch between the m
 
 ### Which view a file opens in
 
-Two settings decide the mode a markdown file lands in. Both live in Settings, under Opening & views.
+Two settings decide the mode a markdown file lands in. Both live in Settings, on the Markdown tab under Document.
 
 - **Open markdown in** sets the default view: Reading (the default), Live or Source. A file opens in this view whenever its remembered view is not used.
-- **Remember each file's view** decides whether a file reopens in the view you last used for it, and for how long. Keep it on with Always (the default), turn it Off so every file opens in the default view, or pick a duration from five minutes up to a year. With a duration the last view comes back only if you reopen the file within that window, counted from the last time you opened it; once the window lapses the file falls back to the default view.
+- **Remember each file's view** decides whether a file reopens in the view you last used for it, and for how long: a duration from five minutes up to a year (4 hours is the default), Always so the last view sticks however long ago it was, or Off so every file opens in the default view. With a duration the last view comes back only if you reopen the file within that window, counted from the last time you opened it; once the window lapses the file falls back to the default view.
 
 ### Raw HTML and aligned blocks in Live
 
@@ -43,8 +43,10 @@ While the split is open:
 
 In Live and Source you can fold a markdown heading's whole section down to the next heading of the same or a higher level, so you can collapse the parts you are not working on.
 
-- **Source** shows a fold gutter beside the line numbers. Click a fold arrow to collapse or expand the section under that heading.
-- **Live** keeps the same fold gutter, dimmed until you hover it, and also puts a small accent chevron in the left margin of each H1 to H3 heading, shown when you hover the heading. Click either to fold or unfold; the chevron rotates to show the state and stays clickable while folded, so you can open the section back up. A folded section collapses to accent-coloured **...** dots after the heading - click the dots to unfold.
+- **Source** marks a foldable line on the line itself, next to the code, the way Notepad++ does, rather than in a column of its own. The marker is three short rules with an arrow beside them, faint until you move the pointer onto the line and brighter still on the marker. Click it to fold or unfold; the arrow turns over as it goes. A folded marker stays visible whether you are pointing at it or not, since it is the only thing telling you the lines below are collapsed.
+- **Live** has no gutter at all, so it folds from the heading itself. Hover an H1, H2 or H3 and a small accent chevron appears in the left margin beside it. Click the chevron to fold or unfold; it rotates to show the state and stays clickable while folded, so you can open the section back up. A folded section collapses to accent-coloured **...** dots after the heading - click the dots to unfold.
+
+The Source marker sits at its line's indent, so it steps in with the code rather than lining up in one column. Where it lands on the indentation it hides the whitespace dots underneath it, and the rest of that line's indentation fades back as the marker comes up, so the two never fight for the same space.
 
 Folding is a view convenience only. It never changes the document.
 
@@ -52,7 +54,7 @@ Folding is a view convenience only. It never changes the document.
 
 The formatting toolbar runs along the bottom of the pane in Live and Source mode for markdown files. Each button either wraps your selection in markdown or adds a prefix to the lines you have selected. With nothing selected, the wrapping buttons drop the markers in and park the cursor between them so you can start typing.
 
-You can rearrange the toolbar to suit you: **Edit toolbar layout** in Settings, under Toolbars, lets you drag buttons sideways to reorder them, click one to hide or show it, and Reset to put the default set back.
+You can rearrange the toolbar to suit you: **Edit toolbar layout** in Settings, on the General tab under Toolbars, lets you drag buttons sideways to reorder them, click one to hide or show it, and Reset to put the default set back.
 
 <div align="center"><img src="images/editing-toolbar.png" width="640" alt="The formatting toolbar: bold, italic, strikethrough, highlight, inline code, link, footnote and clear-formatting, then the heading and maths buttons, the list buttons, indent, blockquote, code block, and image and table insert"></div>
 
@@ -107,13 +109,13 @@ Settings, under Body text, one value that Reading and Live follow identically.
 | **Insert image** | opens the image popup (below) |
 | **Insert table** | opens the table size grid (below) |
 
-A `---` on its own line renders as a horizontal rule divider. Its appearance - solid, gradient fade, centre fade, dotted, dashed, double line, or three centred diamonds - is controlled by the **Horizontal rule style** setting in Settings > Appearance > Rules and dividers, along with separate colour and thickness controls. See [07-palettes.md](07-palettes.md) for the full Appearance tab.
+A `---` on its own line renders as a horizontal rule divider. Its appearance - solid, gradient fade, centre fade, dotted, dashed, double line, or three centred diamonds - is controlled by the **Horizontal rule style** setting in Settings > Appearance > Lines, along with separate colour and thickness controls. See [07-palettes.md](07-palettes.md) for the full Appearance tab.
 
 ## The code-editing toolbar
 
 When you open a code or text file in Source mode, the formatting toolbar is replaced by a code-editing toolbar. These commands are language-agnostic and run CodeMirror's own editing commands, so they behave exactly like the editor itself.
 
-<div align="center"><img src="images/code-toolbar.png" width="280" alt="The code-editing toolbar: toggle comment, outdent, indent, duplicate line, move line up, move line down, and find"></div>
+<div align="center"><img src="images/code-toolbar.png" width="280" alt="The code-editing toolbar: toggle comment, outdent, indent, duplicate line, move line up, move line down, find, and the whitespace and indentation guide toggles"></div>
 
 | Button | What it does |
 |---|---|
@@ -122,6 +124,26 @@ When you open a code or text file in Source mode, the formatting toolbar is repl
 | **Duplicate line** | copies the current line below itself |
 | **Move line up** / **Move line down** | shifts the current line past its neighbour |
 | **Find** | opens the editor's search panel |
+
+After a separator sit two view toggles. They change how the source is displayed rather than editing it, and each one remembers your choice.
+
+| Toggle | What it does |
+|---|---|
+| **Show whitespace marks** | the faint dots on spaces and arrows on tabs |
+| **Show indent guides** | the vertical lines running down each level of indentation |
+
+The comment toggle knows the comment syntax of every language DopusWorX highlights, including the forty-odd whose grammars never declared one themselves, so JSON, INI and VBScript comment properly instead of doing nothing at all. Where a format genuinely has no comment form, plain text, logs, CSV and diffs among them, the button does nothing rather than stamping a stray `<!-- -->` into the file, which is what it used to do.
+
+The two view toggles are on this bar only. Markdown Source keeps the formatting toolbar, so for a markdown file set whitespace marks and indentation guides from Settings instead.
+
+### Wrapping long lines
+
+The wrap button lives in the **top** toolbar, beside Find, because it means something for every file rather than only for source.
+
+- On a **markdown** file it wraps the rendered code blocks and inline code, in Reading and in Live. Your prose is unaffected either way, since prose wraps regardless.
+- On a **code or text** file it wraps the Source editor and the read-only view.
+
+With it off, a long line stays on one line and its block scrolls sideways instead, which is what you want when the alignment of the code matters more than seeing all of it at once.
 
 ## Inserting an image
 
@@ -222,12 +244,14 @@ Right-click an editable markdown document and choose Insert &rsaquo; Table of Co
 
 The block sits between a hidden `<!-- toc -->` marker and its `<!-- /toc -->` closing marker and keeps itself in step: add, remove, rename or reorder a heading and the list updates on its own, so it never drifts from the document. Each entry links to its heading.
 
-Two settings under Settings &rsaquo; Appearance &rsaquo; Table of contents set the look, and both update an existing TOC in place:
+Two settings on the Markdown tab, under Table of contents, set the look, and both update an existing TOC in place:
 
 - **List style**: Numbered (1. 2. 3.) or Bulleted.
 - **Title style**: No title, Classic (bold with a rule), Styled (small caps with a top rule), Accented (an accent bar) or Coloured (an accent banner).
 
 Only real document headings appear in the list. A heading written inside a blockquote (`> ## Heading`), a table cell, or a fenced code block is not counted as document structure and stays out of the contents.
+
+The list covers the whole file however long it is. A document too big to read through on the spot is finished in the background and the contents written once it covers the document, so a long file no longer gets the first handful of headings and nothing after them. In the rare case it still cannot finish, the block says the list is partial rather than looking complete.
 
 ## Frontmatter and the banner image
 
@@ -241,7 +265,7 @@ One key is special: **`banner:`** takes an image path or URL and renders that im
 
 The banner shows in Live from the moment the file opens; it stays up until you click it, when the raw frontmatter comes back so you can edit the `banner:` line. Move the cursor out of the frontmatter and the banner renders again. Its left and right edges fade evenly into the page so it melts into the document.
 
-Set its height with **Banner height** in Settings, under Content &rsaquo; Images. Leave it empty for the default, which scales with the pane width. Two further keys control geometry per file: `banner_y: N` (an integer from 0 to 100, where 0 anchors the crop to the top of the image and 100 to the bottom; bare integers and the `%` suffix both work) and `banner_height: Npx` (a pixel value from 24 to 2000 that overrides the global Settings height for this document only). Omit either key to get the defaults.
+Set its height with **Banner height** in Settings, on the Markdown tab under Images. Leave it empty for the default, which scales with the pane width. Two further keys control geometry per file: `banner_y: N` (an integer from 0 to 100, where 0 anchors the crop to the top of the image and 100 to the bottom; bare integers and the `%` suffix both work) and `banner_height: Npx` (a pixel value from 24 to 2000 that overrides the global Settings height for this document only). Omit either key to get the defaults.
 
 ### Set banner image
 
@@ -249,9 +273,9 @@ You do not have to find a picture by hand. Right-click a markdown document and c
 
 <div align="center"><img src="images/banner-picker.png" width="460" alt="The banner image picker showing a search result selected and the position preview strip, with the drag-to-reposition hint and per-file height field below it"></div>
 
-By default it searches [Wikimedia Commons](https://commons.wikimedia.org), the largest free image library, so it works with no setup. If Commons is unreachable it falls back to [Openverse](https://openverse.org) automatically. To add more sources, paste your own free Unsplash Access Key into **Unsplash Access Key** in Settings, under Images (register a free application at unsplash.com/developers), and optionally a free Openverse API key in the same section (which also lifts Openverse's anonymous rate limit).
+By default it searches [Wikimedia Commons](https://commons.wikimedia.org), the largest free image library, so it works with no setup. If Commons is unreachable it falls back to [Openverse](https://openverse.org) automatically. [Openverse](https://openverse.org) is always available on its own tab and needs no key; a free Openverse API key in Settings only lifts its anonymous rate limit. To add Unsplash as well, paste your own free Unsplash Access Key into **Unsplash access key** in Settings, on the Markdown tab under Images (register a free application at unsplash.com/developers).
 
-Once you have set up more than one source, the picker shows a row of tabs above the results: Commons, plus Unsplash and Openverse when their keys are set. Click a tab to search that source; the search box keeps its text so you can compare the same word across sources. It opens on Unsplash when you have an Unsplash key, otherwise Commons. With no keys there is a single source and no tab row, exactly as before. Repeated searches are remembered, so trying the same word again, or switching back to a source you already searched, is instant and does not count against any limit.
+The picker shows a row of tabs above the results: Commons and Openverse always, plus Unsplash when its key is set. Click a tab to search that source; the search box keeps its text so you can compare the same word across sources. It opens on Unsplash when you have an Unsplash key, otherwise Commons. Repeated searches are remembered, so trying the same word again, or switching back to a source you already searched, is instant and does not count against any limit.
 
 If the first page of results is not quite what you want, click **More results** to load the next page (20 results per page). The button hides itself once the provider is exhausted.
 
@@ -303,7 +327,7 @@ Click the close control (or press Esc) to dismiss the panel; the match highlight
 
 ## Spell check
 
-Turn on **Spell check while editing** in Settings, under File reading & saving (with the dictionary picker just below it), and misspelled words get a wavy red underline in the Live and Source editors of markdown documents. Reading mode is left clean. Code, inline code, links and URLs are skipped, so a filename or a URL is never flagged, and so are all-capitals words and camelCase identifiers.
+Turn on **Spell check while editing** in Settings, on the General tab under Open & save (with the dictionary picker just below it), and misspelled words get a wavy red underline in the Live and Source editors of markdown documents. Reading mode is left clean. Code, inline code, links and URLs are skipped, so a filename or a URL is never flagged, and so are all-capitals words and camelCase identifiers.
 
 Right-click an underlined word for a short list of suggestions at the top of the menu; click one to replace the word.
 
@@ -325,7 +349,63 @@ The save button is the split control near the left of the top toolbar: the main 
 - **Save As** (from the Save menu) writes to a new file and switches the pane to it. It works even with no unsaved changes, so you can duplicate a file under a new name.
 - **Save a Copy** writes the current content to a path you pick without changing the file you are editing. It is an export: the pane stays on the original, the dirty marker is untouched.
 
-The same menu also holds export options: **Export as HTML** for markdown, **Export as Plain text** for code, and **Print / Save as PDF** for any file (which prints the rendered Reading view, so it captures the whole document, not just the lines on screen).
+The same menu also holds export options: **Export as HTML** for markdown, **Export as Plain text** for code, and **Print** for any file, which holds both sheets.
+
+### Printing
+
+Print and Save as PDF put the document on the page on its own, with no floating card, so the text
+runs the full printable width and the page margin is the only inset.
+
+There is nothing to set up. It prints in the palette you are reading, page colour and all, sitting
+inside the page margin the way it sits in the viewer. A document read in a dark theme prints on that
+dark page, with its headings, links and code the colours they are on screen.
+
+Nothing else on the sheet is drawn with a background fill. The page colour is the only one: a
+horizontal rule is a rule, a table is its grid, a code block sits inside a thin border, highlighted
+text is underlined in the highlight colour, and a ticked task box has a tick drawn in it. Headings
+stay headings by size and weight as well as colour, and syntax highlighting carries in bold and
+italics alongside the hue. That is deliberate, and it is what makes the next paragraph work.
+
+**There is a second sheet for plain paper: Black and white.** Print is one entry in both the Save
+menu and the right-click menu, and the two sheets sit under it: click Print for the normal one, or
+hover it and pick **Black and white** to print the document black on white with none of the palette
+in it. Everything keeps its meaning: the rules, borders, ticks and underlines are all
+still drawn, and a code listing carries its highlighting in weight and slope. Nothing is remembered
+between prints, so the two commands can be used in any order and each one gives you its own sheet
+every time.
+
+That is a command rather than a tick box because the print dialog's own Black and white setting
+cannot reach it. That setting greys out the finished page after we have handed it over, so on a dark
+theme it gives you a grey sheet with pale text rather than a clean one. Use it if you want a
+greyscale of what you see; use Black and white under Print if you want plain paper.
+
+One kind is deliberately not printed in the palette: a rendered HTML file. That is somebody else's
+document with its own styling, shown in a frame the palette never touches, and its colours were
+chosen against the background its author set. It prints as it always has, dark on a plain white
+sheet. An HTML file's Source is our own listing like any other, so that one does take the palette.
+
+Every kind of file prints the whole of itself, not the part that happened to be on screen. A code or
+text file prints its full syntax-highlighted source from either view. An HTML file prints the
+rendered page from View and its markup from Source. A CSV prints the entire table, carrying whatever
+filter and sort you have applied, with the column headings repeated at the top of each sheet, and
+prints the raw text instead if you are in Source. A binary file prints a real hex dump; that one is
+capped, and the sheet says so.
+
+Printing never changes what is on screen. You can print from any view and come back to it as it was.
+
+Three things in the print dialog itself are worth knowing, because they are the dialog's and not
+ours:
+
+- **Margins.** DopusWorX asks for a 12mm top and bottom and 10mm sides, with the coloured page
+  carrying its own inset inside that. The paper margin only applies on *Default*; pick anything else
+  and the dialog uses its own inset instead. *None* runs the coloured page to the edge of the paper.
+- **Background graphics.** Off by default, and it decides whether background fills print. It makes no
+  difference here. The page colour is asked for in a way that prints either way, and nothing else on
+  the sheet is a fill at all, so ticking it adds nothing and leaving it off takes nothing away. It is
+  listed because it is the setting people reach for when a printed page comes out missing something,
+  and with DopusWorX it is not the one.
+- **Headers and footers.** The date and URL some printers add along the top and bottom. Untick it
+  for a clean sheet.
 
 Your original file's encoding and line endings are preserved on save. A file with mixed line endings keeps them line by line; a uniform file keeps its convention.
 
@@ -341,19 +421,22 @@ Ctrl+R or F5 reloads the file from disk, in any mode, not just Reading. If you h
 
 <div align="center"><img src="images/conflict-banner.png" width="640" alt="The frosted conflict banner overlaying the document, showing the 'Edits here and a change outside' message with Keep my edits and Discard and reload buttons"></div>
 
-Your unsaved work is never silently dropped. Whenever two versions of a file are in play, a banner appears and stays until you choose. The message and buttons fit the case:
+Your unsaved work is never silently dropped.
 
-- **Unsaved edits from last time.** Reopen a file you edited without saving and the banner offers **Keep my edits** (carry on where you left off), **Save a copy & reload** (write your edits to a timestamped copy beside the file, then load the disk version) or **Discard and reload**.
-- **Unsaved edits in another window.** If another DopusWorX window holds unsaved edits for the same file, the banner says so and offers **Use those edits here** (adopt them and carry on), **Save a copy & reload** or **View disk version**. Viewing the disk version never touches the other window's edits; they stay safe in that window.
+Switch away from a file you were editing and back again and the edits are simply there, with the bullet in the title and Save ready. Same after a restart or a crash: unsaved work is kept and comes back the next time you open the file. Nothing outside the viewer touched the file while you were away, so there are not two versions to choose between and you are not asked about it. The status bar says the edits were restored, and Ctrl+R still takes you to the disk version if that is what you want.
+
+The banner is for when two versions really are in play. It appears and stays until you choose. The message and buttons fit the case:
+
+- **Unsaved edits in another window.** If another DopusWorX window holds unsaved edits for the same file, the banner says so and offers **Use those edits here** (adopt them and carry on), **Save a copy & reload** (writes your edits to a timestamped copy beside the file, then loads the disk version) or **View disk version**. Viewing the disk version never touches the other window's edits; they stay safe in that window.
 - **Edits here and a change outside.** If you have unsaved edits and the file also changed on disk or in another window, **Keep my edits** keeps your version and makes your next save win; **Discard and reload** takes the disk version.
 - **A save lost the race.** If a save finds the disk copy changed first, **Keep my edits** saves your version over it; **Discard and reload** takes the disk version.
 - **No local edits, new content elsewhere.** If your copy is clean and the file changed on disk or was saved by another window, the banner asks whether to **Reload** or **Keep current view**.
 
-This prompt is controlled by **Ask before reloading external changes** in Settings, under File reading &amp; saving (on by default). Turn it off and a clean file reloads straight away with a brief notice instead of a banner - useful for logs or generated files that update on their own. Unsaved edits always prompt regardless of this setting.
+This prompt is controlled by **Ask before reloading** in Settings, on the General tab under Open & save (on by default). Turn it off and a clean file reloads straight away with a brief notice instead of a banner - useful for logs or generated files that update on their own. Unsaved edits plus a change outside always prompt regardless of this setting.
 
 Every Keep or Discard shows a brief toast with an **Undo** button that brings the banner back so you can choose again.
 
-If you would rather never see the reopen banner, turn on **Always reload external changes** in Settings, under File reading & saving: the disk version is then always used. Save before you close - with this on, unsaved edits from a previous session are not offered back.
+If you would rather not have unsaved edits come back at all, turn on **Reload external changes** in Settings, on the General tab under Open & save: the disk version is then always used. Save before you close - with this on, unsaved edits from a previous session are gone.
 
 ## Smaller comforts
 
@@ -365,15 +448,15 @@ The undo and redo buttons on the top toolbar step through your edit history. **H
 
 ### Live word count
 
-A small pill under the top toolbar shows the document's word, character and line counts as you type. Select text and it switches to the selection's character and word count, with the full document figures in the tooltip. Turn **Show document stats** off in Settings, under Toolbars, to hide it.
+A small pill under the top toolbar shows the document's word, character and line counts as you type. Select text and it switches to the selection's character and word count, with the full document figures in the tooltip. Turn **Document stats** off in Settings, on the General tab under Toolbars, to hide it.
 
 ### Auto-hiding toolbars
 
-Each toolbar can either stay put or slide out of the way. The pushpin on the corner of a toolbar toggles it: pinned means always visible, unpinned means auto-hide. When a bar is hidden, move the pointer to the edge where it lives and it slides back in. The choice is saved and applies to every open pane. The same pair of choices lives in Settings, under Toolbars, as **Top toolbar display** and **Edit toolbar display**.
+Each toolbar can either stay put or slide out of the way. The pushpin on the corner of a toolbar toggles it: pinned means always visible, unpinned means auto-hide. When a bar is hidden, move the pointer to the edge where it lives and it slides back in. The choice is saved and applies to every open pane. The same pair of choices lives in Settings, on the General tab under Toolbars, as **Top toolbar display** and **Edit toolbar display**.
 
 ### Toolbar colours
 
-The **Toolbar colours & opacity** section of the Toolbars tab recolours both toolbar pills: background, text and icons, border, and the resting opacity (they always sharpen to fully opaque under the pointer). Leave a field empty to keep the active palette's own toolbar chrome. Whatever background you pick, the selected mode tab and hover feedback adjust automatically to stay readable - on a bright bar the active tab becomes a dark pill with the bar's colour for its label, and the reverse on a dark bar. A **Reset all** link on the section heading clears all four fields back to the palette defaults in one click.
+The **Toolbars** section of the General tab recolours both toolbar pills: background, text and icons, border, and the resting opacity (they always sharpen to fully opaque under the pointer). Leave a field empty to keep the active palette's own toolbar chrome. Whatever background you pick, the selected mode tab and hover feedback adjust automatically to stay readable - on a bright bar the active tab becomes a dark pill with the bar's colour for its label, and the reverse on a dark bar. A **Reset all** link under the four fields clears them back to the palette defaults in one click.
 
 ### Zoom
 
@@ -381,14 +464,16 @@ Hold **Ctrl and scroll the mouse wheel** to zoom the document in or out, from 50
 
 ### Wrapping long lines in code
 
-Two settings control how long lines of code behave, separately for the two surfaces. Both are in Settings, under Code & source files.
+Two settings control how long lines of code behave, separately for the two surfaces.
 
-- **Wrap long lines in code blocks** (on by default) governs rendered code blocks in Reading and Live. On, a long line wraps to the pane width; off, each block scrolls horizontally on its own.
-- **Wrap long lines in source** (on by default) governs the Source editor. On, long lines reflow to the pane width; off, the editor scrolls horizontally and keeps column alignment.
+- **Wrap lines in code blocks** (Markdown tab, under Document; on by default) governs rendered code blocks in Reading and Live. On, a long line wraps to the pane width; off, each block scrolls horizontally on its own.
+- **Wrap lines in source** (General tab, under Source; on by default) governs the Source editor. On, long lines reflow to the pane width; off, the editor scrolls horizontally and keeps column alignment.
+
+Both of these are the same thing as the wrap button in the top toolbar, which picks whichever of the two applies to the file you have open. Change it in either place and the other follows.
 
 ### Magnifying the active row
 
-In Source and code editing the line your cursor is on lifts slightly toward you, so it is easy to see where you are working. It is on by default; turn **Magnify active row** off in Settings, under Code & source files, for a flat view. It does not apply in Live mode. A related toggle in the same section, **Highlight active row** (also on by default), tints the current line and its line number together as one accent band.
+In Source and code editing the line your cursor is on lifts slightly toward you, so it is easy to see where you are working. It is on by default; turn **Magnify active row** off in Settings, on the General tab under Source, for a flat view. It does not apply in Live mode. A related toggle in the same section, **Highlight active row** (also on by default), tints the current line and its line number together as one accent band.
 
 ### Keyboard shortcut guide
 
@@ -396,19 +481,27 @@ Press **F1** at any time to open a full reference of every keyboard shortcut, gr
 
 ### Formatting characters and whitespace
 
-Source view marks spaces with faint dots and tabs with arrows out of the box. The opacity of these marks is adjustable: **Whitespace dot opacity** (Settings, under Code & source files, next to the show/hide toggle) lets you dial them from barely visible to fully solid, applied live. **Show whitespace dots in Source** turns the marks off entirely. **Show formatting characters** (Settings, under Markdown rendering) goes further: it adds a line-ending badge (LF or CRLF) to each line and shows the whitespace marks in Live mode too, not just Source.
+Source view marks spaces with faint dots and tabs with arrows out of the box. The opacity of these marks is adjustable: **Whitespace marker opacity** (Settings, General tab, under Source, on the same row as the show/hide switch) lets you dial them from barely visible to fully solid, applied live. **Whitespace dots in Source** turns the marks off entirely, and is the same switch as the whitespace button in the code toolbar. **Formatting characters** (Settings, Markdown tab, under Document) goes further: it adds a line-ending badge (LF or CRLF) to each line and shows the whitespace marks in Live mode too, not just Source.
+
+### Indentation guides
+
+Source view also draws a faint vertical line down each level of indentation, so you can see which lines belong to which block without counting spaces. The line sits on the left edge of its column, the way Notepad++ and VS Code draw theirs, and the guide for the block your cursor is in is drawn a little stronger than the rest.
+
+The spacing comes from the file itself rather than from a fixed setting: a file indented by two gets guides every two columns, a file indented by four gets them every four. The columns are measured from the code font you have chosen, so a guide lands on the tab stop rather than beside it, and a line whose indent is not an exact multiple of the step still shows the level it is nested inside instead of dropping back one. A guide never runs down the inside of a string or comment that wraps over several indented lines, since a continuation is not a new block. **Indentation guides** in Settings, on the General tab under Source, turns them off, and so does the guides button in the code toolbar.
+
+One rough edge worth knowing: a markdown file uses one spacing for the whole document, so a fenced code block indented more deeply than the surrounding list can pick up a guide part-way through its indentation.
 
 ### Single newlines as line breaks
 
 Standard markdown joins lines separated by a single newline into one paragraph, and both views honour that. With the setting **off** (the default), a hard-wrapped paragraph flows to the pane width in Reading *and* in Live - Live renders each interior newline as a space, so three short source lines read as one flowing paragraph, exactly as Reading shows them. Switch to Source to see (or edit) the raw line breaks.
 
-If you want a newline in the source to be a visible line break instead (the way chat apps and some note tools treat it), turn on **Render single newlines as line breaks** in Settings, under Markdown rendering. Every line you type then stays on its own line in Reading and Live alike, and the caret, cut and paste all work line by line, matching the source exactly.
+If you want a newline in the source to be a visible line break instead (the way chat apps and some note tools treat it), turn on **Render single newlines as breaks** in Settings, on the Markdown tab under Document. Every line you type then stays on its own line in Reading and Live alike, and the caret, cut and paste all work line by line, matching the source exactly.
 
 To force a line break within a paragraph while the setting is off, end the line with two spaces or a backslash (a markdown hard break), or leave a blank line to start a new paragraph.
 
 ### Selection match highlighting
 
-Select two or more characters and every other occurrence of that text is softly tinted in all three modes - Reading, Live and Source - so you can see where a word or phrase appears without running a search. The highlight is capped at 100 matches so large documents are not washed out. Turn it on or off with **Highlight matching text** in Settings, under Markdown rendering (on by default).
+Select two or more characters and every other occurrence of that text is softly tinted in all three modes - Reading, Live and Source - so you can see where a word or phrase appears without running a search. The highlight is capped at 100 matches so large documents are not washed out. Turn it on or off with **Highlight matching text** in Settings, on the Markdown tab under Document (on by default).
 
 ### Ctrl+click to open a URL
 
@@ -424,11 +517,11 @@ Click a line number to select that whole line; drag or **Shift+click** to extend
 
 ### Code and source appearance settings
 
-Several appearance options for Source editors and rendered code blocks live in Settings, under Code &amp; source files and Settings > Appearance.
+Several appearance options for Source editors and rendered code blocks live in Settings, on the General tab under Source and on the Appearance tab under Code blocks and Source editor.
 
-- **Tab width** (Code &amp; source files): how many columns a tab character occupies in Source and code editors. Accepts 1-8, default 4.
-- **Line-number gutter** (Code &amp; source files): Off (no line numbers), Plain (neutral gutter), Accent bar (coloured bar on the left edge over a light tint), or Filled accent (accent colour fills the gutter column with numbers on top).
-- **Source editor** (Appearance): five optional overrides - Source font (falls back to the Code font if empty), Source font size in px (falls back to the Code font size if empty), Source line height as a multiplier (falls back to the Code line height if empty), Source text colour (follows the active palette if empty; syntax tokens keep their own colours), and Source line-highlight colour (follows the UI accent or syntax palette if empty). Setting any field overrides only that property.
+- **Tab width (columns)** (General &rsaquo; Source): how many columns a tab character occupies in Source and code editors. Accepts 1-8, default 4.
+- **Line-number gutter** (General &rsaquo; Source): Off (no line numbers), Plain (neutral gutter), Accent bar (coloured bar on the left edge over a light tint), or Filled accent (accent colour fills the gutter column with numbers on top). It is the only gutter Source has: folding is marked on the line itself, not in a column of its own.
+- **Source editor** (Appearance): five optional overrides - Source font (falls back to the Code font if empty), Source font size in px (falls back to the Code font size if empty), Source line height as a multiplier (falls back to the Code line height if empty), Source text colour (follows the active palette if empty; syntax tokens keep their own colours), and Source line-highlight colour (follows the UI accent or the Source editor palette if empty). Setting any field overrides only that property.
 - **Code blocks** (Appearance): four optional fields that govern rendered code blocks in markdown - Code font, Code font weight, Code font size, and Code line height. Empty fields follow the palette or body defaults.
 
 ## Keyboard shortcuts

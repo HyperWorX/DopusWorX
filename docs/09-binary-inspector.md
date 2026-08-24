@@ -2,7 +2,7 @@
 
 A file that is binary rather than text opens in the binary inspector: a hex view of its bytes, with a panel that reads the values under your cursor. DopusWorX decides a file is binary by looking at its content, not its name, so a binary with a text-like extension still opens here, and a text file with an unusual extension does not.
 
-The inspector is on by default. Turn **Binary inspector** off in Settings to send binary files back to the plain not-text notice instead.
+The inspector is on by default. Turn **Binary inspector** off in Settings, on the General tab under Binary, to send binary files back to the plain not-text notice instead.
 
 ## Limits
 
@@ -18,7 +18,7 @@ The view has the three classic columns: the byte offset down the left, the bytes
 
 Down the side, the data inspector reads the bytes starting at the cursor as the common types at once: the offset in hex and decimal, the byte's hex value and character, signed and unsigned 8-bit integers, signed and unsigned 16- and 32-bit integers in both little- and big-endian form (unsigned 16/32 in little-endian only), signed and unsigned 64-bit integers and 32- and 64-bit floats in little-endian form; a type that runs past the end of the file shows a dash. Move the cursor and the readings update to match the new position.
 
-Below the readings, a status line shows the current cursor position as a hex offset, or the start and end offsets and byte count when a range is selected. Below that, a text preview pane shows the file's bytes interpreted as Latin-1 characters; for files larger than 1 MiB only the first 1 MiB is shown and the pane heading says so. Drag the divider between the value pane and the hex pane to resize them.
+Below the readings, a status line shows the current cursor position as a hex offset, or the start and end offsets and byte count when a range is selected. Below that, a text preview pane shows the file's bytes interpreted as Latin-1 characters; for files larger than 1 MiB only the first 1 MiB is shown and the pane heading says so. Drag the divider between the value pane and the hex pane to resize them. In a narrow pane the value pane gives way first, down to its own floor, so the hex dump keeps as much of the width as it can.
 
 ## Selecting bytes
 
@@ -57,9 +57,17 @@ Right-click to open the copy options. Two items are always present: **Copy as he
 
 Any file can be opened in the inspector on demand, not only the ones detected as binary. Right-click and choose **View as hex** to open the current file in the inspector, and **View as text** to go back to the normal text or code view. This is useful for peeking at the bytes of a file that is technically text, or for forcing a borderline file one way or the other. View as hex is available while the **Binary inspector** setting is on; turning it off removes the command as well as the automatic routing.
 
+## Printing
+
+**Print / Save as PDF** prints a real hex dump built for the page, not the rows
+that happen to be on screen. It is capped at 1024 rows, which is 16 KiB and
+around twenty sheets, and the cap is printed on the sheet so a truncated dump
+never passes for a whole one. **Black and white** under the same entry does the
+same without the palette.
+
 ## Editing bytes
 
-The inspector is read-only out of the box. Turn on **Allow binary editing** in Settings (it needs the Binary inspector on) and the hex pane gains an **Edit** toggle. With Edit on:
+The inspector is read-only out of the box. Turn on **Allow binary editing** in Settings, on the General tab under Binary (it needs the Binary inspector on), and the hex pane gains an **Edit** toggle. With Edit on:
 
 - Typing **overwrites** the byte under the cursor. Type in the hex column, two characters to a byte, or in the text column, one character to a byte.
 - The header shows an **OVR/INS** button next to Edit that displays the current mode; click it (or press **Insert**) to switch between overwrite and insert mode.

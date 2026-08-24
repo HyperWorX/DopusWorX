@@ -24,7 +24,7 @@
 6. Open **Settings** (the gear icon) to choose a palette, set fonts and spacing,
    pick the spell-check dictionaries, adjust the Mermaid diagram options, pick
    which view Markdown opens in, customise the toolbar, map which file types
-   open in DopusWorX, and, on the Content tab under **Advanced**, pick which
+   open in DopusWorX, and, on the General tab under **Advanced**, pick which
    graphics card the viewer renders on (handy on a laptop that has both an
    integrated and a dedicated GPU; this one takes effect the next time DopusWorX
    starts rather than straight away). Under that setting DopusWorX shows which card
@@ -43,6 +43,28 @@
    is still up to you -- the automatic check only tells you an update is there.
 
 <div align="center"><img src="images/settings-dialog.png" width="560" alt="The Settings window on the Appearance tab, showing the five tabs along the top and the Apply and Close buttons at the bottom"></div>
+
+## Finding your way around Settings
+
+There are five tabs. **Appearance** holds the palette, the colours, the fonts and
+the shape of the page. **General** holds how files open and save, the Source and
+Binary views, and the toolbars. **Markdown** holds how a markdown document
+renders, along with its images, diagrams, maths and table of contents. **File
+types** is the grid of extensions, and **About** is the version and the update
+check.
+
+Each tab lists its sections in a ribbon down the left, every name carrying the
+section's glyph and how many settings are in it, so a tab you have not opened
+reads as a list of what is on it. Click a name and that section opens in the box
+beside it; a tab starts on its first section. Two buttons at the top of the
+ribbon place every section at once (**Expand**) or go back to one at a time
+(**Collapse**), and they act on every tab rather than only the one you are on.
+The button beside them folds the ribbon down to its glyphs, which it also does on
+its own in a window narrower than about 940 pixels.
+
+If you know the setting but not where it lives, type it into **Find a setting**
+at the top of the dialog. It searches every tab at once and leaves each result
+under its own section heading, so you can see what a setting sits next to.
 
 ## More
 

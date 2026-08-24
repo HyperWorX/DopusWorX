@@ -94,7 +94,7 @@ image insert, and a table insert with a size grid. Find and replace handles case
 whole word and regex, and Ctrl+G jumps to a line. There is
 undo and redo with a history dropdown, and a live word, character and line count.
 
-Insert a Table of Contents that keeps itself up to date as you edit (list style and title style are configurable in Settings), and fold whole heading sections away with the fold glyph in the margin.
+Insert a Table of Contents that keeps itself up to date as you edit (list style and title style are configurable in Settings), and fold whole heading sections away: in Source the fold marker sits on the line beside the code, and in Live a chevron appears next to a heading when you hover it.
 
 Spell check underlines misspellings as you type in Live and Source, skipping code, links and URLs; English (US) is built in and more than fifty other dictionaries download once and are cached offline.
 
@@ -102,9 +102,11 @@ A right-click menu is there throughout, and you do not need a mouse for it: open
 it from the keyboard and the arrows move, Home and End jump, Enter or Space
 activate, and Escape closes; on a touchscreen a press and hold opens it. Press F1
 anywhere (or ? in Reading) for a pop-up guide to every keyboard shortcut; it is
-also in the right-click menu. Markdown documents (and CSV tables) can be printed
-or saved as a PDF of the whole rendered document, colours and all, from the
-right-click menu. The Print option is also in the Save menu for every file type.
+also in the right-click menu. Any file can be printed or saved as a
+PDF of the whole document, from the right-click menu, and the sheet takes the
+palette you are reading it in. Black and white sits under the same entry for a
+plain sheet with none of the palette on it. Both are in the Save menu too, for
+every file type.
 Ctrl+P works from anywhere in the viewer. See
 [`docs/06-context-menus.md`](docs/06-context-menus.md) for the full set.
 
@@ -175,8 +177,9 @@ Source-code files open in **Source view** (there is no Reading or Live mode for
 code, since there is nothing to render).
 
 - Syntax highlighting for around 150 languages (the common ones bundled, the
-  rest loaded on demand), with a line-number gutter, a word-wrap toggle and a
-  configurable tab width.
+  rest loaded on demand), with a line-number gutter, indentation guides that
+  land on the file's own indent columns, a word-wrap toggle and a configurable
+  tab width.
 - A copy button, an optional active-line highlight (with a magnify option that
   lifts the line you are on), and a code-theme picker that is independent of the
   page palette.
@@ -184,14 +187,15 @@ code, since there is nothing to render).
   their added and removed lines.
 
 Code files are fully editable, with a code-editing toolbar: toggle comments in
-the file's own comment style, duplicate a line, move lines up or down, and indent
-or outdent. Click or drag line numbers to select whole lines, and Ctrl-click to
-build a multi-cursor selection.
+the file's own comment style, duplicate a line, move lines up or down, indent or
+outdent, and switch the whitespace marks and indentation guides on or off. Click
+or drag line numbers to select whole lines, and Ctrl-click to build a
+multi-cursor selection.
 
 Fenced code blocks inside a Markdown document are highlighted in every Markdown
 mode.
 
-<div align="center"><img src="img/code-view.png" width="640" alt="Source view with syntax highlighting, line-number gutter and copy button"></div>
+<div align="center"><img src="img/code-view.png" width="640" alt="Source view with syntax highlighting, line-number gutter and the code toolbar"></div>
 
 ## Binary files
 
@@ -274,15 +278,17 @@ picture without leaving the app: type a word, press Enter, and click a result. I
 the picker, drag the preview strip up or down to choose the vertical crop and set
 a pixel height for this file alone, then click **Set**. DopusWorX writes the
 `banner:`, `banner_y:` and `banner_height:` frontmatter for you. The global
-banner height is set in Settings under Content › Images.
+banner height is set in Settings on the Markdown tab, under Images.
 
 ## Customise it to your liking
 
-The Settings dialog is organised into clear tabs, **Appearance**, **Content**,
-**Toolbars**, **File types** and **About**, with live preview and a plain-language
-note on each option. The **Content** tab groups its options by concern, Opening &
-views, File reading & saving, Markdown rendering, Images, Code & source files,
-Diagrams, then Maths. Among the things you can change:
+The Settings dialog has five tabs, **Appearance**, **General**, **Markdown**,
+**File types** and **About**, with live preview and a plain-language note on each
+option. Every tab carries a ribbon of its sections down the left: click a name
+and that section opens in the box beside it, one at a time, or press Expand to
+place the lot and scroll through them. A **Find a setting** box in the header
+searches every tab at once, so a setting can be reached by name instead of hunted
+for. Among the things you can change:
 
 - **Auto-hiding toolbars.** Set the top toolbar or the formatting toolbar to slide
   away and reappear when you reach for them, so the document gets the whole pane.
@@ -292,11 +298,15 @@ Diagrams, then Maths. Among the things you can change:
   type in the viewer pane while browsing (double-click left alone); **DOpus** also
   opens it in the DopusWorX window on double-click inside Opus; **Explorer** also
   associates it with Windows so it opens from Explorer even when Opus is closed.
-  A **Highlight Grammar** column sets which grammar each type uses, so you can
-  open `.tpl` as C++ or map any type to any of the supported languages.
+  A **Highlight Grammar** column decides how each type is presented. Pick a
+  language and you change the colouring, so `.tpl` can open as C++. Pick
+  Markdown, HTML, CSV or Binary and the type opens in that view instead, so
+  mapping Plain text to Markdown makes `.txt` and `.log` files open as Markdown
+  documents with Reading, Live and Source.
 - **Maths macros**, fonts and engine, encoding and fallback codepage, image
-  search folders, auto-save, separate left and right page margins, gutters,
-  formatting marks, and the full type and colour controls behind the palettes.
+  search folders, auto-save, page padding on all four sides and the margins
+  outside the page, gutters, formatting marks, and the full type and colour
+  controls behind the palettes.
 
 Zoom any view from 50% to 300% with Ctrl and the scroll wheel or a trackpad
 pinch (or the right-click Zoom submenu); each view keeps its own level and the
@@ -385,10 +395,10 @@ DopusWorX settings can set this up for you.
 
 ## Try it
 
-The [`samples/`](samples/) folder has sample documents. Start with
-[`dopusworx.md`](samples/dopusworx.md), a single manual and exhibition of the
-Markdown and maths features, then open the CSV, code, HTML and multilingual files
-beside it so every view has something to show straight away.
+The [`samples/showcase/`](samples/showcase/) folder has a handful of demo
+documents, numbered in the order they are worth opening: headings and a table of
+contents, typography and lists, banner images, frontmatter, and the Source split
+view. Open one in the pane and there is something to look at straight away.
 
 ---
 

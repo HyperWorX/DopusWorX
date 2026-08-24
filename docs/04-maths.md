@@ -6,7 +6,7 @@ Maths renders by default. There is nothing to switch on: open or edit a note and
 
 ## The master switch
 
-Settings &middot; Content &middot; Maths &middot; **Render maths**.
+Settings &middot; Markdown &middot; Maths &middot; **Render maths**.
 
 Render maths is on out of the box. You only come here if you want to turn maths off altogether, in which case an equation just shows its raw text: `$x^2$` stays as those five characters. Turn it back on and equations are drawn again the next time a note is read or edited.
 
@@ -43,7 +43,7 @@ There are two common ways to type maths:
 - **LaTeX** is the standard in academia and publishing. Powerful and precise, but wordy, full of backslash commands like `\frac{a}{b}`.
 - **AsciiMath** is a lighter shorthand you can type without backslashes, like `a/b`. Handy for quick notes.
 
-DopusWorX understands both. You choose how it reads your equations under Settings &middot; Content &middot; Maths &middot; **Maths syntax**:
+DopusWorX understands both. You choose how it reads your equations under Settings &middot; Markdown &middot; Maths &middot; **Maths syntax**:
 
 | Mode | What it does |
 |---|---|
@@ -188,7 +188,7 @@ Whichever engine draws, AsciiMath is quietly converted to LaTeX first, so the tw
 
 If you keep reaching for the same shorthand, define it once. DopusWorX accepts LaTeX `\newcommand`, `\renewcommand`, `\providecommand` and `\def` definitions in two places:
 
-- **mathMacros** in Settings: paste your definitions straight in, one per line.
+- **Custom maths macros** in Settings, on the Markdown tab under Maths: paste your definitions straight in, one per line.
 - **Macros file**: Browse to a `.tex`, `.txt` or `.sty` file and its definitions are loaded into the box above, where you can edit them. If you change the file later, Browse to it again to refresh.
 
 For example:

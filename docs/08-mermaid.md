@@ -10,7 +10,7 @@ Diagrams are on by default. A note with no diagrams behaves exactly as before, a
 
 ## Turning it on and off
 
-Settings &middot; Content &middot; Diagrams &middot; **Render Mermaid diagrams**. It is on by default.
+Settings &middot; Markdown &middot; Diagrams &middot; **Render Mermaid diagrams**. It is on by default.
 
 Turned off, a `mermaid` block shows as an ordinary code block, so you can see and copy the source. Turn it back on and any mermaid blocks on screen are redrawn straight away, in whichever mode you are in.
 
@@ -167,7 +167,7 @@ and user-journey boxes all come out in distinct palette colours.
 
 ## Diagram settings
 
-All eight sit under Settings &middot; Content &middot; Diagrams, next to the on/off switch. Every one is optional, and the defaults give the standard look, so you only need to touch them when you want to change something.
+All eight sit under Settings &middot; Markdown &middot; Diagrams, next to the on/off switch. Every one is optional, and the defaults give the standard look, so you only need to touch them when you want to change something.
 
 | Setting | What it does |
 |---|---|

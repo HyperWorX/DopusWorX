@@ -139,6 +139,15 @@ Columns start in automatic layout, sized to their contents. Drag the grip on a c
 
 Zoom a CSV table (hold **Ctrl** and turn the mouse wheel, or use the **Zoom** item in the right-click menu) and DopusWorX remembers the level for that file. Reopen the file and the grid comes back at the zoom you left it. The zoom is kept per file, so each table keeps its own level.
 
+## Printing
+
+**Print** in the right-click menu, or in the Save menu, prints the whole table,
+not the screenful you can see. It carries whatever filter and sort the grid is
+showing, and repeats the column headings at the top of every sheet. Under the
+same entry, **Black and white** does the same on a plain sheet with none of the
+palette on it. Printing from Source prints the raw text of the file
+instead of the table.
+
 ## A note on what gets saved
 
 Saving writes the data back in the file's original row order, with its original line endings, byte-order mark and trailing newline preserved, so an open-and-save with no edits leaves the file byte-for-byte the same. When you do edit, only fields that need it are quoted (anything containing the delimiter, a quote or a newline), with inner quotes doubled. The delimiter written is the one in use: the detected one, or your override if you set one.

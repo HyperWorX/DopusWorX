@@ -102,7 +102,7 @@ and page layout on top of the active palette; an empty field falls back to the p
 default. GloWorX is the exception: its neon look is pinned in the stylesheet, so its
 colour fields appear greyed out when it is the active palette.
 
-<div align="center"><img src="images/settings-appearance.png" width="560" alt="The Appearance tab: the Global palette dropdown open with Default Auto and the grouped dark and light palettes, above the Syntax palette picker"></div>
+<div align="center"><img src="images/settings-appearance.png" width="560" alt="The Appearance tab: the Global palette dropdown open with Default Auto and the grouped dark palettes, above the Code block palette picker"></div>
 
 Every colour field carries an alpha slider between the text input and the reset link.
 Drag it to set transparency on any colour: it reads the alpha from whatever notation
@@ -111,8 +111,8 @@ it back in the same notation, so a live-preview fires on every drag exactly as i
 had typed. The slider hides when the field holds a CSS gradient, which has no single
 alpha.
 
-The background fields — Page background, Code block, Blockquote, Table header,
-Table cell, and Highlight — also accept a CSS gradient typed directly into the field.
+The background fields (Page background, Code block, Blockquote, Table header,
+Table cell, and Highlight) also accept a CSS gradient typed directly into the field.
 Any valid gradient value (linear-gradient(), radial-gradient(),
 repeating-linear-gradient(), and so on) is applied as a background-image layer in
 both Reading and Live view; the solid colour override is cleared so the palette's
@@ -121,33 +121,53 @@ to work from.
 
 A few related controls sit alongside the palette picker:
 
-- **Syntax palette** colours fenced code blocks independently of the page.
-  Match palette (the default) derives code colours from the active palette;
-  picking a named entry locks the code colouring regardless of the page, and
-  inline `code` takes the same theme's background and text colour so it
-  matches the blocks. A separate toggle, **Use syntax palette in source
-  mode**, extends it to the Source editor. Choosing a named syntax palette
-  clears any **Code background** colour you have set, because the syntax
-  theme now owns the code-block background; equally, setting a Code background
-  colour resets the Syntax palette back to Match palette.
-- **DOpus theme counts as** tells the viewer whether to treat your Directory
-  Opus theme as light or dark when the automatic guess gets it wrong.
+- **Code block palette** colours fenced code blocks in a rendered document,
+  independently of the page. Match palette (the default) derives the code
+  colours from the active palette; picking a named entry locks the code
+  colouring regardless of the page, and inline `code` takes the same entry's
+  background and text colour so it matches the blocks. Choosing a named entry
+  clears any **Code background** colour you have set, because the entry now owns
+  the code-block background; equally, setting a Code background colour resets
+  this back to Match palette.
+- **Source editor palette** does the same job for the raw file in Source view.
+  Match global palette (the default) keeps the editor in the palette's own
+  colours, Same as code in documents follows the row above, and any named entry
+  gives the editor a scheme of its own, which is what you want if you like a dark
+  editor over a light document.
+- **DOpus theme** tells the viewer whether to treat your Directory Opus theme as
+  light or dark when the automatic guess gets it wrong.
 - **Viewer background** colours the area behind the page card; leave it empty
   to match your Opus pane automatically (identical in the pane and the standalone
   window). It travels with your custom palettes and themes and is left alone by
   the built-in presets.
-- **Page layout** controls how the page card fills the viewer: **Fixed** keeps a
-  centred column (Page max width applies), **Expand** stretches the card to the
-  pane width, and **Fill** goes edge to edge with the background carried up behind
-  the toolbar. Separate left and right padding fields tune the margins.
-- **Rules and dividers**, further down the Appearance tab, sets the horizontal-rule
-  colour and thickness plus its **style** - solid, a gradient fade, a centre fade,
-  dotted, dashed, a double line, or three centred diamonds. (The banner height
-  moved to Settings &rsaquo; Images.)
+- **Page width**, in the Page layout section, controls how the page card fills
+  the viewer: **Fixed width** keeps a centred column (Page max width applies),
+  **Flexible** fills the viewer width and puts a drag grip on each page edge so
+  you can set your own (double-click a grip to reset), and **Fill** goes edge to
+  edge with the background carried up behind the toolbar. A flexible width is
+  stored as a proportion of the pane rather than a pixel count, so a width set in
+  a narrow pane comes out sensibly in a wide standalone window, and it is damped
+  above about 900px so a big screen keeps widening the page but slowly.
+- **Padding and margins**, in the same section, are six text fields: padding on
+  all four sides of the page, and a top and bottom margin. The padding is the gap
+  inside the page, between its edge and the text; the margin is the gap outside
+  it, between the page and the pane. The top margin is what holds the first line
+  clear of the floating toolbar, so that is the one to reduce if you want the
+  document to start higher. Each field takes a bare number as pixels or any CSS
+  length, and an empty field keeps the default.
+- **Quotes**, **Tables** and **Lines**, further down the Appearance tab, hold the
+  blockquote and table colours and the horizontal rule: its colour, its thickness
+  and its **style** - solid, a gradient fade, a centre fade, dotted, dashed, a
+  double line, or three centred diamonds. (The banner height is on the Markdown
+  tab, under Images.)
 
 <div align="center"><img src="images/hr-styles.png" width="640" alt="The seven horizontal rule styles stacked and labelled: solid, gradient fade, centre fade, dotted, dashed, double line and the three-diamond ornament"></div>
 
-- The **Themes** menu at the bottom of Settings saves your current tweaks as a
-  reusable palette, style or theme of your own, and **Import...** / **Export...**
-  move your whole settings file between machines.
+- **Save...**, beside the Global palette picker, keeps your current tweaks as
+  something you can come back to. Name it, then choose how much of the current
+  look to keep: a **Theme** is the colours and the layout together, a **Palette**
+  is the colours only, and a **Style** is the fonts, spacing and toolbar. Your
+  saved entries appear in the picker grouped under those three headings. Select
+  one and a **Delete** button appears next to Save. **Import...** / **Export...**
+  in the footer move your whole settings file between machines.
 
