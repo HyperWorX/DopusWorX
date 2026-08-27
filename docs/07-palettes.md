@@ -1,6 +1,6 @@
 # Palettes
 
-30 built-in palettes &middot; 18 dark &middot; 12 light, plus the **Default** dark
+32 built-in palettes &middot; 19 dark &middot; 13 light, plus the **Default** dark
 and light themes the viewer falls back to when no palette is pinned.
 
 Out of the box no palette is fixed: the page follows the Opus pane background
@@ -55,7 +55,7 @@ Every marker token is coloured via the palette accent; bold / italic / strike / 
 </tr>
 <tr>
 <td width="50%"><b>Red Rascal</b><br><img src="palette-images/red-rascal.png" alt="Red Rascal"></td>
-<td width="50%"></td>
+<td width="50%"><b>NibWorX</b><br><img src="palette-images/nibworx.png" alt="NibWorX"></td>
 </tr>
 </table>
 
@@ -88,9 +88,33 @@ Every marker token is coloured via the palette accent; bold / italic / strike / 
 </tr>
 <tr>
 <td width="50%"><b>Obsidianite Light</b><br><img src="palette-images/obsidianite-light.png" alt="Obsidianite Light"></td>
-<td width="50%"></td>
+<td width="50%"><b>NibWorX Light</b><br><img src="palette-images/nibworx-light.png" alt="NibWorX Light"></td>
 </tr>
 </table>
+
+## NibWorX, and the gradient in the code
+
+NibWorX and NibWorX Light are the DopusWorX mark read as a document theme. The six heading colours are steps 1, 3, 5, 7, 9 and 11 of the same
+twelve-step ramp the Settings ribbon walks down its section names, which was
+sampled off the logo itself, so a heading in your document and a section name in
+the dialog are the same colour. The dark one sits on an indigo-charcoal page,
+the light one on white with a trace of violet in it, and every colour in both was
+measured against the surface it lands on rather than picked by eye: body text
+clears 13:1 on the page, and every heading and every code colour clears 4.5:1.
+
+In a code block the two token types you look for first are drawn as gradients
+rather than flat colours. Keywords sweep the cool half of the mark, blue into
+violet, and function names sweep the warm half, coral into the nib's gold. The
+other seven token roles stay flat, because a block where everything is a gradient
+is a block you cannot read.
+
+<div align="center"><img src="images/nibworx-gradient.png" width="620" alt="A JavaScript block under NibWorX: keywords drawn blue into violet, function names coral into gold, the remaining tokens flat"></div>
+
+The sweep belongs to the palette, not to the token set. Pick a specific scheme in
+**Code block palette** while NibWorX is your global palette and that scheme takes
+over completely, flat colours and all. Choosing NibWorX or NibWorX Light there,
+on some other page palette, gives you their flat colours for the same reason. Printing drops the sweep too and prints the flat colours, which sit at
+the middle of each gradient.
 
 ## Appearance settings
 

@@ -236,9 +236,10 @@ HTML files have a rendered **View**, a **Source** view of the raw markup, and a
 
 ## Themes and palettes
 
-Thirty built-in palettes, dark and light, from Dracula and Nord to Catppuccin,
-Everforest and Rosé Pine, alongside the signature ProWorX and GloWorX. By default
-a palette follows the Opus pane background automatically; you can pin one instead.
+Thirty-two built-in palettes, dark and light, from Dracula and Nord to Catppuccin,
+Everforest and Rosé Pine, alongside the signature ProWorX, GloWorX and NibWorX.
+By default a palette follows the Opus pane background automatically; you can pin
+one instead.
 
 <div align="center"><img src="img/palette-cascade.png" width="640" alt="The same document shown across several built-in palettes"></div>
 

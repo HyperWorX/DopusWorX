@@ -460,7 +460,7 @@ The **Toolbars** section of the General tab recolours both toolbar pills: backgr
 
 ### Zoom
 
-Hold **Ctrl and scroll the mouse wheel** to zoom the document in or out, from 50% to 300%. A small pill shows the level as you go. Each mode keeps its own zoom, and opening a different file resets to 100%. A trackpad pinch zooms too, with the toolbars staying pinned at their normal size while the document scales behind them.
+Hold **Ctrl and scroll the mouse wheel** to zoom the document in or out, from 50% to 300%. A small pill shows the level as you go. Reading and Live share one level, so switching between them keeps the size you set. Source keeps its own, since code rarely wants the size prose does. Opening a different file resets to 100%. A trackpad pinch zooms too, with the toolbars staying pinned at their normal size while the document scales behind them.
 
 ### Wrapping long lines in code
 
