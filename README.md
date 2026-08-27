@@ -420,3 +420,10 @@ Proprietary. Copyright © 2026 HyperWorX. All rights reserved. See
 
 Directory Opus is a trademark of GP Software. DopusWorX is an independent plugin,
 not affiliated with or endorsed by GP Software.
+
+---
+
+You may also be interested in
+[HyperWhisper](https://github.com/HyperWorX/HyperWhisper): local speech-to-text
+for audio and video on your own machine, with a desktop interface and no
+cloud.
