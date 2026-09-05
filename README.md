@@ -14,11 +14,7 @@ Windows x64 &nbsp;·&nbsp; needs the Microsoft Edge WebView2 runtime &nbsp;·&nb
 
 ---
 
-<div align="center">
-
-Get the plugin from the [Releases Page](https://github.com/HyperWorX/DopusWorX/releases)
-
-</div>
+<div align="center">Get the plugin from the <a href="https://github.com/HyperWorX/DopusWorX/releases">Releases Page</a></div>
 
 <div align="center">
 If DopusWorX is useful to you and you'd like to support the work, you can...
@@ -299,7 +295,11 @@ option. Every tab carries a ribbon of its sections down the left: click a name
 and that section opens in the box beside it, one at a time, or press Expand to
 place the lot and scroll through them. A **Find a setting** box in the header
 searches every tab at once, so a setting can be reached by name instead of hunted
-for. Among the things you can change:
+for.
+
+<div align="center"><img src="img/settings.png" width="520" alt="The Settings dialog on the Appearance tab, with the coloured section ribbon down the left and the theming controls beside it"></div>
+
+Among the things you can change:
 
 - **Auto-hiding toolbars.** Set the top toolbar or the formatting toolbar to slide
   away and reappear when you reach for them, so the document gets the whole pane.
