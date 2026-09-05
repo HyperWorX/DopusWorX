@@ -17,10 +17,12 @@ Windows x64 &nbsp;·&nbsp; needs the Microsoft Edge WebView2 runtime &nbsp;·&nb
 <div align="center">Get the plugin from the <a href="https://github.com/HyperWorX/DopusWorX/releases">Releases Page</a></div>
 
 <div align="center">
-If DopusWorX is useful to you and you'd like to support the work, you can...
-</br>
-</br>
+
+If DopusWorX is useful to you and you'd like to support the work:
+
 <a href="https://www.buymeacoffee.com/HyperWorX" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me a Coffee" height="48"></a>
+
+### Also from HyperWorX
 
 <a href="https://github.com/HyperWorX/HyperWhisper"><img src="https://raw.githubusercontent.com/HyperWorX/HyperWhisper/main/assets/brand/banner.png" alt="HyperWhisper" width="260"></a>
 
