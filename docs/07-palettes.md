@@ -1,7 +1,10 @@
 # Palettes
 
-32 built-in palettes &middot; 19 dark &middot; 13 light, plus the **Default** dark
-and light themes the viewer falls back to when no palette is pinned.
+34 built-in palettes &middot; 20 dark &middot; 14 light, plus the **Default** dark
+and light themes the viewer falls back to when no palette is pinned. Thirty-two
+of them have a card below. The two GitHub Web palettes do not, because what they
+look like is a GitHub page: open a README under one and you are looking at the
+card already.
 
 Out of the box no palette is fixed: the page follows the Opus pane background
 (light or dark), which is what the **Default Dark** and **Default Light** cards
@@ -92,6 +95,34 @@ Every marker token is coloured via the palette accent; bold / italic / strike / 
 </tr>
 </table>
 
+## The GitHub pairs, and which one you want
+
+There are two GitHub entries in each list and they do different jobs.
+
+**GitHub Dark** and **GitHub Light** are Primer's colours on the DopusWorX
+layout. Pick one of those if you like the way github.com looks and want your
+documents to read that way, with the spacing, headings and code boxes you are
+used to here.
+
+**GitHub Web Dark** and **GitHub Web Light** go further. They carry the site's
+measurements as well as its colours: 16px body text on a 1.5 line, headings at
+2 / 1.5 / 1.25 / 1 / 0.875 / 0.85em with 24px above and 16px below, a hairline
+under the H1 and H2, a grey bar down an unfilled blockquote, lists indented 2em,
+inline code at 85% in a soft chip, fenced code in a 6px box with no accent
+stripe, table cells at 6px by 13px with every second row shaded, and a 4px
+horizontal rule. Bold, italic, strikethrough and inline code all take the body
+colour, because that is what the site does with them.
+
+That is the pair to use while you are writing a README. What you see in the pane
+is what the repository page will show, so you can catch a heading that wants to
+be an H2 or a table that runs too wide before you push it.
+
+The numbers come from `github-markdown-css`, the published build of Primer that
+github.com renders a README with, so they are the site's own rather than a match
+by eye. Your own settings still win: set the body size to 18px and you keep
+18px, with GitHub's proportions built on top of it. Reading and Live are driven
+from the same values, so switching modes does not move anything.
+
 ## NibWorX, and the gradient in the code
 
 NibWorX and NibWorX Light are the DopusWorX mark read as a document theme. The six heading colours are steps 1, 3, 5, 7, 9 and 11 of the same
@@ -179,11 +210,25 @@ A few related controls sit alongside the palette picker:
   clear of the floating toolbar, so that is the one to reduce if you want the
   document to start higher. Each field takes a bare number as pixels or any CSS
   length, and an empty field keeps the default.
+- **Close the top gap when the toolbar hides**, the checkbox under those fields,
+  is off by default. Off, the page sits in the same place whether the top toolbar
+  is pinned or set to auto show on hover, so the top margin means one thing and
+  the toolbar lays over the first lines when it slides in. On, the gap closes
+  while the toolbar is hidden and the document starts at the very top of the
+  pane, which gives you back the strip the toolbar was holding open. It only ever
+  describes the hidden state: pin the toolbar and the margin comes straight back,
+  and a top margin you have set yourself wins over it either way.
 - **Quotes**, **Tables** and **Lines**, further down the Appearance tab, hold the
   blockquote and table colours and the horizontal rule: its colour, its thickness
   and its **style** - solid, a gradient fade, a centre fade, dotted, dashed, a
   double line, or three centred diamonds. (The banner height is on the Markdown
   tab, under Images.)
+- **Quote line spacing** and **Quote paragraph spacing**, in that same Quotes
+  section, set how the text sits inside a quote box. Quote text runs tighter than
+  body text on purpose, or a one-line quote is stranded in a tall box, so it has
+  its own line-height rather than following the body setting. The defaults are
+  1.7 for the lines and 0.7em between paragraphs within one quote; the space
+  around the whole box is block spacing, not this.
 
 <div align="center"><img src="images/hr-styles.png" width="640" alt="The seven horizontal rule styles stacked and labelled: solid, gradient fade, centre fade, dotted, dashed, double line and the three-diamond ornament"></div>
 

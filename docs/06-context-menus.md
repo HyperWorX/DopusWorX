@@ -15,6 +15,8 @@ The menu is built fresh on every right-click, so it only ever lists actions that
 
 Live, Source, and a code file's Source view are editable surfaces. Reading is read-only, so the editing items (Cut, Paste, Insert, Alignment, Find / Replace) are held back there.
 
+If the pane is shorter than the menu, the menu is capped to the pane and scrolls, so the entries at the bottom stay reachable without moving the window. The submenus still open alongside it as normal.
+
 ### Markdown and document views
 
 These are the items you can see, roughly top to bottom. Not all show at once.

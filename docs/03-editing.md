@@ -56,7 +56,7 @@ The formatting toolbar runs along the bottom of the pane in Live and Source mode
 
 You can rearrange the toolbar to suit you: **Edit toolbar layout** in Settings, on the General tab under Toolbars, lets you drag buttons sideways to reorder them, click one to hide or show it, and Reset to put the default set back.
 
-<div align="center"><img src="images/editing-toolbar.png" width="640" alt="The formatting toolbar: bold, italic, strikethrough, highlight, inline code, link, footnote and clear-formatting, then the heading and maths buttons, the list buttons, indent, blockquote, code block, and image and table insert"></div>
+<div align="center"><img src="images/editing-toolbar.png" width="640" alt="The formatting toolbar: bold, italic, strikethrough, highlight, inline code, link, footnote and clear-formatting, then the heading, change-case and maths buttons, the list buttons, indent and align, blockquote, code block, and image and table insert"></div>
 
 ### Inline formatting
 
@@ -77,16 +77,34 @@ The common inline wraps also have keyboard shortcuts in markdown Live and Source
 
 | Button | What it does |
 |---|---|
-| **Heading (H)** | Cycles the heading level of the current line. The number on the button shows what the next click will apply. A plain line becomes H1; an existing heading steps up one level, wrapping H6 back to H1. Moving the cursor to another line re-reads that line's level. The button always sets a level rather than removing it; to drop a heading, delete the `#` or undo. |
+| **Heading (H)** | Cycles the heading level of the current line. The number on the button shows what the next click will apply. A plain line becomes H1; an existing heading steps up one level, wrapping H6 back to H1. Moving the cursor to another line re-reads that line's level. Hold the button instead of clicking it and a menu opens with Heading 1 to Heading 6 and **No heading**, which takes the `#` marks off and leaves a plain line. |
+| **Change case (Aa)** | Changes the case of the selected words. Clicking cycles UPPERCASE, lowercase, Sentence case, hyphenated-words and camelCaseWords in that order, so you can press it until the text reads the way you want. Hold it to open the list and pick one outright. The last two join the words together, so they need more than one word to mean anything and are greyed out when a single word is selected. |
 | **Sigma (Σ)** | Opens the maths symbol panel. The button is present whenever maths rendering is on, which it is by default, and disappears only if you turn maths off in settings. See the maths page for what the panel does. |
 
 ### Lists
 
 | Button | Produces |
 |---|---|
-| **Bulleted list** | `- ` on each selected line (click again to remove) |
-| **Numbered list** | `1. `, `2. `, `3. ` down the selected lines, renumbered in sequence (click again to remove) |
-| **Task list** | `- [ ] ` on each selected line, preserving any indent so it works inside nested lists (click again to remove) |
+| **Bulleted list** | `- ` at the start of each selected paragraph (click again to remove) |
+| **Numbered list** | `1. `, `2. `, `3. ` down the selected paragraphs, renumbered in sequence (click again to remove) |
+| **Task list** | `- [ ] ` on each selected paragraph, preserving any indent so it works inside nested lists (click again to remove) |
+
+The list buttons work on paragraphs, not on lines of the file. Prose is usually
+hard-wrapped across several lines, so marking every line would turn each
+continuation into an item of its own and put an empty item on every blank line
+between paragraphs. A wrapped paragraph becomes one item, and blank lines are
+left alone. Selecting nothing and clicking inside a paragraph marks that
+paragraph, wherever the cursor sits in it.
+
+The exception is a list you are already building. If the selection already
+contains markers - `- a` on one line and a bare `b` on the next - each line is
+treated as its own item, because that is a half-made list rather than a wrapped
+paragraph.
+
+**Enter** at the end of a list item starts the next one, carrying the marker,
+the indent and the number. Press it again on the empty item and the marker goes,
+leaving a plain line, the way a word processor ends a list. On a nested item the
+first press steps back out to the outer list.
 
 **Tab** indents the current line and **Shift+Tab** outdents it, two spaces at a time. This works on any line in the editor, not just list lines - the same two-space step as the indent buttons below.
 
@@ -99,6 +117,7 @@ Settings, under Body text, one value that Reading and Live follow identically.
 |---|---|
 | **Increase indent** | adds two spaces to the front of each selected line |
 | **Decrease indent (outdent)** | removes up to two leading spaces from each selected line |
+| **Align** | centres the current block. Clicking again on something already centred takes the centring off, so the one button both applies and removes it. Hold it for Left, Centre, Right and Justify. It writes the same `<div align="...">` wrapper the right-click Align menu writes, and Reading and Live both honour it. |
 
 ### Blocks
 
@@ -106,6 +125,19 @@ Settings, under Body text, one value that Reading and Live follow identically.
 |---|---|
 | **Blockquote** | `> ` on each selected line (click again to remove) |
 | **Fenced code block** | a ```` ``` ```` fence around the selection, or an empty fence with the cursor on the body line. The fence always starts and ends on its own line so it parses cleanly. |
+
+Everything the toolbar writes works inside a quote box and stays inside it. A
+quote continues only while every line carries its `> `, so anything written
+without one would end the quote at that point and split it in two. The list
+buttons put their marker after the `> ` rather than in front of it, indent steps
+in behind it, and the code block, table and image inserts carry the prefix on
+every line they write, including the blank line they leave behind them. Block
+inserts also take a line of their own rather than joining the sentence the
+cursor was in.
+
+An alignment wrapper works around a quote too. `<center>` or
+`<div align="center">` around a quote box centres the box in Reading and in
+Live alike, so a centred call-out looks the same whichever mode you are in.
 | **Insert image** | opens the image popup (below) |
 | **Insert table** | opens the table size grid (below) |
 
@@ -115,7 +147,7 @@ A `---` on its own line renders as a horizontal rule divider. Its appearance - s
 
 When you open a code or text file in Source mode, the formatting toolbar is replaced by a code-editing toolbar. These commands are language-agnostic and run CodeMirror's own editing commands, so they behave exactly like the editor itself.
 
-<div align="center"><img src="images/code-toolbar.png" width="280" alt="The code-editing toolbar: toggle comment, outdent, indent, duplicate line, move line up, move line down, find, and the whitespace and indentation guide toggles"></div>
+<div align="center"><img src="images/code-toolbar.png" width="280" alt="The code-editing toolbar: toggle comment, change case, outdent, indent, duplicate line, move line up, move line down, find, and the whitespace and indentation guide toggles"></div>
 
 | Button | What it does |
 |---|---|
@@ -164,6 +196,34 @@ The image button (in the formatting toolbar) opens a small popup so you can plac
 Insert is enabled as soon as the Source field has text. The popup writes Obsidian-style image markdown, for example `![alt|400x300|center](path)`, which renders at the right size and alignment both here and in Obsidian. Click outside the popup, or its close control, to close it.
 
 You can write the same syntax by hand anywhere: `![alt|420](path)` sets a width, `![alt|420x300](path)` width and height, `![alt|x300](path)` a height alone, and a trailing `|left`, `|center` or `|right` aligns the image. The Obsidian embed form takes the same sizes: `![[img.png|420]]` (see [Wikilinks and embeds](#wikilinks-and-embeds)).
+
+### Pasting an image
+
+Copy a picture anywhere in Windows and press Ctrl+V in the document. A screenshot,
+an image copied out of a browser or a paint program, a file copied in a Lister: if
+the clipboard holds a picture, DopusWorX writes it to disk and drops the markdown
+reference in at the cursor. Nothing to fill in and no popup.
+
+The file is named `pasted-` plus the date and time, so a folder of them stays in
+the order you made them and two documents in the same folder never collide. Its
+type comes from the picture itself rather than from what the clipboard claims, so
+a PNG lands as `.png` and a JPEG as `.jpg`. PNG, JPEG, GIF, WebP, BMP, ICO, AVIF,
+HEIC and SVG are all recognised; anything else is refused rather than saved under
+a guessed name.
+
+By default the file goes next to the document. The **Save pasted images to**
+setting takes a folder name instead, `attachments` being the usual choice, and it
+is created the first time you paste. It has to be a plain folder under the
+document's own folder.
+
+Two things worth knowing:
+
+- The document needs to have been saved somewhere first. Until it has a path there
+  is no folder to write beside, and the viewer says so rather than guessing.
+- Pasting text is untouched. An image only takes over when the clipboard actually
+  holds one, which is also what happens when you copy a picture from a web page:
+  the clipboard carries both the picture and its URL, and the picture is the one
+  you meant.
 
 ### How local images are found
 
@@ -419,7 +479,7 @@ Ctrl+R or F5 reloads the file from disk, in any mode, not just Reading. If you h
 
 ### If the file changes underneath you
 
-<div align="center"><img src="images/conflict-banner.png" width="640" alt="The frosted conflict banner overlaying the document, showing the 'Edits here and a change outside' message with Keep my edits and Discard and reload buttons"></div>
+<div align="center"><img src="images/conflict-banner.png" width="640" alt="The frosted conflict banner overlaying the document, showing the 'Edits here and a change outside' message with Keep my edits, Save a copy & reload and Discard my edits and load it buttons"></div>
 
 Your unsaved work is never silently dropped.
 
@@ -428,9 +488,9 @@ Switch away from a file you were editing and back again and the edits are simply
 The banner is for when two versions really are in play. It appears and stays until you choose. The message and buttons fit the case:
 
 - **Unsaved edits in another window.** If another DopusWorX window holds unsaved edits for the same file, the banner says so and offers **Use those edits here** (adopt them and carry on), **Save a copy & reload** (writes your edits to a timestamped copy beside the file, then loads the disk version) or **View disk version**. Viewing the disk version never touches the other window's edits; they stay safe in that window.
-- **Edits here and a change outside.** If you have unsaved edits and the file also changed on disk or in another window, **Keep my edits** keeps your version and makes your next save win; **Discard and reload** takes the disk version.
-- **A save lost the race.** If a save finds the disk copy changed first, **Keep my edits** saves your version over it; **Discard and reload** takes the disk version.
-- **No local edits, new content elsewhere.** If your copy is clean and the file changed on disk or was saved by another window, the banner asks whether to **Reload** or **Keep current view**.
+- **Edits here and a change outside.** If you have unsaved edits and the file also changed on disk or in another window, **Keep my edits** keeps your version and makes your next save win; **Save a copy & reload** writes your edits to a timestamped copy beside the file and then loads the disk version; **Discard my edits and load it** takes the disk version.
+- **A save lost the race.** If a save finds the disk copy changed first, **Keep my edits** saves your version over it; **Save a copy & reload** keeps both, as a timestamped copy beside the file; **Discard my edits and load it** takes the disk version.
+- **No local edits, new content elsewhere.** If your copy is clean and the file changed on disk or was saved by another window, the banner asks whether to **Load the new version** or **Keep this version**.
 
 This prompt is controlled by **Ask before reloading** in Settings, on the General tab under Open & save (on by default). Turn it off and a clean file reloads straight away with a brief notice instead of a banner - useful for logs or generated files that update on their own. Unsaved edits plus a change outside always prompt regardless of this setting.
 

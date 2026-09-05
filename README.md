@@ -14,14 +14,17 @@ Windows x64 &nbsp;·&nbsp; needs the Microsoft Edge WebView2 runtime &nbsp;·&nb
 
 ---
 
+<center>
 Get the plugin from the [Releases Page](https://github.com/HyperWorX/DopusWorX/releases)
+</center>
 
----
 <div align="center">
 If DopusWorX is useful to you and you'd like to support the work, you can...
 </br>
 </br>
 <a href="https://www.buymeacoffee.com/HyperWorX" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me a Coffee" height="48"></a>
+
+<sub>Also from HyperWorX: <a href="https://github.com/HyperWorX/HyperWhisper">HyperWhisper</a>, offline transcription and translation for your own recordings.</sub>
 
 </div>
 
@@ -236,10 +239,12 @@ HTML files have a rendered **View**, a **Source** view of the raw markup, and a
 
 ## Themes and palettes
 
-Thirty-two built-in palettes, dark and light, from Dracula and Nord to Catppuccin,
+Thirty-four built-in palettes, dark and light, from Dracula and Nord to Catppuccin,
 Everforest and Rosé Pine, alongside the signature ProWorX, GloWorX and NibWorX.
 By default a palette follows the Opus pane background automatically; you can pin
-one instead.
+one instead. Two of them go further than colour: **GitHub Web Light** and
+**GitHub Web Dark** lay the page out the way github.com lays out a README, so you
+can see what you are about to push.
 
 <div align="center"><img src="img/palette-cascade.png" width="640" alt="The same document shown across several built-in palettes"></div>
 
@@ -247,7 +252,8 @@ Nothing is locked down. The visual editor lets you change any colour and save it
 as your own named theme. Bold, italic, strikethrough and inline code each get
 their own colour, headings can be coloured per level, and the page surface,
 rules, borders and shadows are all yours to tune. See
-[`docs/07-palettes.md`](docs/07-palettes.md) for a card of every palette.
+[`docs/07-palettes.md`](docs/07-palettes.md) for the full list, with a card for
+each.
 
 ## Markdown extras and Obsidian syntax
 
@@ -400,8 +406,6 @@ The [`samples/showcase/`](samples/showcase/) folder has a handful of demo
 documents, numbered in the order they are worth opening: headings and a table of
 contents, typography and lists, banner images, frontmatter, and the Source split
 view. Open one in the pane and there is something to look at straight away.
-
----
 
 <div align="center">
 
