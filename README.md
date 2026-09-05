@@ -14,15 +14,21 @@ Windows x64 &nbsp;·&nbsp; needs the Microsoft Edge WebView2 runtime &nbsp;·&nb
 
 ---
 
-<center>
+<div align="center">
+
 Get the plugin from the [Releases Page](https://github.com/HyperWorX/DopusWorX/releases)
-</center>
+
+</div>
 
 <div align="center">
 If DopusWorX is useful to you and you'd like to support the work, you can...
 </br>
 </br>
 <a href="https://www.buymeacoffee.com/HyperWorX" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me a Coffee" height="48"></a>
+
+<a href="https://github.com/HyperWorX/HyperWhisper"><img src="https://raw.githubusercontent.com/HyperWorX/HyperWhisper/main/assets/brand/banner.png" alt="HyperWhisper" width="260"></a>
+
+Transcribe and translate audio and video, all on your own machine.
 
 </div>
 
