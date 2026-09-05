@@ -1,34 +1,26 @@
-<div align="center">
+<h1 align="center">DopusWorX</h1>
 
-# DopusWorX
+<div align="center"><strong>A document viewer and in-place editor that lives inside <a href="https://www.gpsoft.com.au/">Directory Opus</a>.</strong></div>
 
-**A document viewer and in-place editor that lives inside [Directory Opus](https://www.gpsoft.com.au/).**
+<div align="center">Markdown, maths, diagrams, code, CSV, HTML and binary files, rendered and editable right in the Opus viewer pane.</div>
 
-Markdown, maths, diagrams, code, CSV, HTML and binary files, rendered and editable right in the Opus viewer pane.
+<div align="center"><img src="img/hero-anim.gif" alt="DopusWorX in action"></div>
 
-![DopusWorX in action](img/hero-anim.gif)
-
-Windows x64 &nbsp;·&nbsp; needs the Microsoft Edge WebView2 runtime &nbsp;·&nbsp; proprietary, © 2026 HyperWorX
-
-</div>
+<div align="center">Windows x64 &nbsp;·&nbsp; needs the Microsoft Edge WebView2 runtime &nbsp;·&nbsp; proprietary, © 2026 HyperWorX</div>
 
 ---
 
 <div align="center">Get the plugin from the <a href="https://github.com/HyperWorX/DopusWorX/releases">Releases Page</a></div>
 
-<div align="center">
+<div align="center">If DopusWorX is useful to you and you'd like to support the work:</div>
 
-If DopusWorX is useful to you and you'd like to support the work:
+<div align="center"><a href="https://www.buymeacoffee.com/HyperWorX" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me a Coffee" height="48"></a></div>
 
-<a href="https://www.buymeacoffee.com/HyperWorX" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me a Coffee" height="48"></a>
+<h3 align="center">Also from HyperWorX</h3>
 
-### Also from HyperWorX
+<div align="center"><a href="https://github.com/HyperWorX/HyperWhisper"><img src="https://raw.githubusercontent.com/HyperWorX/HyperWhisper/main/assets/brand/banner.png" alt="HyperWhisper" width="260"></a></div>
 
-<a href="https://github.com/HyperWorX/HyperWhisper"><img src="https://raw.githubusercontent.com/HyperWorX/HyperWhisper/main/assets/brand/banner.png" alt="HyperWhisper" width="260"></a>
-
-Transcribe and translate audio and video, all on your own machine.
-
-</div>
+<div align="center">Transcribe and translate audio and video, all on your own machine.</div>
 
 ## What it is
 
@@ -413,15 +405,11 @@ documents, numbered in the order they are worth opening: headings and a table of
 contents, typography and lists, banner images, frontmatter, and the Source split
 view. Open one in the pane and there is something to look at straight away.
 
-<div align="center">
+<h3 align="center">Support</h3>
 
-### Support
+<div align="center">If you find this useful, you can buy me a coffee.</div>
 
-If you find this useful, you can buy me a coffee.
-
-<a href="https://www.buymeacoffee.com/HyperWorX" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me a Coffee" height="48"></a>
-
-</div>
+<div align="center"><a href="https://www.buymeacoffee.com/HyperWorX" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me a Coffee" height="48"></a></div>
 
 ## Licence
 
@@ -433,22 +421,18 @@ not affiliated with or endorsed by GP Software.
 
 ---
 
-<div align="center">
+<h3 align="center">Also from HyperWorX</h3>
 
-### Also from HyperWorX
+<div align="center"><a href="https://github.com/HyperWorX/HyperWhisper"><img src="https://raw.githubusercontent.com/HyperWorX/HyperWhisper/main/assets/brand/banner.png" alt="HyperWhisper" width="440"></a></div>
 
-<a href="https://github.com/HyperWorX/HyperWhisper"><img src="https://raw.githubusercontent.com/HyperWorX/HyperWhisper/main/assets/brand/banner.png" alt="HyperWhisper" width="440"></a>
+<div align="center"><strong>Transcribe and translate audio and video, then edit it, all on your own machine.</strong></div>
 
-**Transcribe and translate audio and video, then edit it, all on your own machine.**
-
-Drop in an interview, a lecture, a podcast or a video. HyperWhisper transcribes it, tells you
+<div align="center">Drop in an interview, a lecture, a podcast or a video. HyperWhisper transcribes it, tells you
 who is speaking, timestamps every line, and translates it if you need another language. Then it
 hands you an editor with a player wired to the transcript: playback follows the text, and
-clicking a line jumps straight to it.
+clicking a line jumps straight to it.</div>
 
-Nothing is uploaded, there is no account and no per-minute billing, and it runs with the
-network off.
+<div align="center">Nothing is uploaded, there is no account and no per-minute billing, and it runs with the
+network off.</div>
 
-**[Get HyperWhisper](https://github.com/HyperWorX/HyperWhisper)**
-
-</div>
+<div align="center"><strong><a href="https://github.com/HyperWorX/HyperWhisper">Get HyperWhisper</a></strong></div>
