@@ -24,8 +24,6 @@ If DopusWorX is useful to you and you'd like to support the work, you can...
 </br>
 <a href="https://www.buymeacoffee.com/HyperWorX" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me a Coffee" height="48"></a>
 
-<sub>Also from HyperWorX: <a href="https://github.com/HyperWorX/HyperWhisper">HyperWhisper</a>, offline transcription and translation for your own recordings.</sub>
-
 </div>
 
 ## What it is
@@ -427,7 +425,22 @@ not affiliated with or endorsed by GP Software.
 
 ---
 
-You may also be interested in
-[HyperWhisper](https://github.com/HyperWorX/HyperWhisper): local speech-to-text
-for audio and video on your own machine, with a desktop interface and no
-cloud.
+<div align="center">
+
+### Also from HyperWorX
+
+<a href="https://github.com/HyperWorX/HyperWhisper"><img src="https://raw.githubusercontent.com/HyperWorX/HyperWhisper/main/assets/brand/banner.png" alt="HyperWhisper" width="440"></a>
+
+**Transcribe and translate audio and video, then edit it, all on your own machine.**
+
+Drop in an interview, a lecture, a podcast or a video. HyperWhisper transcribes it, tells you
+who is speaking, timestamps every line, and translates it if you need another language. Then it
+hands you an editor with a player wired to the transcript: playback follows the text, and
+clicking a line jumps straight to it.
+
+Nothing is uploaded, there is no account and no per-minute billing, and it runs with the
+network off.
+
+**[Get HyperWhisper](https://github.com/HyperWorX/HyperWhisper)**
+
+</div>
