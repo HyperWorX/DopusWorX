@@ -1,26 +1,26 @@
 <h1 align="center">DopusWorX</h1>
 
-<div align="center"><strong>A document viewer and in-place editor that lives inside <a href="https://www.gpsoft.com.au/">Directory Opus</a>.</strong></div>
+<p align="center"><strong>A document viewer and in-place editor that lives inside <a href="https://www.gpsoft.com.au/">Directory Opus</a>.</strong></p>
 
-<div align="center">Markdown, maths, diagrams, code, CSV, HTML and binary files, rendered and editable right in the Opus viewer pane.</div>
+<p align="center">Markdown, maths, diagrams, code, CSV, HTML and binary files, rendered and editable right in the Opus viewer pane.</p>
 
-<div align="center"><img src="img/hero-anim.gif" alt="DopusWorX in action"></div>
+<p align="center"><img src="img/hero-anim.gif" alt="DopusWorX in action"></p>
 
-<div align="center">Windows x64 &nbsp;·&nbsp; needs the Microsoft Edge WebView2 runtime &nbsp;·&nbsp; proprietary, © 2026 HyperWorX</div>
+<p align="center">Windows x64 &nbsp;·&nbsp; needs the Microsoft Edge WebView2 runtime &nbsp;·&nbsp; proprietary, © 2026 HyperWorX</p>
 
 ---
 
-<div align="center">Get the plugin from the <a href="https://github.com/HyperWorX/DopusWorX/releases">Releases Page</a></div>
+<p align="center">Get the plugin from the <a href="https://github.com/HyperWorX/DopusWorX/releases">Releases Page</a></p>
 
-<div align="center">If DopusWorX is useful to you and you'd like to support the work:</div>
+<p align="center">If DopusWorX is useful to you and you'd like to support the work:</p>
 
-<div align="center"><a href="https://www.buymeacoffee.com/HyperWorX" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me a Coffee" height="48"></a></div>
+<p align="center"><a href="https://www.buymeacoffee.com/HyperWorX" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me a Coffee" height="48"></a></p>
 
 <h3 align="center">Also from HyperWorX</h3>
 
-<div align="center"><a href="https://github.com/HyperWorX/HyperWhisper"><img src="https://raw.githubusercontent.com/HyperWorX/HyperWhisper/main/assets/brand/banner.png" alt="HyperWhisper" width="260"></a></div>
+<p align="center"><a href="https://github.com/HyperWorX/HyperWhisper"><img src="https://raw.githubusercontent.com/HyperWorX/HyperWhisper/main/assets/brand/banner.png" alt="HyperWhisper" width="260"></a></p>
 
-<div align="center">Transcribe and translate audio and video, all on your own machine.</div>
+<p align="center">Transcribe and translate audio and video, all on your own machine.</p>
 
 ## What it is
 
@@ -82,7 +82,7 @@ middle: the raw Markdown on the left, the live preview on the right, with a
 divider you can drag to resize the two panes and a button to link or unlink their
 scrolling.
 
-<div align="center"><img src="img/source-split.png" width="640" alt="The split view: raw Markdown source on the left, the live preview on the right, with a draggable divider between them"></div>
+<p align="center"><img src="img/source-split.png" width="640" alt="The split view: raw Markdown source on the left, the live preview on the right, with a draggable divider between them"></p>
 
 A full formatting toolbar sits underneath: bold, italic, strikethrough,
 highlight, inline code, links, footnotes, clear formatting, a heading button that cycles H1 to H6,
@@ -131,7 +131,7 @@ Prices are safe: `$5` stays as text, and `\$` gives you a literal dollar sign.
 The maths engine only loads on notes that actually contain equations, so plain
 notes stay quick. See [`docs/04-maths.md`](docs/04-maths.md) for the full guide.
 
-<div align="center"><img src="img/maths-panel.png" width="640" alt="The maths symbol panel beside a rendered equation"></div>
+<p align="center"><img src="img/maths-panel.png" width="640" alt="The maths symbol panel beside a rendered equation"></p>
 
 ## Diagrams
 
@@ -192,7 +192,7 @@ multi-cursor selection.
 Fenced code blocks inside a Markdown document are highlighted in every Markdown
 mode.
 
-<div align="center"><img src="img/code-view.png" width="640" alt="Source view with syntax highlighting, line-number gutter and the code toolbar"></div>
+<p align="center"><img src="img/code-view.png" width="640" alt="Source view with syntax highlighting, line-number gutter and the code toolbar"></p>
 
 ## Binary files
 
@@ -203,7 +203,7 @@ copy as hex or text. An opt-in setting turns on byte editing, and any file can b
 forced open with View as hex from the right-click menu. See
 [`docs/09-binary-inspector.md`](docs/09-binary-inspector.md).
 
-<div align="center"><img src="img/binary-inspector.png" width="720" alt="The binary inspector: a data inspector panel reading the bytes under the cursor, beside the offset, hex and ASCII dump"></div>
+<p align="center"><img src="img/binary-inspector.png" width="720" alt="The binary inspector: a data inspector panel reading the bytes under the cursor, beside the offset, hex and ASCII dump"></p>
 
 ## CSV and tables
 
@@ -213,7 +213,7 @@ blocks of cells, filter, freeze the first column, override the delimiter, and co
 the whole thing out as a Markdown table. Column widths, delimiter and zoom are
 remembered per file, and an untouched file saves back byte-for-byte identical.
 
-<div align="center"><img src="img/csv-grid.png" width="640" alt="A CSV open as an editable grid: World Cup results by team across the years"></div>
+<p align="center"><img src="img/csv-grid.png" width="640" alt="A CSV open as an editable grid: World Cup results by team across the years"></p>
 
 ## HTML
 
@@ -240,7 +240,7 @@ one instead. Two of them go further than colour: **GitHub Web Light** and
 **GitHub Web Dark** lay the page out the way github.com lays out a README, so you
 can see what you are about to push.
 
-<div align="center"><img src="img/palette-cascade.png" width="640" alt="The same document shown across several built-in palettes"></div>
+<p align="center"><img src="img/palette-cascade.png" width="640" alt="The same document shown across several built-in palettes"></p>
 
 Nothing is locked down. The visual editor lets you change any colour and save it
 as your own named theme. Bold, italic, strikethrough and inline code each get
@@ -272,7 +272,7 @@ document. In Reading mode the frontmatter block is hidden entirely; in Live mode
 it shows as the banner image from the moment the file opens - click it and the
 raw YAML comes back for editing, move away and the banner renders again.
 
-<div align="center"><img src="img/frontmatter-banner.png" width="640" alt="A note open in Live mode with a landscape banner image rendered across the top of the document, replacing the frontmatter block"></div>
+<p align="center"><img src="img/frontmatter-banner.png" width="640" alt="A note open in Live mode with a landscape banner image rendered across the top of the document, replacing the frontmatter block"></p>
 
 Right-click any markdown document and choose **Set banner image** to search for a
 picture without leaving the app: type a word, press Enter, and click a result. In
@@ -291,7 +291,7 @@ place the lot and scroll through them. A **Find a setting** box in the header
 searches every tab at once, so a setting can be reached by name instead of hunted
 for.
 
-<div align="center"><img src="img/settings.png" width="520" alt="The Settings dialog on the Appearance tab, with the coloured section ribbon down the left and the theming controls beside it"></div>
+<p align="center"><img src="img/settings.png" width="520" alt="The Settings dialog on the Appearance tab, with the coloured section ribbon down the left and the theming controls beside it"></p>
 
 Among the things you can change:
 
@@ -407,9 +407,9 @@ view. Open one in the pane and there is something to look at straight away.
 
 <h3 align="center">Support</h3>
 
-<div align="center">If you find this useful, you can buy me a coffee.</div>
+<p align="center">If you find this useful, you can buy me a coffee.</p>
 
-<div align="center"><a href="https://www.buymeacoffee.com/HyperWorX" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me a Coffee" height="48"></a></div>
+<p align="center"><a href="https://www.buymeacoffee.com/HyperWorX" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me a Coffee" height="48"></a></p>
 
 ## Licence
 
@@ -423,16 +423,16 @@ not affiliated with or endorsed by GP Software.
 
 <h3 align="center">Also from HyperWorX</h3>
 
-<div align="center"><a href="https://github.com/HyperWorX/HyperWhisper"><img src="https://raw.githubusercontent.com/HyperWorX/HyperWhisper/main/assets/brand/banner.png" alt="HyperWhisper" width="440"></a></div>
+<p align="center"><a href="https://github.com/HyperWorX/HyperWhisper"><img src="https://raw.githubusercontent.com/HyperWorX/HyperWhisper/main/assets/brand/banner.png" alt="HyperWhisper" width="440"></a></p>
 
-<div align="center"><strong>Transcribe and translate audio and video, then edit it, all on your own machine.</strong></div>
+<p align="center"><strong>Transcribe and translate audio and video, then edit it, all on your own machine.</strong></p>
 
-<div align="center">Drop in an interview, a lecture, a podcast or a video. HyperWhisper transcribes it, tells you
+<p align="center">Drop in an interview, a lecture, a podcast or a video. HyperWhisper transcribes it, tells you
 who is speaking, timestamps every line, and translates it if you need another language. Then it
 hands you an editor with a player wired to the transcript: playback follows the text, and
-clicking a line jumps straight to it.</div>
+clicking a line jumps straight to it.</p>
 
-<div align="center">Nothing is uploaded, there is no account and no per-minute billing, and it runs with the
-network off.</div>
+<p align="center">Nothing is uploaded, there is no account and no per-minute billing, and it runs with the
+network off.</p>
 
-<div align="center"><strong><a href="https://github.com/HyperWorX/HyperWhisper">Get HyperWhisper</a></strong></div>
+<p align="center"><strong><a href="https://github.com/HyperWorX/HyperWhisper">Get HyperWhisper</a></strong></p>
