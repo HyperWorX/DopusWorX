@@ -4,7 +4,7 @@
 
 <p align="center">Markdown, maths, diagrams, code, CSV, HTML and binary files, rendered and editable right in the Opus viewer pane.</p>
 
-<p align="center"><img src="img/hero-anim.gif" alt="DopusWorX in action" width="460"></p>
+<p align="center"><img src="img/hero-anim.gif" alt="DopusWorX in action" width="720"></p>
 
 <p align="center">Windows x64 &nbsp;·&nbsp; needs the Microsoft Edge WebView2 runtime &nbsp;·&nbsp; proprietary, © 2026 HyperWorX</p>
 
