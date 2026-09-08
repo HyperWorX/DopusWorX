@@ -389,7 +389,7 @@ Click the close control (or press Esc) to dismiss the panel; the match highlight
 
 Turn on **Spell check while editing** in Settings, on the General tab under Open & save (with the dictionary picker just below it), and misspelled words get a wavy red underline in the Live and Source editors of markdown documents. Reading mode is left clean. Code, inline code, links and URLs are skipped, so a filename or a URL is never flagged, and so are all-capitals words and camelCase identifiers.
 
-Right-click an underlined word for a short list of suggestions at the top of the menu; click one to replace the word.
+Right-click an underlined word for a short list of suggestions at the top of the menu; click one to replace the word. **Add to dictionary** is in the same menu, and one entry covers the whole family: add a surname and its plural and possessive stop being marked too (adding a possessive stores the base word). Your own words also come back as suggestions, accents and capitals restored, offered ahead of the built-in guesses. Right-click a word you have added, or any of its forms, and the Remove from dictionary item names the stored entry it will take out.
 
 ### Dictionaries
 
@@ -490,13 +490,22 @@ The banner is for when two versions really are in play. It appears and stays unt
 - **Unsaved edits in another window.** If another DopusWorX window holds unsaved edits for the same file, the banner says so and offers **Use those edits here** (adopt them and carry on), **Save a copy & reload** (writes your edits to a timestamped copy beside the file, then loads the disk version) or **View disk version**. Viewing the disk version never touches the other window's edits; they stay safe in that window.
 - **Edits here and a change outside.** If you have unsaved edits and the file also changed on disk or in another window, **Keep my edits** keeps your version and makes your next save win; **Save a copy & reload** writes your edits to a timestamped copy beside the file and then loads the disk version; **Discard my edits and load it** takes the disk version.
 - **A save lost the race.** If a save finds the disk copy changed first, **Keep my edits** saves your version over it; **Save a copy & reload** keeps both, as a timestamped copy beside the file; **Discard my edits and load it** takes the disk version.
-- **No local edits, new content elsewhere.** If your copy is clean and the file changed on disk or was saved by another window, the banner asks whether to **Load the new version** or **Keep this version**.
+- **No local edits, new content elsewhere.** If your copy is clean and the file changed on disk or was saved by another window, the banner asks whether to **Load the new version**, **Keep this version**, or **Save a copy & load new**, which banks the version on screen as a timestamped copy beside the file before the new one loads - once the new version loads, the old one exists nowhere else.
 
 This prompt is controlled by **Ask before reloading** in Settings, on the General tab under Open & save (on by default). Turn it off and a clean file reloads straight away with a brief notice instead of a banner - useful for logs or generated files that update on their own. Unsaved edits plus a change outside always prompt regardless of this setting.
 
-Every Keep or Discard shows a brief toast with an **Undo** button that brings the banner back so you can choose again.
+Every banner answer shows a brief toast with an **Undo** button that brings the banner back so you can choose again; undoing a load also puts the older text back on screen. If the file moves on again while the toast is up, it steps aside rather than offer an undo it can no longer honour.
 
 If you would rather not have unsaved edits come back at all, turn on **Reload external changes** in Settings, on the General tab under Open & save: the disk version is then always used. Save before you close - with this on, unsaved edits from a previous session are gone.
+
+### Saved versions
+
+Every save banks the version it is about to overwrite, so the last few saved states of each file stay recoverable. Right-click the document and choose **Saved versions** to see them, newest first, each with its age and size. The same list sits under the in-session history: hold the undo button down once you have edited.
+
+- **Click a version** and it comes back into the document as an ordinary unsaved edit: the title shows the bullet, Ctrl+Z steps straight back out, and nothing touches the file until you save. Restoring is a way of looking as much as a way of going back.
+- The ⧉ button beside each version opens it in its own window instead, for reading two versions side by side before deciding.
+
+**Keep saved versions** in Settings, on the General tab under Open & save, sets how many are kept per file: the last five by default, up to twenty, or Off. Versions are stored per machine under your profile (`%APPDATA%\HyperWorX\DopusWorX\history`), never beside your files, and the store cleans up after itself: a file's history follows it out a month after the file is gone. Auto-save banks at most one version every five minutes, so a short auto-save interval cannot churn your real versions out of the store.
 
 ## Smaller comforts
 

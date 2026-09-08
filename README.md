@@ -57,9 +57,7 @@ For a Markdown document there are three ways to look at it:
 - **Live** renders the page too, but the moment your cursor lands on a line the
   formatting marks for that line come back, so you can edit without dropping out
   of the rendered view.
-- **Source** is the raw text. Click Source a second time and it **splits**: raw
-  on the left, live preview on the right, with a draggable divider you can slide
-  to resize the panes, and a toggle to link or unlink their scrolling.
+- **Source** is the raw text, with a **split** view one more click away (below).
 
 You pick which of these a Markdown file opens in under Settings (**Open markdown
 in**: Reading, Live or Source). DopusWorX also remembers the view you last used
@@ -84,27 +82,18 @@ scrolling.
 
 <p align="center"><img src="img/source-split.png" width="640" alt="The split view: raw Markdown source on the left, the live preview on the right, with a draggable divider between them"></p>
 
-A full formatting toolbar sits underneath: bold, italic, strikethrough,
-highlight, inline code, links, footnotes, clear formatting, a heading button that cycles H1 to H6,
-bulleted, numbered and task lists, indent and outdent, blockquotes, fenced code,
-image insert, and a table insert with a size grid. Find and replace handles case,
-whole word and regex, and Ctrl+G jumps to a line. There is
-undo and redo with a history dropdown, and a live word, character and line count.
+A full formatting toolbar sits underneath, from bold and headings through lists,
+quotes, code and tables, with find and replace (case, whole word, regex), undo
+and redo with a history dropdown, and a live word, character and line count.
+The full tour is in [`docs/03-editing.md`](docs/03-editing.md).
 
 Insert a Table of Contents that keeps itself up to date as you edit (list style and title style are configurable in Settings), and fold whole heading sections away: in Source the fold marker sits on the line beside the code, and in Live a chevron appears next to a heading when you hover it.
 
-Spell check underlines misspellings as you type in Live and Source, skipping code, links and URLs; English (US) is built in and more than fifty other dictionaries download once and are cached offline.
+Spell check underlines misspellings as you type in Live and Source, skipping code, links and URLs; English (US) is built in and more than fifty other dictionaries download once and are cached offline. Add your own words and their plurals and possessives are covered too, and they come back as suggestions, accents intact.
 
-A right-click menu is there throughout, and you do not need a mouse for it: open
-it from the keyboard and the arrows move, Home and End jump, Enter or Space
-activate, and Escape closes; on a touchscreen a press and hold opens it. Press F1
-anywhere (or ? in Reading) for a pop-up guide to every keyboard shortcut; it is
-also in the right-click menu. Any file can be printed or saved as a
-PDF of the whole document, from the right-click menu, and the sheet takes the
-palette you are reading it in. Black and white sits under the same entry for a
-plain sheet with none of the palette on it. Both are in the Save menu too, for
-every file type.
-Ctrl+P works from anywhere in the viewer. See
+A right-click menu is there throughout, fully drivable by keyboard or touch, and
+F1 pops a guide to every shortcut. Any file can be printed or saved as a PDF in
+the palette you are reading it in, or in plain black and white. See
 [`docs/06-context-menus.md`](docs/06-context-menus.md) for the full set.
 
 The viewer keeps a back/forward history of the files it has shown - step through
@@ -112,47 +101,31 @@ it with the mouse back and forward buttons or Ctrl+Alt+Left/Right, browser-style
 
 ## Maths
 
-- Write it in **LaTeX** or **AsciiMath**, inline with `$...$`, on its own line
-  with `$$...$$`, or as an ```` ```am ```` block.
-- **Auto-render** reads each equation on its own and works out which style you
-  used, so you can mix the two in one note and not think about it.
-- The **symbol panel (Σ)** lets you browse symbols by category and drop them in.
-  It inserts to match your Maths syntax setting: `\alpha` in LaTeX and
-  Auto-render, `alpha` in AsciiMath.
-- Click into a rendered equation and the source comes back; click away and it
-  redraws. A live preview shows the equation under your cursor, and a convert
-  button rewrites it from one style to the other in place.
-- Slanted fractions (`\sfrac`, `\nicefrac`), eight maths fonts, and a choice of
-  KaTeX or Temml as the engine.
-- Define your own **macros**, either typed into Settings or kept in a file, so
-  your usual shorthands work everywhere.
+Write it in **LaTeX** or **AsciiMath**, inline or as a block, and mix the two
+freely: auto-render works out which style each equation uses. A symbol panel
+(Σ) drops symbols in to match your syntax, clicking a rendered equation brings
+its source back for editing, a convert button rewrites LaTeX to AsciiMath and
+back in place, and your own macros work everywhere. Eight maths fonts, slanted
+fractions, and a choice of KaTeX or Temml as the engine.
 
-Prices are safe: `$5` stays as text, and `\$` gives you a literal dollar sign.
-The maths engine only loads on notes that actually contain equations, so plain
-notes stay quick. See [`docs/04-maths.md`](docs/04-maths.md) for the full guide.
+Prices are safe: `$5` stays as text. The maths engine only loads on notes that
+actually contain equations, so plain notes stay quick. See
+[`docs/04-maths.md`](docs/04-maths.md) for the full guide.
 
 <p align="center"><img src="img/maths-panel.png" width="640" alt="The maths symbol panel beside a rendered equation"></p>
 
 ## Diagrams
 
 Turn a fenced ```` ```mermaid ```` block into a flowchart, sequence, class, state,
-ER, pie, Gantt or any other Mermaid diagram type, drawn from plain text with [Mermaid](https://mermaid.js.org/).
-On by default; the ~3 MB engine loads only on a note that actually contains a
-diagram.
+ER, pie, Gantt or any other [Mermaid](https://mermaid.js.org/) diagram type,
+drawn from plain text. Diagrams render in Reading and Live (click one in Live to
+edit its source in place), a broken diagram shows a ⚠ box with the reason
+rather than taking the note down, and the ~3 MB engine loads only on a note
+that actually contains a diagram. Styling runs from a hand-drawn look to fonts,
+wrapping and edge shapes.
 
-- Diagrams draw in **Reading** and **Live**. In Live, click a diagram to bring its
-  source back, edit it, and click away to redraw.
-- **Match page** colours diagrams from your active palette, so they match the
-  document and stay readable in light and dark. Or pin a fixed Mermaid theme.
-- A **hand-drawn** style, a **flowchart edge** shape, a **diagram font** and
-  **size** (the font can follow the body font or stand on its own), optional
-  **label wrapping** and **sequence numbering**, and a **max-connections** guard
-  for very large diagrams.
-- A broken diagram shows a ⚠ box with its source and the reason, never taking the
-  rest of the note down with it.
-
-DopusWorX draws the diagram inline. With **Match page** the same diagram takes its
-colours from the active palette, so it suits a dark page or a light one:
+With **Match page** the same diagram takes its colours from the active palette,
+so it suits a dark page or a light one:
 
 <table>
 <tr>
@@ -170,27 +143,16 @@ example of every diagram type.
 
 ## Code and source files
 
-Source-code files open in **Source view** (there is no Reading or Live mode for
-code, since there is nothing to render).
+Source-code files open in Source view: syntax highlighting for around 150
+languages, a line-number gutter, indentation guides on the file's own indent
+columns, word wrap, an optional active-line highlight with a magnify option,
+and a code theme independent of the page palette. Colour values get a swatch
+and a picker, and diff files colour their added and removed lines.
 
-- Syntax highlighting for around 150 languages (the common ones bundled, the
-  rest loaded on demand), with a line-number gutter, indentation guides that
-  land on the file's own indent columns, a word-wrap toggle and a configurable
-  tab width.
-- A copy button, an optional active-line highlight (with a magnify option that
-  lifts the line you are on), and a code-theme picker that is independent of the
-  page palette.
-- Colour values get a swatch and a colour picker, and diff and patch files colour
-  their added and removed lines.
-
-Code files are fully editable, with a code-editing toolbar: toggle comments in
-the file's own comment style, duplicate a line, move lines up or down, indent or
-outdent, and switch the whitespace marks and indentation guides on or off. Click
-or drag line numbers to select whole lines, and Ctrl-click to build a
-multi-cursor selection.
-
-Fenced code blocks inside a Markdown document are highlighted in every Markdown
-mode.
+Code files are fully editable, with a code toolbar for comments (in the file's
+own comment style), duplicating and moving lines, and indentation. Line numbers
+click and drag to select whole lines, and Ctrl-click builds a multi-cursor.
+Fenced code blocks inside a Markdown document are highlighted in every mode.
 
 <p align="center"><img src="img/code-view.png" width="640" alt="Source view with syntax highlighting, line-number gutter and the code toolbar"></p>
 
@@ -274,12 +236,9 @@ raw YAML comes back for editing, move away and the banner renders again.
 
 <p align="center"><img src="img/frontmatter-banner.png" width="640" alt="A note open in Live mode with a landscape banner image rendered across the top of the document, replacing the frontmatter block"></p>
 
-Right-click any markdown document and choose **Set banner image** to search for a
-picture without leaving the app: type a word, press Enter, and click a result. In
-the picker, drag the preview strip up or down to choose the vertical crop and set
-a pixel height for this file alone, then click **Set**. DopusWorX writes the
-`banner:`, `banner_y:` and `banner_height:` frontmatter for you. The global
-banner height is set in Settings on the Markdown tab, under Images.
+Right-click any markdown document and choose **Set banner image** to search for
+a picture without leaving the app, drag the preview to set the crop, and
+DopusWorX writes the frontmatter for you.
 
 ## Customise it to your liking
 
@@ -299,15 +258,11 @@ Among the things you can change:
   away and reappear when you reach for them, so the document gets the whole pane.
 - **Toolbar layout.** Drag the formatting buttons into the order you want, or hide
   the ones you never use.
-- **File types.** Decide which extensions DopusWorX handles. **Pane** previews a
-  type in the viewer pane while browsing (double-click left alone); **DOpus** also
-  opens it in the DopusWorX window on double-click inside Opus; **Explorer** also
-  associates it with Windows so it opens from Explorer even when Opus is closed.
-  A **Highlight Grammar** column decides how each type is presented. Pick a
-  language and you change the colouring, so `.tpl` can open as C++. Pick
-  Markdown, HTML, CSV or Binary and the type opens in that view instead, so
-  mapping Plain text to Markdown makes `.txt` and `.log` files open as Markdown
-  documents with Reading, Live and Source.
+- **File types.** Decide which extensions DopusWorX handles and how far each one
+  goes: preview in the pane, open on double-click inside Opus, or associate with
+  Windows itself. A grammar column picks each type's colouring or its whole
+  view, so `.tpl` can open as C++ and `.log` as a Markdown document. The full
+  story is in [`docs/02-file-types.md`](docs/02-file-types.md).
 - **Maths macros**, fonts and engine, encoding and fallback codepage, image
   search folders, auto-save, page padding on all four sides and the margins
   outside the page, gutters, formatting marks, and the full type and colour
@@ -326,6 +281,11 @@ here went into exactly that.
   atomic replace), so a file is never left half-written. An empty buffer will not
   overwrite a file that has content. If Opus closes or crashes with unsaved work,
   a recovery copy is kept under AppData and offered back when you reopen.
+- **The last saved versions are kept.** Every save banks the version it
+  overwrites, and the last five per file (settable up to twenty) can be brought
+  back from the right-click menu under Saved versions - restored as an unsaved
+  edit, so nothing touches the file until you say so, or opened in their own
+  window for a look first.
 - **No silent overwrites.** If a file changes on disk while you are editing,
   DopusWorX notices, and tells the difference between a real change and a harmless
   touch by comparing the content, not just the timestamp. You get a clear choice:
