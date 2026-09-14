@@ -429,7 +429,9 @@ italics alongside the hue. That is deliberate, and it is what makes the next par
 **There is a second sheet for plain paper: Black and white.** Print is one entry in both the Save
 menu and the right-click menu, and the two sheets sit under it: click Print for the normal one, or
 hover it and pick **Black and white** to print the document black on white with none of the palette
-in it. Everything keeps its meaning: the rules, borders, ticks and underlines are all
+in it. **Ctrl+Shift+P** goes straight there, which is the quickest route and the one that still
+works when a narrow pane has pushed the toolbar's Print entry off the edge. Everything keeps its
+meaning: the rules, borders, ticks and underlines are all
 still drawn, and a code listing carries its highlighting in weight and slope. Nothing is remembered
 between prints, so the two commands can be used in any order and each one gives you its own sheet
 every time.
@@ -607,6 +609,7 @@ Several appearance options for Source editors and rendered code blocks live in S
 | **Ctrl+G** | Go to line (a byte offset in the binary inspector) |
 | **Ctrl+R / F5** | Reload from disk |
 | **Ctrl+P** | Print / Save as PDF |
+| **Ctrl+Shift+P** | Print the black-and-white sheet |
 | **Ctrl+B / Ctrl+I** | Bold / italic (markdown Live and Source) |
 | **Ctrl+Shift+C / Ctrl+Shift+X** | Inline code / strikethrough (markdown Live and Source) |
 | **Ctrl+Shift+I** | Insert image (markdown Live and Source) |
