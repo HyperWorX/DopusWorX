@@ -203,6 +203,11 @@ A few related controls sit alongside the palette picker:
   stored as a proportion of the pane rather than a pixel count, so a width set in
   a narrow pane comes out sensibly in a wide standalone window, and it is damped
   above about 900px so a big screen keeps widening the page but slowly.
+- **Corner radius**, next to Page width, sets how far the page card corners are
+  rounded, from 0 for square up to 24. It also rounds the panels, menus and
+  popups that match the card, so the whole viewer shares one corner. The default
+  is 12. Page width Fill runs the page edge to edge and squares it whatever this
+  is set to.
 - **Padding and margins**, in the same section, are six text fields: padding on
   all four sides of the page, and a top and bottom margin. The padding is the gap
   inside the page, between its edge and the text; the margin is the gap outside
@@ -210,7 +215,7 @@ A few related controls sit alongside the palette picker:
   clear of the floating toolbar, so that is the one to reduce if you want the
   document to start higher. Each field takes a bare number as pixels or any CSS
   length, and an empty field keeps the default.
-- **Close the top gap when the toolbar hides**, the checkbox under those fields,
+- **Close top gap when toolbar hidden**, the checkbox under those fields,
   is off by default. Off, the page sits in the same place whether the top toolbar
   is pinned or set to auto show on hover, so the top margin means one thing and
   the toolbar lays over the first lines when it slides in. On, the gap closes
@@ -218,6 +223,22 @@ A few related controls sit alongside the palette picker:
   pane, which gives you back the strip the toolbar was holding open. It only ever
   describes the hidden state: pin the toolbar and the margin comes straight back,
   and a top margin you have set yourself wins over it either way.
+- **Paragraph indent**, over in the Body text section, is the small step body
+  prose takes in from the left edge a heading starts on. It is a hanging-heading
+  look and it applies to paragraphs only, so a heading, a code block and a rule
+  sit flush while the text between them starts half an em further in. Set it to 0
+  and everything lines up on one edge. Lists and quotes keep their own larger
+  indent whatever this is set to. A bare number is read as pixels, any CSS length
+  works, and an empty field keeps the default of 0.5em, which is 7px at the
+  default body size.
+- **List indent**, in the same section, is how far a list item sits in from the
+  page edge, and each level of nesting is another step of it. The default is
+  1.8em, about 25px. **Quote indent** in the Quotes section, **Table indent** in
+  Tables and **Code block indent** in Code blocks are the same idea for the other
+  three: how far the block itself starts in from the left edge of the page. A
+  quote and a table both default to 2px so they line up with each other, and a
+  code block defaults to 0 and starts flush. These move the block, not what is
+  inside it: the gap between a quote's bar and its text stays where it is.
 - **Quotes**, **Tables** and **Lines**, further down the Appearance tab, hold the
   blockquote and table colours and the horizontal rule: its colour, its thickness
   and its **style** - solid, a gradient fade, a centre fade, dotted, dashed, a

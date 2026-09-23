@@ -12,7 +12,7 @@
 
 <p align="center">Get the plugin from the <a href="https://github.com/HyperWorX/DopusWorX/releases">Releases Page</a></p>
 
-<p align="center">If DopusWorX is useful to you and you'd like to support the work:</p>
+<p align="center">DopusWorX runs on an honesty box. If it has made your work easier, you can chip in:</p>
 
 <p align="center"><a href="https://www.buymeacoffee.com/HyperWorX" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me a Coffee" height="48"></a></p>
 
@@ -367,7 +367,7 @@ view. Open one in the pane and there is something to look at straight away.
 
 <h3 align="center">Support</h3>
 
-<p align="center">If you find this useful, you can buy me a coffee.</p>
+<p align="center">DopusWorX runs on an honesty box. If it has earned its place in your day, you can buy me a coffee.</p>
 
 <p align="center"><a href="https://www.buymeacoffee.com/HyperWorX" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me a Coffee" height="48"></a></p>
 

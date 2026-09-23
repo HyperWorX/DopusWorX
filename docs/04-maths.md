@@ -79,6 +79,8 @@ The same maths, typed each way:
 
 A note on AsciiMath vocabulary: DopusWorX teaches its AsciiMath reader a set of LaTeX-familiar names too, so if you reach for `nabla`, `partial`, `leq`, `subset` and the like out of habit, they resolve to the right symbol instead of coming out as letter-soup. You do not have to remember the terse forms (`grad`, `del`, `<=`, `sub`) if you do not want to.
 
+A few more AsciiMath forms that carry across: chemistry with `ce(H_2O)` (and the LaTeX `\ce{...}` and `\pu{...}` commands), upright text with `mbox(...)`, a double dash `--` for a plain dash in a formula and for a horizontal rule at the start of a matrix or aligned row, and the struck-through arrows `=/=>`, `<=/=>` and `!iff`.
+
 ## Fractions, including slanted ones
 
 Fractions are the one spot where the two styles behave differently, so here they all are in one place:
@@ -107,7 +109,7 @@ Everything you click goes into the editor you are working in (Live or Source).
 
 ### Browse by category
 
-The panel groups symbols into tabs. Click a tab, then click a symbol to drop it in:
+The panel groups symbols into tabs. The tabs sit centred across the top; when there are more than fit the width they scroll sideways, so roll the mouse wheel over the strip to reach the far ones. Click a tab, then click a symbol to drop it in:
 
 | Tab | What is in it |
 |---|---|
@@ -144,7 +146,11 @@ The bottom of the panel is a preview surface with two modes, switched by the **L
 
 A fenced `am` block is edited in **Source**: the Live editor is LaTeX-only, so for an `am` block it shows a note asking you to switch to Source, and you click **Source** to do so.
 
-The **Preview** checkbox at the very bottom shows or hides this surface. With it off, the symbol and template buttons above still work, inserting straight at your cursor in the note; you just lose the preview.
+The fold arrow beside the Live and Source buttons hides this surface, collapsing the panel down to just the symbol palette. The symbol and template buttons still insert straight at your cursor in the note, so you lose only the editor, not the palette. Click the arrow again to bring it back; the panel remembers whether you left it folded.
+
+### Sizing the panel
+
+The panel keeps the same height whichever tab you are on. Drag the grip along its top edge to make the editor taller, drag the splitter between the symbols and the editor to trade symbol rows for editor height, and drag either side edge to set the width. Double-click a grip to reset it. The size is remembered across panes, windows and sessions.
 
 ### Memory and dismissing
 

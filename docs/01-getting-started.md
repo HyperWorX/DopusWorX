@@ -66,6 +66,13 @@ If you know the setting but not where it lives, type it into **Find a setting**
 at the top of the dialog. It searches every tab at once and leaves each result
 under its own section heading, so you can see what a setting sits next to.
 
+A setting that was not in your last version is marked. The row carries a small
+**NEW** stamp, and the same thing shows as a dot on its section in the ribbon
+and on the tab above that, so a new setting can be found without opening every
+section to look for it. A mark stays put for as long as the window is open, so
+it is still there while you read the row it is on, and it is gone the next time
+you open Settings.
+
 ## More
 
 - [File types and views](02-file-types.md) - what each kind of file does.

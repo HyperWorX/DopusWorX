@@ -29,7 +29,7 @@ Alignment carries across too. A block centred with a `<div align="center">`, a `
 
 ### The Source split preview
 
-The Source button has a small pane icon on it. Click Source once to enter Source mode; click it again to toggle a **split preview**: the raw source on the left, the rendered document on the right, side by side. Click once more to drop back to a single pane. The split state is remembered per file for the session.
+The Source button has a small pane icon on it. Click Source once to enter Source mode; click it again to toggle a **split preview**: the raw source on the left, the rendered document on the right, side by side. Click once more to drop back to a single pane. The split state is remembered per file until Directory Opus closes, and comes back whenever you return to that file in Source.
 
 <div align="center"><img src="images/source-split.png" width="640" alt="The Source split: raw Markdown on the left, the rendered document on the right, with a draggable divider between them"></div>
 
