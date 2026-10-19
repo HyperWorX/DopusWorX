@@ -54,7 +54,7 @@ Folding is a view convenience only. It never changes the document.
 
 The formatting toolbar runs along the bottom of the pane in Live and Source mode for markdown files. Each button either wraps your selection in markdown or adds a prefix to the lines you have selected. With nothing selected, the wrapping buttons drop the markers in and park the cursor between them so you can start typing.
 
-You can rearrange the toolbar to suit you: **Edit toolbar layout** in Settings, on the General tab under Toolbars, lets you drag buttons sideways to reorder them, click one to hide or show it, and Reset to put the default set back.
+You can rearrange the toolbar to suit you: **Edit toolbar layout** in Settings, on the General tab under Toolbars (within the **Display** sub-heading), lets you drag buttons sideways to reorder them, click one to hide or show it, and Reset to put the default set back.
 
 <div align="center"><img src="images/editing-toolbar.png" width="640" alt="The formatting toolbar: bold, italic, strikethrough, highlight, inline code, link, footnote and clear-formatting, then the heading, change-case and maths buttons, the list buttons, indent and align, blockquote, code block, and image and table insert"></div>
 
@@ -387,7 +387,7 @@ Click the close control (or press Esc) to dismiss the panel; the match highlight
 
 ## Spell check
 
-Turn on **Spell check while editing** in Settings, on the General tab under Open & save (with the dictionary picker just below it), and misspelled words get a wavy red underline in the Live and Source editors of markdown documents. Reading mode is left clean. Code, inline code, links and URLs are skipped, so a filename or a URL is never flagged, and so are all-capitals words and camelCase identifiers.
+Turn on **Spell check while editing** in Settings, on the General tab under Language (with the dictionary picker just below it), and misspelled words get a wavy red underline in the Live and Source editors of markdown documents. Reading mode is left clean. Code, inline code, links and URLs are skipped, so a filename or a URL is never flagged, and so are all-capitals words and camelCase identifiers.
 
 Right-click an underlined word for a short list of suggestions at the top of the menu; click one to replace the word. **Add to dictionary** is in the same menu, and one entry covers the whole family: add a surname and its plural and possessive stop being marked too (adding a possessive stores the base word). Your own words also come back as suggestions, accents and capitals restored, offered ahead of the built-in guesses. Right-click a word you have added, or any of its forms, and the Remove from dictionary item names the stored entry it will take out.
 
@@ -519,15 +519,21 @@ The undo and redo buttons on the top toolbar step through your edit history. **H
 
 ### Live word count
 
-A small pill under the top toolbar shows the document's word, character and line counts as you type. Select text and it switches to the selection's character and word count, with the full document figures in the tooltip. Turn **Document stats** off in Settings, on the General tab under Toolbars, to hide it.
+A small pill under the top toolbar shows the document's word, character and line counts as you type. Select text and it switches to the selection's character and word count, with the full document figures in the tooltip. Turn **Document stats** off in Settings, on the General tab under Toolbars (under the **Display** sub-heading), to hide it.
 
 ### Auto-hiding toolbars
 
-Each toolbar can either stay put or slide out of the way. The pushpin on the corner of a toolbar toggles it: pinned means always visible, unpinned means auto-hide. When a bar is hidden, move the pointer to the edge where it lives and it slides back in. The choice is saved and applies to every open pane. The same pair of choices lives in Settings, on the General tab under Toolbars, as **Top toolbar display** and **Edit toolbar display**.
+Each toolbar can either stay put or slide out of the way. The pushpin on the corner of a toolbar toggles it: pinned means always visible, unpinned means auto-hide. When a bar is hidden, move the pointer to the edge where it lives and it slides back in. The choice is saved and applies to every open pane. The same pair of choices lives in Settings, on the General tab under Toolbars, as **Top toolbar display** and **Edit toolbar display**, both under the **Display** sub-heading.
+
+Under the **Hidden toolbar marker** sub-heading, **Hidden toolbar marker** chooses what shows at the window edge while a toolbar is auto-hidden. **Glow** (the default) bleeds a soft coloured halo across the edge, as before. **Chevron** draws a small chevron centred on the edge, pointing in toward the hidden bar. **Dots** is a short row of three dots, like a grab handle. **Line** is a thin short bar. **None** shows nothing. Whichever you pick, moving the pointer to the edge still reveals the toolbar.
+
+**Marker colour**, directly under it, sets the colour of the marker. Leave it empty to follow the Accent colour, which is the default. **Marker opacity** scales the marker from invisible at 0 to full strength at 1 (the default); on the Glow option it fades both layers of the halo in step so the shape stays the same. **Glow size** sets the halo's blur radius in pixels, the default 22 matching the original look; smaller values keep it a tight glow. The size field is greyed out unless the marker is Glow.
+
+If you prefer the toolbars without their pushpins, turn **Show toolbar pins** off in the same section (also under the **Display** sub-heading). The pins vanish from both toolbars and the current pinned state is kept untouched. The two display dropdowns above still switch between Always visible and Auto show on hover.
 
 ### Toolbar colours
 
-The **Toolbars** section of the General tab recolours both toolbar pills: background, text and icons, border, and the resting opacity (they always sharpen to fully opaque under the pointer). Leave a field empty to keep the active palette's own toolbar chrome. Whatever background you pick, the selected mode tab and hover feedback adjust automatically to stay readable - on a bright bar the active tab becomes a dark pill with the bar's colour for its label, and the reverse on a dark bar. A **Reset all** link under the four fields clears them back to the palette defaults in one click.
+Under the **Toolbar colours** sub-heading at the foot of the Toolbars section sit four fields that recolour both toolbar pills: background, text and icons, border, and the resting opacity (they always sharpen to fully opaque under the pointer). Leave a field empty to keep the active palette's own toolbar chrome. Whatever background you pick, the selected mode tab and hover feedback adjust automatically to stay readable - on a bright bar the active tab becomes a dark pill with the bar's colour for its label, and the reverse on a dark bar. A **Reset all** link under the four fields clears them back to the palette defaults in one click.
 
 ### Zoom
 
@@ -544,7 +550,15 @@ Both of these are the same thing as the wrap button in the top toolbar, which pi
 
 ### Magnifying the active row
 
-In Source and code editing the line your cursor is on lifts slightly toward you, so it is easy to see where you are working. It is on by default; turn **Magnify active row** off in Settings, on the General tab under Source, for a flat view. It does not apply in Live mode. A related toggle in the same section, **Highlight active row** (also on by default), tints the current line and its line number together as one accent band.
+In Source and code editing the line your cursor is on lifts slightly toward you, so it is easy to see where you are working. It is on by default; turn **Magnify active row** off in Settings, on the General tab under Source, for a flat view. It does not apply in Live mode. A related toggle in the same section, **Highlight active row** (also on by default), tints the current line and its line number together as one accent band. The band waits for real keyboard focus, so a file selected in DOpus never draws a caret or a highlight in the preview pane until you click into the document.
+
+**Focus the document in a viewer window**, in the same section, puts the caret in the document when a standalone viewer opens it. It is on by default. Off leaves the window unfocused until you click in the text. In the preview pane this setting has no effect, since selecting a file in DOpus must not pull keyboard focus from the file list.
+
+### Pinning the preview pane
+
+A small padlock disc sits in the top right corner of the preview pane, just left of the open-in-standalone disc. Click it to pin the pane to the current file: while pinned, selecting other files in Directory Opus no longer swaps the view, so you can read or edit without losing your place. The padlock shows as closed while pinned. Click it again to release: the pane then jumps to the file currently selected in Directory Opus. If the selection moved to something with no preview, the pinned file stays shown rather than the pane blanking. It only shows in the preview pane, since a standalone viewer window has nothing to pin.
+
+Turn **Padlock button** off in Settings, on the General tab under Open & save (under the **Directory Opus** sub-heading, alongside **New markdown button**), to hide the disc. Hiding it does not release a file that is already pinned: turn the setting back on and click the disc to release, or close the pane or viewer.
 
 ### Keyboard shortcut guide
 
@@ -592,7 +606,7 @@ Several appearance options for Source editors and rendered code blocks live in S
 
 - **Tab width (columns)** (General &rsaquo; Source): how many columns a tab character occupies in Source and code editors. Accepts 1-8, default 4.
 - **Line-number gutter** (General &rsaquo; Source): Off (no line numbers), Plain (neutral gutter), Accent bar (coloured bar on the left edge over a light tint), or Filled accent (accent colour fills the gutter column with numbers on top). It is the only gutter Source has: folding is marked on the line itself, not in a column of its own.
-- **Source editor** (Appearance): five optional overrides - Source font (falls back to the Code font if empty), Source font size in px (falls back to the Code font size if empty), Source line height as a multiplier (falls back to the Code line height if empty), Source text colour (follows the active palette if empty; syntax tokens keep their own colours), and Source line-highlight colour (follows the UI accent or the Source editor palette if empty). Setting any field overrides only that property.
+- **Source editor** (Appearance): optional overrides for the Source view. Five change its type and colour - Source font (falls back to the Code font if empty), Source font size in px (falls back to the Code font size if empty), Source line height as a multiplier (falls back to the Code line height if empty), Source text colour (follows the active palette if empty; syntax tokens keep their own colours), and Source line-highlight colour (follows the UI accent or the Source editor palette if empty). Six more set its layout, separate from the markdown page: Source page width (Match page width, Fixed width or Fill), Source max width (the cap in Fixed width, following the Page max width if empty), and Source padding left, right, top and bottom (a bare number is pixels, or any CSS length). Setting any field overrides only that property; the layout fields apply to the single Source view only, not Reading, Live or split.
 - **Code blocks** (Appearance): four optional fields that govern rendered code blocks in markdown - Code font, Code font weight, Code font size, and Code line height. Empty fields follow the palette or body defaults.
 
 ## Keyboard shortcuts

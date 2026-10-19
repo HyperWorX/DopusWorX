@@ -254,6 +254,10 @@ for.
 
 Among the things you can change:
 
+- **Interface language.** English or 简体中文, settings and viewer alike,
+  right-click menu and F1 shortcut guide included. Pick it in Settings,
+  General, Language, or click one of the two flags at the top right of the
+  Settings header.
 - **Auto-hiding toolbars.** Set the top toolbar or the formatting toolbar to slide
   away and reappear when you reach for them, so the document gets the whole pane.
 - **Toolbar layout.** Drag the formatting buttons into the order you want, or hide

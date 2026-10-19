@@ -22,9 +22,10 @@
 5. Move between the files you have opened with the mouse back and forward buttons,
    or Ctrl+Alt+Left and Ctrl+Alt+Right, the same way a browser does.
 6. Open **Settings** (the gear icon) to choose a palette, set fonts and spacing,
-   pick the spell-check dictionaries, adjust the Mermaid diagram options, pick
-   which view Markdown opens in, customise the toolbar, map which file types
-   open in DopusWorX, and, on the General tab under **Advanced**, pick which
+   pick the interface language (English or 简体中文), pick the spell-check
+   dictionaries, adjust the Mermaid diagram options, pick which view Markdown
+   opens in, customise the toolbar, map which file types open in DopusWorX,
+   and, on the General tab under **Advanced**, pick which
    graphics card the viewer renders on (handy on a laptop that has both an
    integrated and a dedicated GPU; this one takes effect the next time DopusWorX
    starts rather than straight away). Under that setting DopusWorX shows which card
@@ -47,11 +48,11 @@
 ## Finding your way around Settings
 
 There are five tabs. **Appearance** holds the palette, the colours, the fonts and
-the shape of the page. **General** holds how files open and save, the Source and
-Binary views, and the toolbars. **Markdown** holds how a markdown document
-renders, along with its images, diagrams, maths and table of contents. **File
-types** is the grid of extensions, and **About** is the version and the update
-check.
+the shape of the page. **General** holds the interface language, how files open
+and save, the Source and Binary views, and the toolbars. **Markdown** holds how
+a markdown document renders, along with its images, diagrams, maths and table of
+contents. **File types** is the grid of extensions, and **About** is the version
+and the update check.
 
 Each tab lists its sections in a ribbon down the left, every name carrying the
 section's glyph and how many settings are in it, so a tab you have not opened
@@ -72,6 +73,16 @@ and on the tab above that, so a new setting can be found without opening every
 section to look for it. A mark stays put for as long as the window is open, so
 it is still there while you read the row it is on, and it is gone the next time
 you open Settings.
+
+## Interface language
+
+DopusWorX runs in English or Simplified Chinese, settings and viewer alike,
+right-click menu and F1 shortcut guide included. Pick it under **General**,
+**Language**, in the **Interface language** dropdown: *Match Windows*,
+*English* or *简体中文*. *Match Windows* picks Simplified Chinese on a
+Simplified Chinese copy of Windows and English otherwise. The two flags at the
+top right of the Settings header are a shortcut for the same setting; a click
+sets the language and applies on the spot, no restart.
 
 ## More
 

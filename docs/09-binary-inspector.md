@@ -2,7 +2,9 @@
 
 A file that is binary rather than text opens in the binary inspector: a hex view of its bytes, with a panel that reads the values under your cursor. DopusWorX decides a file is binary by looking at its content, not its name, so a binary with a text-like extension still opens here, and a text file with an unusual extension does not.
 
-The inspector is on by default. Turn **Binary inspector** off in Settings, on the General tab under Binary, to send binary files back to the plain not-text notice instead.
+The inspector is on by default. Turn **Enable the binary inspector** off in Settings, on the General tab under Binary, and the file already open switches straight away. You do not need to restart.
+
+On the inspector, and on the notice that a file contains null bytes, **View as text** shows the file as text. Null bytes appear as the symbol ␀. The checkbox **Always open .ext as text** remembers that extension. Those extensions are listed in Settings under **File types opened as text**. Clear that box and Apply to send them back to the inspector.
 
 ## Limits
 
@@ -55,7 +57,7 @@ Right-click to open the copy options. Two items are always present: **Copy as he
 
 ## View as hex, view as text
 
-Any file can be opened in the inspector on demand, not only the ones detected as binary. Right-click and choose **View as hex** to open the current file in the inspector, and **View as text** to go back to the normal text or code view. This is useful for peeking at the bytes of a file that is technically text, or for forcing a borderline file one way or the other. View as hex is available while the **Binary inspector** setting is on; turning it off removes the command as well as the automatic routing.
+Any file can be opened in the inspector on demand, not only the ones detected as binary. Right-click and choose **View as hex** to open the current file in the inspector, and **View as text** to go back to the normal text or code view. This is useful for peeking at the bytes of a file that is technically text, or for forcing a borderline file one way or the other. View as hex is available while **Enable the binary inspector** is on; turning it off removes the command as well as the automatic routing.
 
 ## Printing
 
@@ -67,7 +69,7 @@ same without the palette.
 
 ## Editing bytes
 
-The inspector is read-only out of the box. Turn on **Allow binary editing** in Settings, on the General tab under Binary (it needs the Binary inspector on), and the hex pane gains an **Edit** toggle. With Edit on:
+The inspector is read-only out of the box. Turn on **Allow binary editing** in Settings, on the General tab under Binary (it needs **Enable the binary inspector** on), and the hex pane gains an **Edit** toggle. With Edit on:
 
 - Typing **overwrites** the byte under the cursor. Type in the hex column, two characters to a byte, or in the text column, one character to a byte.
 - The header shows an **OVR/INS** button next to Edit that displays the current mode; click it (or press **Insert**) to switch between overwrite and insert mode.

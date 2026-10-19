@@ -215,6 +215,17 @@ A few related controls sit alongside the palette picker:
   clear of the floating toolbar, so that is the one to reduce if you want the
   document to start higher. Each field takes a bare number as pixels or any CSS
   length, and an empty field keeps the default.
+- **Source page width**, **Source max width** and the four **Source padding**
+  fields, over in the Source editor section of the Appearance tab, are the same
+  controls for the Source view on its own, kept separate from the page above so
+  a wide editing column need not mean a wide reading page. **Source page width**
+  starts on **Match page width**, which follows the Page width setting, so the
+  Source view sits where it always has; switch it to **Fixed width** for a
+  centred column capped by **Source max width**, or **Fill** for edge to edge.
+  The four padding fields set the gap inside the Source view on each side, a bare
+  number as pixels or any CSS length. They touch the Source view only; Reading
+  and Live keep the page settings above. Every one of them is empty or on Match
+  page by default, so nothing moves until you set it.
 - **Close top gap when toolbar hidden**, the checkbox under those fields,
   is off by default. Off, the page sits in the same place whether the top toolbar
   is pinned or set to auto show on hover, so the top margin means one thing and

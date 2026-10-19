@@ -133,6 +133,13 @@ Grammar** column in the File types panel, so an extension that isn't listed (or
 one that means something unusual to you) can be highlighted as whichever language
 you pick. Anything with no grammar opens as plain text rather than failing.
 
+An on-demand grammar that cannot be fetched (a dropped connection, a stale
+cache) is retried the next time you open a file in that language, so a one-off
+failure does not freeze the language as plain text for the rest of the session.
+If the viewer itself cannot start because a startup chunk did not fetch, a
+small overlay with a **Reload** button appears so you can try again without
+restarting Opus.
+
 | Language | Extensions |
 | --- | --- |
 | JavaScript | `.js` `.mjs` `.cjs` |
@@ -325,10 +332,29 @@ Apply file associations) and takes effect on an already-open file immediately,
 and a single "reset all" link puts every row back to its default.
 
 The **Binary** group (`.bin`, `.dat`, `.exe`, `.dll`, `.wasm`, `.iso`, fonts, and
-related blob types) defaults to **Pane** only. The preview column is on so
-selecting one of these files shows it in the hex inspector; the DOpus and Explorer
-double-click columns stay off so a `.exe` still runs on double-click in the normal
-way.
+related blob types) defaults to **Pane** only, so selecting one of these files
+shows it in the hex inspector while a double-click still launches, installs or
+opens it. Programs, installers and shortcuts (including `.exe`, `.dll`, `.sys`,
+`.com`, `.scr`, `.msi`, `.msp`, `.msu`, `.lnk`, `.pif`, `.cpl`, `.ocx`, `.hta`,
+`.jar`, `.reg`, `.msc`, the app-package types, `.url`, `.scf`, `.inf`,
+`.settingcontent-ms`, and the script host wrappers `.vbe`, `.jse`, `.wsf` and
+`.wsh`) are refused on the DOpus and Explorer columns regardless of the tick,
+so a double-click always runs them; the row's double-click ticks apply only to
+inert members like `.bin`, `.iso`, `.db` and the font files. `.vbs` and `.js`
+are deliberately left off the block list, since those are text you may want to
+preview.
+
+Opening Settings after upgrading from a 1.6.0 that had those columns ticked
+strips the blocked extensions from the saved ticks straight away. The
+DopusWorX double-click redirects an older version wrote still sit in the
+registry, so a separate confirm appears with the lead *DopusWorX found file
+associations from an earlier version that this version will not keep. Clean
+them up now:* and a **Clean up** button. Pressing it closes Opus to apply and
+restarts it, and each affected type goes back to the handler your system had
+before DopusWorX touched it. Dismissing leaves the redirects alone and the
+prompt returns the next time you open Settings, unless you press the footer
+**Apply** first: that saves the cleaned ticks, so the strip has nothing to
+raise on the next open.
 
 ### Custom mappings
 
@@ -382,6 +408,15 @@ set: most of the Handled extensions table, but none of the Binary types and not
 the rarer source extensions (`.hh`, `.pm`, and the MATLAB/Mathematica group).
 Pressing the button writes your real choices into these keys, and the viewer
 follows them from then on.
+
+### The Description column in Directory Opus
+
+Opus's Description column shows its own text for every type DopusWorX previews
+except Markdown. Markdown files (`.md`, `.markdown`, `.mdown`, `.mkd`, `.mkdn`,
+`.mdwn`) show as **Markdown document**; every other previewed type (a program,
+a library, a font, a code file and the rest) falls through to the description
+Opus already gives it, since the plugin only writes a description text for
+markdown and declines the rest.
 
 ### How the plugin claims types (the GUID claim)
 
